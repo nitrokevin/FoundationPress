@@ -44,6 +44,12 @@ get_header(); ?>
 </section>
 <?php endwhile; ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
-
+<?php
+if (have_rows('sections')) :
+	while (have_rows('sections')) : the_row();
+		get_template_part('template-parts/acf-flexible-layout-article');
+	endwhile;
+endif;
+?>
 
 <?php get_footer();

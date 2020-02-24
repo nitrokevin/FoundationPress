@@ -1,6 +1,8 @@
+.footer{
+  background-position: center;
+  background-repeat: no-repeat;
 .footer-container {
   @include xy-grid-container;
-  border-top: 1px solid $medium-gray;
   margin-top: rem-calc(60);
 }
 
@@ -20,4 +22,5 @@
     margin: 0;
     padding: 0;
   }
+}
 }

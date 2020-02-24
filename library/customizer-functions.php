@@ -132,7 +132,7 @@ function avidd_theme_settings( $wp_customize ) {
                 'description' => esc_html__( '', 'avidd' ),
                 'section'     => 'avidd_footer',
                 'choices'     => [
-                  'save_as' => '',
+                  'save_as' => 'id',
                 ]
                 );
 
