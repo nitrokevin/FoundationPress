@@ -31,39 +31,20 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 		<?php dynamic_sidebar( 'footer-widgets' ); ?>
 	</div>
 	<div class="footer-grid">
+	<?php if ($footer_address_1) { ?>
 		<section>
-		<ul class="social-links menu  footer-menu">
-				<?php if (get_theme_mod('social-facebook')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
-							<i class="fab fa-facebook-f fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-twitter')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-twitter-url')); ?>" rel="noreferrer" target="_blank" aria-label="Twitter">
-							<i class="fab fa-twitter fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-instagram')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-instagram-url')); ?>" rel="noreferrer" target="_blank" aria-label="Instagram">
-
-							<i class="fab fa-instagram fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-linkedin')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-linkedin-url')); ?>" rel="noreferrer" target="_blank" aria-label="LinkedIn">
-
-							<i class="fab fa-linkedin-in fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-pinterest')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-pinterest-url')); ?>" rel="noreferrer" target="_blank" aria-label="Pinterest">
-							<i class="fab fa-pinterest fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
+			<ul class="footer-contact menu  footer-menu">
+				<li><?php echo $footer_address_1 ?></li>
+				<li><?php echo $footer_address_2 ?> </li>
+				<li><?php echo $footer_address_3 ?> </li>
+				<li><?php echo $footer_address_4 ?> </li>
+				<li><?php echo $footer_address_5 ?></li>
+				<li><?php echo $footer_address_6 ?></li>
 			</ul>
+			<?php } ?> 
 		</section>
 		<section>
-		<ul class="social-links menu  footer-menu">
+			<ul class="social-links menu  footer-menu">
 				<?php if (get_theme_mod('social-facebook')) : ?>
 					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
 							<i class="fab fa-facebook-f fa-fw"></i>
