@@ -62,7 +62,7 @@ function avidd_theme_settings( $wp_customize ) {
       ],     
       'output'      => array(
         array(
-          'element'  => ' .site-title-bar ',
+          'element'  => ' .top-bar',
           'property' => 'background-color'
         ),
       ));
@@ -81,7 +81,7 @@ function avidd_theme_settings( $wp_customize ) {
         ],   
         'output'      => array(
           array(
-            'element'  => '.desktop-menu a,
+            'element'  => '.top-bar, .desktop-menu a,
             .mobile-menu a',
             'property' => 'color'
           ),
@@ -98,15 +98,30 @@ function avidd_theme_settings( $wp_customize ) {
           ]
           );
           $fields[] = array(
-            'type'        => 'image',
-            'settings'    => 'header_logo_2',
-            'label'       => esc_html__( 'Second Header Image', 'avidd' ),
-            'description' => esc_html__( '', 'avidd' ),
-            'section'     => 'avidd_header',
-            'choices'     => [
-              'save_as' => 'url',
+          'type'        => 'switch',
+        	'settings'    => 'sticky_header',
+        	'label'       => esc_html__( 'Sticky Header', 'avidd' ),
+        	'section'     => 'avidd_header',
+        	'default'     => '1',
+        	'priority'    => 10,
+          'choices'     => [
+            'on'  => esc_html__( 'Enable', 'avidd' ),
+            'off' => esc_html__( 'Disable', 'avidd' ),
             ]
+          );
+          $fields[] = array(
+            'type'        => 'switch',
+            'settings'    => 'fixed_header',
+            'label'       => esc_html__( 'Sticky header over featured image', 'avidd' ),
+            'section'     => 'avidd_header',
+            'default'     => '1',
+            'priority'    => 10,
+            'choices'     => [
+              'on'  => esc_html__( 'Enable', 'avidd' ),
+              'off' => esc_html__( 'Disable', 'avidd' ),
+              ]
             );
+         
          
             $fields[] = array(
               'type'        => 'color-palette',
