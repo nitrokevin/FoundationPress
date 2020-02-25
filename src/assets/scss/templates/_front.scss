@@ -6,7 +6,6 @@
   }
 
   @include breakpoint(small) {
-    background: url('../images/placeholder.png') bottom center;
     background-size: cover;
     background-position: bottom;
     padding: rem-calc(65%) 0;
@@ -17,10 +16,9 @@
   }
 
   @include breakpoint(medium) {
-    background: url('../images/placeholder.png') bottom center;
     background-size: cover;
     background-position: center;
-    height: rem-calc(685);
+    height: rem-calc(600);
     margin: 0 0 rem-calc(72);
   }
 

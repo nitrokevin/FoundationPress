@@ -3,9 +3,10 @@
 .site-title-bar {
   @include hide-for(medium);
 }
+
 //
 .desktop-menu,
-.site-navigation .top-bar-left {
+.top-bar{
   @include show-for(medium);
 }
 
@@ -20,9 +21,55 @@
 }
 
 .nav-previous {
-  float:left;
+  float: left;
 }
 
 .nav-next {
-  float:right;
+  float: right;
+}
+
+// Title Bar
+.title-bar{
+  @include flex-align($x:center, $y:top);
+.title-bar-center {
+  flex: 2;
+}
+.title-bar-left, .title-bar-right {
+  flex: 1;
+}
+}
+// Top Bar
+.top-bar {
+  .top-bar-inner-container {
+    @include xy-grid-container();
+    @include flex-align($x:center, $y:middle);
+    @include xy-grid;
+
+    .top-bar-left,
+    .top-bar-center,
+    .top-bar-right {
+      flex: 1;
+    }
+
+    .top-bar-center {
+      text-align: center;
+    }
+
+    .top-bar-right {
+      text-align: right;
+    }
+  }
+}
+
+.sticky-container {
+  z-index: 99;
+}
+
+.fixed-header{
+  position: fixed;
+  right: 0;
+  left: 0;
+  backface-visibility: hidden;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
