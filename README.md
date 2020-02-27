@@ -104,8 +104,8 @@ If you need to output additional JavaScript files separate from `app.js`, do the
 
 ## Demo
 
-* [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
-* [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
+* [Clean FoundationPress install](https://foundationpress.avidd-design.co.uk)
+* [FoundationPress Kitchen Sink - see every single element in action](https://foundationpress.avidd-design.co.uk/kitchen-sink/)
 
 ## Local Development
 We recommend using one of the following setups for local WordPress development:
