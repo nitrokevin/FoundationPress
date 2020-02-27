@@ -1,4 +1,23 @@
 <?php if (function_exists('acf_add_local_field_group')) :
+/*************************************************************/
+/*   Friendly Block Titles                                  */
+/***********************************************************/
+
+function my_layout_title($title, $field, $layout, $i) {
+	if($value = get_sub_field('section_heading')) {
+		return $value;
+	} else {
+		foreach($layout['sub_fields'] as $sub) {
+			if($sub['name'] == 'section_heading') {
+				$key = $sub['key'];
+				if(array_key_exists($i, $field['value']) && $value = $field['value'][$i][$key])
+					return $value;
+			}
+		}
+	}
+	return $title;
+}
+add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
 
 $color_array =  array(
 	'#fefefe' => 'white',
@@ -7,6 +26,7 @@ $color_array =  array(
 	'#E8E8E8' => 'light-gray',
 	'transparent' => 'transparent',
 );
+
 
 acf_add_local_field_group(array(
 	'key' => 'group_5c81293e3db4c',
@@ -411,7 +431,7 @@ acf_add_local_field_group(array(
 						'label' => 'Flexible layout article',
 						'display' => 'block',
 						'sub_fields' => array(
-
+	
 							array(
 								'key' => 'field_5e5431d6d6239',
 								'label' => 'Section Settings',
@@ -666,6 +686,7 @@ acf_add_local_field_group(array(
 								'multi_expand' => 0,
 								'endpoint' => 1,
 							),
+							
 
 							array(
 								'key' => 'field_5c8135435d7ff',
@@ -686,6 +707,7 @@ acf_add_local_field_group(array(
 								'layout' => 'block',
 								'button_label' => 'Add column',
 								'sub_fields' => array(
+									
 									array(
 										'key' => 'field_5e54331d6d6239',
 										'label' => 'Column Settings',
@@ -1784,6 +1806,23 @@ acf_add_local_field_group(array(
 						'display' => 'block',
 						'sub_fields' => array(
 							array(
+								'key' => 'field_5e5431d6d62319',
+								'label' => 'Section Settings',
+								'name' => '',
+								'type' => 'accordion',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'open' => 0,
+								'multi_expand' => 0,
+								'endpoint' => 0,
+							),
+							array(
 								'key' => 'field_5d49ad72131e212',
 								'label' => 'Section heading color',
 								'name' => 'section_heading_color',
@@ -1792,7 +1831,7 @@ acf_add_local_field_group(array(
 								'required' => 0,
 								'conditional_logic' => 0,
 								'wrapper' => array(
-									'width' => '50',
+									'width' => '33',
 									'class' => '',
 									'id' => '',
 								),
@@ -1813,7 +1852,7 @@ acf_add_local_field_group(array(
 								'required' => 0,
 								'conditional_logic' => 0,
 								'wrapper' => array(
-									'width' => '50',
+									'width' => '33',
 									'class' => '',
 									'id' => '',
 								),
@@ -1824,6 +1863,41 @@ acf_add_local_field_group(array(
 								'return_format' => 'label',
 								'other_choice' => 0,
 								'save_other_choice' => 0,
+							),
+							array(
+								'key' => 'field_5c812c528139c1',
+								'label' => 'Flip',
+								'name' => 'flipper',
+								'type' => 'true_false',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '33',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '1',
+								'ui' => 1,
+								'ui_on_text' => 'Yes',
+								'ui_off_text' => 'No',
+							),
+							array(
+								'key' => 'field_5e54351d6d62319',
+								'label' => 'Section Content',
+								'name' => '',
+								'type' => 'accordion',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'open' => 0,
+								'multi_expand' => 0,
+								'endpoint' => 0,
 							),
 							array(
 								'key' => 'field_52d4c64cef624572',
@@ -1844,6 +1918,24 @@ acf_add_local_field_group(array(
 								'append' => '',
 								'maxlength' => '',
 							),
+
+							array(
+								'key' => 'field_5e56431d6d62319',
+								'label' => 'Section Settings',
+								'name' => '',
+								'type' => 'accordion',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'open' => 0,
+								'multi_expand' => 0,
+								'endpoint' => 1,
+							),
 							array(
 								'key' => 'field_5c8135435d7ff2',
 								'label' => 'Columns',
@@ -1863,7 +1955,40 @@ acf_add_local_field_group(array(
 								'layout' => 'block',
 								'button_label' => 'Add column',
 								'sub_fields' => array(
-									
+									array(
+										'key' => 'field_5e54331d96d69239',
+										'label' => 'Front panel',
+										'name' => '',
+										'type' => 'tab',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 0,
+									),
+									array(
+										'key' => 'field_5e5431d60d62319',
+										'label' => 'Panel Settings',
+										'name' => '',
+										'type' => 'accordion',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 0,
+									),
 			
 									array(
 										'key' => 'field_5c8136335d81012',
@@ -1933,6 +2058,23 @@ acf_add_local_field_group(array(
 										'mime_types' => '',
 									),
 									array(
+										'key' => 'field_5e54631d6d682319',
+										'label' => 'Panel content',
+										'name' => '',
+										'type' => 'accordion',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 0,
+									),
+									array(
 										'key' => 'field_5c81353ba5d8002',
 										'label' => 'Front Heading',
 										'name' => 'front_heading',
@@ -1941,7 +2083,7 @@ acf_add_local_field_group(array(
 										'required' => 0,
 										'conditional_logic' => 0,
 										'wrapper' => array(
-											'width' => '50',
+											'width' => '100',
 											'class' => '',
 											'id' => '',
 										),
@@ -1971,22 +2113,57 @@ acf_add_local_field_group(array(
 										'delay' => 0,
 									),
 									array(
-										'key' => 'field_5c812c528139c1',
-										'label' => 'Flip',
-										'name' => 'flipper',
-										'type' => 'true_false',
+										'key' => 'field_8e5431d6d623199',
+										'label' => '',
+										'name' => '',
+										'type' => 'accordion',
 										'instructions' => '',
 										'required' => 0,
 										'conditional_logic' => 0,
 										'wrapper' => array(
-											'width' => '100',
+											'width' => '',
 											'class' => '',
 											'id' => '',
 										),
-										'default_value' => '1',
-										'ui' => 1,
-										'ui_on_text' => 'Yes',
-										'ui_off_text' => 'No',
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 1,
+									),
+									
+									
+									array(
+										'key' => 'field_5e54331d96d6239',
+										'label' => 'Back panel',
+										'name' => '',
+										'type' => 'tab',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 0,
+									),
+									array(
+										'key' => 'field_8e5431d6d62319',
+										'label' => 'Panel Settings',
+										'name' => '',
+										'type' => 'accordion',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 0,
 									),
 									array(
 										'key' => 'field_5c8136335d80121',
@@ -2055,6 +2232,23 @@ acf_add_local_field_group(array(
 										'mime_types' => '',
 									),
 									array(
+										'key' => 'field_5e54631d6ad682319',
+										'label' => 'Panel content',
+										'name' => '',
+										'type' => 'accordion',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 0,
+									),
+									array(
 										'key' => 'field_5c8135ba5d80021',
 										'label' => 'Back Heading',
 										'name' => 'back_heading',
@@ -2091,6 +2285,23 @@ acf_add_local_field_group(array(
 										'toolbar' => 'full',
 										'media_upload' => 1,
 										'delay' => 0,
+									),
+									array(
+										'key' => 'field_5e549631d6d682319',
+										'label' => '',
+										'name' => '',
+										'type' => 'accordion',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'open' => 0,
+										'multi_expand' => 0,
+										'endpoint' => 1,
 									),
 								
 
