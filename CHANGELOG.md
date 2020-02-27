@@ -7,6 +7,7 @@
 - Update Foundation to 6.6.1
 - Added new Close Button scss settings $closebutton-default-size: medium;
 $closebutton-z-index: 10;
+- Updated cards.scss and wp-overrides.scss 
 
 
 ## [v2.10.6](https://github.com/olefredrik/FoundationPress/tree/v2.10.6) (2019-04-12)
