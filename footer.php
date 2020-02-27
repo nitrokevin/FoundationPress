@@ -31,8 +31,9 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 		<?php dynamic_sidebar( 'footer-widgets' ); ?>
 	</div>
 	<div class="footer-grid">
-	<?php if ($footer_address_1) { ?>
+
 		<section>
+		<?php foundationpress_footer_nav_l(); ?>
 			<ul class="footer-contact menu  footer-menu">
 				<li><?php echo $footer_address_1 ?></li>
 				<li><?php echo $footer_address_2 ?> </li>
@@ -41,10 +42,10 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 				<li><?php echo $footer_address_5 ?></li>
 				<li><?php echo $footer_address_6 ?></li>
 			</ul>
-			<?php } ?> 
+		
 		</section>
 		<section>
-			<ul class="social-links menu  footer-menu">
+			<ul class="social-links menu  footer-menu align-center">
 				<?php if (get_theme_mod('social-facebook')) : ?>
 					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
 							<i class="fab fa-facebook-f fa-fw"></i>
@@ -74,7 +75,9 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 				<?php endif; ?>
 			</ul>
 		</section>
-		
+		<section>
+		<?php foundationpress_footer_nav_r(); ?>
+		</section>
 	</div>
 </div>
 </footer>
