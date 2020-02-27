@@ -68,7 +68,7 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1260);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #1779ba,
@@ -141,6 +141,7 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
+    'p' : ('font-size': 16),
     'h1': ('font-size': 24),
     'h2': ('font-size': 20),
     'h3': ('font-size': 19),
@@ -149,6 +150,7 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
+    'p' : ('font-size': 16),
     'h1': ('font-size': 48),
     'h2': ('font-size': 40),
     'h3': ('font-size': 31),
