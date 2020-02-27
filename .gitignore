@@ -10,3 +10,4 @@ config.yml
 packaged/
 wpcs/
 vendor/
+.vscode
