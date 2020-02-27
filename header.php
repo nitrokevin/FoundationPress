@@ -44,6 +44,7 @@
 		<nav class="site-navigation top-bar" role="navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
 		<div class="top-bar-inner-container">
 			<div class="top-bar-left">
+			<?php foundationpress_top_bar_l(); ?>
 			</div>
 			<div class="top-bar-center">
 				<div class="site-desktop-title top-bar-title">

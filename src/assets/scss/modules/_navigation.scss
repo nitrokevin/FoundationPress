@@ -33,9 +33,11 @@
   @include flex-align($x:center, $y:top);
 .title-bar-center {
   flex: 2;
+  img{width:100%;}
 }
 .title-bar-left, .title-bar-right {
   flex: 1;
+  img{width:100%;}
 }
 }
 // Top Bar
@@ -49,6 +51,7 @@
     .top-bar-center,
     .top-bar-right {
       flex: 1;
+      img{width:100%;}
     }
 
     .top-bar-center {
