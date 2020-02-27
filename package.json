@@ -1,7 +1,7 @@
 {
   "name": "foundationpress",
   "title": "FoundationPress",
-  "version": "2.10.6",
+  "version": "2.10.7",
   "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
   "homepage": "https://avidd.design",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "responsive"
   ],
   "dependencies": {
-    "foundation-sites": "6.5.3",
+    "foundation-sites": "6.6.1",
     "jquery": "~3.4.1",
     "motion-ui": "^2.0.3",
     "what-input": "^4.1.3"
