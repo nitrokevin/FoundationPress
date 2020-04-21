@@ -21,8 +21,13 @@ add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4)
 
 $color_array =  array(
 	'#fefefe' => 'white',
-	'#FFB400' => 'primary-color',
-	'#707070' => 'secondary-color',
+	'#004987' => 'primary-color',
+	'#6ABF4B' => 'secondary-color',
+	'#F3E500' => 'jaffa-yellow',
+	'#00B2E3' => 'easy-peeler-blue',
+	'#722282' => 'giant-easy-peeler-purple',
+	'#008A3D' => 'juicy-orange-green',
+	'#DB0032' => 'sweet-red',
 	'#E8E8E8' => 'light-gray',
 	'transparent' => 'transparent',
 );

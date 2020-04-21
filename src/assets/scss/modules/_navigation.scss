@@ -43,19 +43,23 @@
 // Top Bar
 .top-bar {
   .top-bar-inner-container {
+    @include xy-cell(12);
     @include xy-grid-container();
-    @include flex-align($x:center, $y:middle);
     @include xy-grid;
+    @include flex-align($x:center, $y:middle);
+
 
     .top-bar-left,
     .top-bar-center,
     .top-bar-right {
       flex: 1;
-      img{width:100%;}
+      img{
+      padding: $global-padding 0}
     }
 
     .top-bar-center {
       text-align: center;
+      flex: 0.6;
     }
 
     .top-bar-right {
@@ -66,6 +70,7 @@
 
 .sticky-container {
   z-index: 99;
+  max-width:100% !important;
 }
 
 .fixed-header{
