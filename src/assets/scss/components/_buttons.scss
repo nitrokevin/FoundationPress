@@ -6,3 +6,25 @@
   border-radius: 3px;
   border: none;
 }
+
+.orbit-bullets button {
+	border-radius: 0;
+}
+
+ .buttons {
+  background: #B3B2B1;
+  color: $white;
+  font-size: 1rem;
+  font-weight: normal;
+  box-shadow: 0 0px 0 rgba(0,0,0,0.2) inset;
+  border-radius: 0px;
+  padding: .7rem 2rem;
+  border: none;
+}
+
+.fb-button {
+	background: $white;
+	color: $primary-color;
+	 padding: .7rem 2rem;
+	 border: none;
+}

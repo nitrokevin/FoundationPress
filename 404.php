@@ -7,6 +7,8 @@
  */
 
 get_header(); ?>
+ <header class="featured-hero-spacer">
+  </header>
 
 <div class="main-container">
 	<div class="main-grid">
@@ -40,7 +42,7 @@ get_header(); ?>
 				</div>
 			</article>
 		</main>
-		<!-- <?php get_sidebar(); ?> -->
+
 	</div>
 </div>
 <?php get_footer();

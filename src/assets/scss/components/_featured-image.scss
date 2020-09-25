@@ -1,14 +1,70 @@
+.front-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+   height: 75vh;
+  margin-bottom: 1rem;
+  @include breakpoint(medium) {
+    height: 100vh;
+    margin-bottom: 1.5rem;
+  }
+
+  @include breakpoint(large) {
+   height: 100vh;
+  }
+
+  @include breakpoint(xlarge) {
+    
+  }
+}
+
 .featured-hero {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: rem-calc(100);
-
+  height: rem-calc(380);
+  margin-bottom: 0rem;
   @include breakpoint(medium) {
-    height: rem-calc(200);
+    height: rem-calc(600);
+    margin-bottom: 0rem;
+  }
+
+  @include breakpoint(large) {
+    height: rem-calc(600);
   }
 
   @include breakpoint(xlarge) {
-    height: rem-calc(400);
+    height: rem-calc(700);
   }
+}
+
+.featured-hero-spacer {
+
+  height: rem-calc(175);
+  margin-bottom: 0rem;
+  @include breakpoint(medium) {
+    height: rem-calc(220);
+    margin-bottom: 0rem;
+  }
+
+  @include breakpoint(large) {
+    height: rem-calc(220);
+  }
+
+  @include breakpoint(xxlarge) {
+    height: rem-calc(220);
+  }
+}
+
+.parallax, .parallax-disabled {
+	@include breakpoint(small) {
+   height: rem-calc(300);
+   }
+	 @include breakpoint(medium) {
+   height: rem-calc(500);
+   }
+   @include breakpoint(xlarge) {
+   height: rem-calc(620);
+   }
+
 }

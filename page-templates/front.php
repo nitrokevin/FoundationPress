@@ -2,10 +2,13 @@
 /*
 Template Name: Front
 */
-get_header(); ?>
+get_header(); 
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
+	?>
 
+<?php get_template_part( 'template-parts/featured-image-slider' ); ?>
+
+</div>
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 <section class="intro" role="main">
@@ -33,16 +36,23 @@ get_header(); ?>
 		</div>
 
 	</div>
-
 </section>
 <?php endwhile; ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
+
 <?php
-if (have_rows('sections')) :
-	while (have_rows('sections')) : the_row();
-		get_template_part('template-parts/acf-flexible-layout-article');
-	endwhile;
-endif;
-?>
+  if( have_rows('sections') ):
+    while ( have_rows('sections') ) : the_row(); ?> 
+        
+      <?php get_template_part( 'template-parts/acf-repeater-row-layout' ); ?>
+      <?php get_template_part( 'template-parts/acf-block-grid-layout' ); ?> 
+      <?php get_template_part( 'template-parts/acf-range-block-grid-layout' ); ?>
+      <?php get_template_part( 'template-parts/acf-one-column-article-layout' ); ?> 
+      <?php get_template_part( 'template-parts/acf-background-image-layout' ); ?> 
+      <?php get_template_part( 'template-parts/acf-image-slider-layout' ); ?> 
+      <?php get_template_part( 'template-parts/acf-map-layout' ); ?> 
+       
+    <?php endwhile;   
+  endif; ?>
 
 <?php get_footer();

@@ -1,0 +1,94 @@
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * If you'd like to further customize these archive views, you may create a
+ * new template file for each one. For example, tag.php (Tag archives),
+ * category.php (Category archives), author.php (Author archives), etc.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
+ */
+
+get_header(); ?>
+ <header class="featured-hero-spacer">
+ </header>
+ <div class="main-container">
+	<div class="main-grid">
+		<main class="main-content-full-width">
+					<h1>Worktop Range</h1>			
+		</main>
+	</div>
+</div>
+
+	<div class="range-block-grid-container">
+		<div class="range-block-grid"  data-active-collapse="true" data-tabs id="collapsing-tabs">
+			<div class="full">
+  		<div class="block-grid-4up-content">
+	  		<?php if ( have_posts() ) : ?>
+						<?php /* Start the Loop */ ?>
+							<?php while ( have_posts() ) : the_post(); ?>
+								<div class="block-grid-item tabs-title">
+									<a href="#panel<?php the_ID(); ?>"><?php get_template_part( 'template-parts/content-case-study-thumbnail', get_post_format() ); ?></a>
+								</div>
+							<?php endwhile; ?>
+							<?php else : ?>
+								<?php get_template_part( 'template-parts/content', 'none' ); ?>
+							<?php endif; // End have_posts() check. ?>
+
+								<?php /* Display navigation to next/previous pages when applicable */ ?>
+								<?php
+								if ( function_exists( 'foundationpress_pagination' ) ) :
+									foundationpress_pagination();
+								elseif ( is_paged() ) :
+								?>
+									<nav id="post-nav">
+										<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+										<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+									</nav>
+								<?php endif; ?>
+					 </div>
+					</div>
+				</div>
+	  </div>
+	  	   	
+ <div class="main-container">
+  <div class="main-grid">
+	  <div class="main-content-full-width">
+	<?php if ( have_posts() ) : ?>
+							<?php while ( have_posts() ) : the_post(); ?>
+		 	<div class="tabs-content" data-tabs-content="collapsing-tabs">
+
+									<div class="tabs-panel" id="panel<?php the_ID(); ?>">
+													
+										<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header>
+	<?php
+		if ( is_single() ) {
+			the_title( '<div class="featured-hero-spacer"></div><h1 class="entry-title">', '</h1>' );
+		} else {
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		}
+	?>
+	</header>
+	<div class="entry-content">
+		<?php the_content(); ?>
+	</div>
+					</article>
+				</div>
+			</div>
+								<?php endwhile; ?>
+							<?php endif; // End have_posts() check. ?>
+		</div>
+</div>
+</div>
+				
+										        		
+
+
+<?php get_footer();

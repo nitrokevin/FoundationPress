@@ -1,57 +1,151 @@
 // Page header
-.front-hero {
-  .marketing {
-    @include xy-grid-container(55rem);
-    @include xy-grid;
+.front-hero-slider {
+	margin-bottom: 2rem;
+	
+	.orbit-controls {
+   @include show-for(medium);
+    @include xy-grid-container;
+  @include xy-grid;
+    button {
+      padding: 1rem 0.5rem;
+
+      &:hover {
+
+        color: $black;
+      }
+    }
+
+    .orbit-previous {
+      @include breakpoint(medium) {
+
+        left:15%;
+      }
+    }
+
+    .orbit-next {
+      @include breakpoint(medium) {
+        right: 15%;
+      }
+    }
   }
 
-  @include breakpoint(small) {
-    background-size: cover;
-    background-position: bottom;
-    padding: rem-calc(65%) 0;
-    margin: 0 0 rem-calc(32);
-    height: auto;
-    position: relative;
-    text-align: left;
+.featured-slider-content {
+  @include xy-grid-container;
+  @include xy-grid;
+  @include flex-align($x: center);
+  height: 100%;
+  padding: rem-calc(130%) 0;
+
+   }
+
+  
+   .featured-slider-icon-container {
+     @include xy-cell(12);
+  @include xy-grid-container;
+  @include xy-grid;
+  @include flex-align($x: center, $y: bottom);
+  .featured-slider-icon {
+
+     @include breakpoint(small) {
+       @include xy-cell(4);
+       }
+     @include breakpoint(medium) {
+       @include xy-cell(2);
+       }
+       @include breakpoint(large) {
+       @include xy-cell(1.5);
+       }
+    }
   }
+   
+  .featured-slider-text-container {
+    @include xy-cell(12);
+  @include xy-grid-container;
+  @include xy-grid;
+   @include flex-align($x: center, $y: middle);
+  
+
+
+  .featured-slider-text {
+    background-color: rgba($white, 0.9);
+    padding: 1.5rem;
+    color: $primary-color; 
+    text-align: center;
+     @include breakpoint(small) {
+       @include xy-cell(12);
+       h1 {font-size: 0.9rem}
+       p {font-size: 0.8rem}
+       }
+     @include breakpoint(medium) {
+       @include xy-cell(6);
+       h1 {font-size: 1.2rem}
+        p {font-size: 1rem}
+       }
+    }
+  }
+
+
+.front-slider-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 75vh;
+  margin-bottom: 1rem;
 
   @include breakpoint(medium) {
-    background-size: cover;
-    background-position: center;
-    height: rem-calc(600);
-    margin: 0 0 rem-calc(72);
+    height: 100vh;
+    margin-bottom: 1.5rem;
   }
 
-  .tagline {
-    @include breakpoint(small) {
-      @include xy-cell(8);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-      padding-top: 6rem;
-    }
+  @include breakpoint(large) {
+   height: 100vh;
   }
 
-  h1 {
-    color: #fff;
+  @include breakpoint(xlarge) {
+    
   }
+
 }
 
+
+}
 // Intro
 .intro {
   @include xy-grid-container;
   @include xy-grid;
-  @include flex-align($x:center, $y:top);
-
+  @include flex-align($x:center)
   .fp-intro {
     @include breakpoint(small) {
-      @include xy-cell(12);
+      @include xy-cell(11);
+      text-align: center;
+      h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        color: $primary-color;
+      }
+//       p {font-style: italic;}
     }
-
     @include breakpoint(medium) {
-      @include xy-cell(10);
-
+      @include xy-cell(8);
+       h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+      
     }
+  }
+}
+
+.promotion{
+  position:absolute;
+  right:3rem;
+  top:10rem;
+  width:8rem;
+  height:auto;
+  @include breakpoint(medium) {
+	width:9rem;
+	top:20rem;
+
   }
 }

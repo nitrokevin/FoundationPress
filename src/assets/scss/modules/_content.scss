@@ -1,54 +1,788 @@
 .main-container {
   @include xy-grid-container;
 }
+h1,h2,h3,h4,h5,h6 {text-transform: uppercase;}
 
 .main-grid {
   @include xy-grid();
-  margin-top: 1rem;
-
+  @include flex-align($x:center);
+  padding: 1rem 0;
   @include breakpoint(medium) {
-    margin-top: 3rem;
+    padding: 3rem 0 2rem 0;
   }
-
   &.sidebar-left {
     // Place the sidebar below main content on small screens ...
     @include breakpoint(small) {
       .main-content { order: 1; }
       .sidebar { order: 2; }
     }
-
     // ... and to the left on medium-up screens, when using the sidebar-left template
     @include breakpoint(medium) {
       .main-content { order: 2; }
       .sidebar { order: 1; }
     }
   }
+    .block-grid-3up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(3, '.block-grid-item');
+		 }
+			}
 
   // Full width template
   .main-content-full-width {
-    @include xy-cell(12);
+    @include xy-cell(11);
+     text-align: center;
+      h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        color: $primary-color;
+      }
+      @include breakpoint(medium) {
+      @include xy-cell(9);
+       h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
   }
-
+}
   // Default template
   .main-content {
     @include breakpoint(small) {
       @include xy-cell(12);
+      text-align: center;
+      h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        color: $primary-color;
+      }    
     }
-
     @include breakpoint(medium) {
-      @include xy-cell(8);
+      @include xy-cell(9);
+       h1,h2 {
+        margin-bottom: 1.5rem;
+      }
     }
   }
-
+  .secondary-content {
+    @include breakpoint(small) {
+      @include xy-cell(12);
+      text-align: center;
+      h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        color: $primary-color;
+      }    
+    }
+    @include breakpoint(medium) {
+      @include xy-cell(8);
+       h1,h2 {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }  
+  .full-width-content {
+    @include xy-cell(12);    
+    .callout.hidden {
+      display: none;
+    }
+  }
   .sidebar {
     @include breakpoint(small) {
       @include xy-cell(12);
+      background: $light-gray;
+      padding: 0.9rem;
+    }
+    @include breakpoint(medium) {
+      @include xy-cell(3);
+    }
+span.select2-selection.select2-selection--single {
+  background: $light-gray;
+  border: 0;
+}
+.beautiful-taxonomy-filters-label {
+  color: $primary-color;
+  font-family: $header-font-family;
+  font-size: 1rem;
+}
+.beautiful-taxonomy-filters-button {
+  background: $primary-color;
+  font-family: $header-font-family;
+  padding: 0.7rem 1rem;
+  color: $white;
+}
+  }
+}
+
+
+.second-grid {
+  @include xy-grid();
+  @include flex-align($x:center);
+  padding: 1rem 0;
+  @include breakpoint(medium) {
+    padding: 2rem 0 2rem 0;
+  }
+
+  // Full width template
+  .main-content-full-width {
+    @include xy-cell(11);
+     text-align: center;
+      h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        color: $primary-color;
+      }
+      @include breakpoint(medium) {
+      @include xy-cell(9);
+       h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+  }
+}
+
+}
+
+// ACF Slider
+
+.slider-container {
+	@include xy-grid-container;
+}
+.slider-grid {
+	@include xy-grid;
+	padding: 1.5rem 0;
+	 @include flex-align($x:center);
+}
+.slider-content {
+	@include breakpoint(small) {
+	@include xy-cell(12);
+	}
+	@include breakpoint(medium) {
+	@include xy-cell(8);
+	}
+	}
+	
+.specs {
+		list-style: none;
+		text-align: center;
+		padding: 1rem 0 0 0;
+	}
+
+
+
+
+// BLOCK GRID TABS
+.tabs {
+@include xy-grid;
+@include xy-cell(12);
+  	 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.tabs-title');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(4, '.tabs-title');
+		 }
+		 
+		 .tabs-title {margin-bottom: 1rem;}
+
+//   margin: 0 !important;
+  border: 0 solid #efefef; 
+  }
+
+// ACF REPEATER ROW
+.repeater-row-container {
+  padding: 1.5rem 0;
+.repeater-row {
+  @include xy-grid-container;
+  @include xy-grid;
+  @include flex-align($x:center);
+  text-align: center;
+  header, footer {
+    @include xy-cell(12);
+     h1,h2 {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+  }
+  footer {
+	    font-family: "Nunito", sans-serif;
+    }
+  .inset {
+    @include xy-grid;
+    @include breakpoint(small) {
+    @include xy-cell(11);
+    }
+    @include breakpoint(large) {
+    @include xy-cell(10);
+    }
+   .cell {
+     @include breakpoint(small) {
+      img {padding: 2rem 4rem;}
+      }
+      @include breakpoint(medium) {
+        img {padding: 1rem;}
+        }
+    @include breakpoint(large) {
+      img {padding: 2rem;}
+      }
+    }
+  }
+  .full {
+    @include xy-grid;
+    @include xy-cell(12);    
+    .cell {
+      img {padding: 1rem 0;}
+    }
+  }
+  .cell {
+    @include breakpoint(small) {
+      @include xy-cell(12);
+    }
+     @include breakpoint(medium) {
+      @include xy-cell(auto);
     }
 
-    @include breakpoint(medium) {
-      @include xy-cell(4);
-      margin-top: 1rem;
+    @include breakpoint(large) {
+      @include xy-cell(auto);
     }
+
+    img {
+      margin: 0rem auto 0 auto;
+    }
+
+    p {
+      font-size: 0.9375rem;
+      font-family: "Nunito", sans-serif;
+    }
+  }
+ }
+}
+// ACF BLOCK GRID
+.block-grid-container {
+ @include xy-grid-container;
+  .block-grid {
+  @include xy-grid;
+  @include flex-align($x:center);
+  padding: 1.5rem 0;
+  text-align: center;
+   .header {
+      @include breakpoint(small) {
+      @include xy-cell(11);
+      }
+      @include breakpoint(large) {
+      @include xy-cell(8);
+      }
+      font-size: rem-calc(50);
+    }
+    
+    p {font-size: 1rem;
+	    font-family: "Nunito", sans-serif;;
+    }
+   .inset {
+    @include breakpoint(small) {
+    @include xy-cell(11);
+    }
+    @include breakpoint(large) {
+    @include xy-cell(10);
+    }   
+  	}
+	  .full {
+	   @include xy-cell(12);       
+	  }
+	  .block-grid-1up-2up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+			}
+	  .block-grid-1up-3up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(3, '.block-grid-item');
+		 }
+			}
+			 .block-grid-1up-4up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(4, '.block-grid-item');
+		 }
+			}
+			 .block-grid-1up-5up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(5, '.block-grid-item');
+		 }
+			}
+			 .block-grid-1up-6up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(6, '.block-grid-item');
+		 }
+			}
+						 .block-grid-1up-7up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(7, '.block-grid-item');
+		 }
+			}
+			.block-grid-1up-2up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(1, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+			}
+	  .block-grid-2up-3up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(3, '.block-grid-item');
+		 }
+			}
+			 .block-grid-2up-4up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(4, '.block-grid-item');
+		 }
+			}
+			 .block-grid-2up-5up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(5, '.block-grid-item');
+		 }
+			}
+			 .block-grid-2up-6up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(large) {
+		 @include xy-grid-layout(6, '.block-grid-item');
+		 }
+			}
+	 			.block-grid-2up-7up-content {
+		 @include xy-grid;
+		 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(7, '.block-grid-item');
+		 }
+				}
+    .block-grid-item {
+    &.vertical-top {
+	    @include flex-align-self($y:top);
+    }
+    &.vertical-middle {
+	    @include flex-align-self($y:middle);
+    }
+    &.vertical-bottom {
+	    @include flex-align-self($y:bottom);
+    }
+    }
+    img {
+	    &.no-padding {
+      @include breakpoint(small) {
+       padding: 1rem 0;
+      }
+    }
+    &.small-padding {
+       padding: 1rem 1rem;
+ 
+    }
+	    &.medium-padding {
+      @include breakpoint(small) {
+       padding: 2rem 5rem;
+      }
+      @include breakpoint(medium) {
+       padding: 2rem 3.5rem;  
+      }
+      @include breakpoint(large) {
+      padding:2rem 5rem;
+    }   
+    }
+     &.extra-padding {
+      @include breakpoint(small) {
+						padding:2rem;
+
+      }
+      @include breakpoint(medium) {
+						max-height: 8rem;
+       padding:2rem;
+
+      }
+      @include breakpoint(large) {
+      padding:2rem;
+						max-height: 8rem;
+
+    }   
+   }
+
+   }
+  }
+ }
+  
+// ACF RANGE BLOCK GRID
+.range-block-grid-container {
+ @include xy-grid-container;
+  .range-block-grid {
+  @include xy-grid;
+  padding: 1.5rem 0;
+  @include flex-align($x:center);
+  text-align: center;
+    .header {
+      @include breakpoint(small) {
+      @include xy-cell(11);
+      }
+      @include breakpoint(large) {
+      @include xy-cell(8);
+      }
+      font-size: rem-calc(50);
+    }
+    p {font-size: 0.9rem;}
+     .inset {
+
+    @include breakpoint(small) {
+    @include xy-cell(11);
+    }
+    @include breakpoint(large) {
+    @include xy-cell(10);
+    }   
+  }
+   .block-grid-4up-content {
+	  @include xy-grid;
+			 @include breakpoint(small) {
+		 @include xy-grid-layout(2, '.block-grid-item');
+		 }
+		 @include breakpoint(medium) {
+		 @include xy-grid-layout(3, '.block-grid-item');
+		 }
+		  @include breakpoint(large) {
+		 @include xy-grid-layout(4, '.block-grid-item');
+		 }
+			}
+
+  .full {
+    @include xy-cell(12);       
+  }
+   .block-grid-item {
+     @include flex-align-self($y:stretch);
+      margin-bottom: 1.5rem;
+      background: $primary-color;
+    }
+ 
+    img {
+      @include breakpoint(small) {
+
+      }
+      @include breakpoint(medium) {
+
+   
+      }
+
+      @include breakpoint(large) {
+
+    }   
+    
+    }
+  }
+  }
+  
+//ACF STYLE ARTICLE
+.layout-article-left {
+  order:1;
+}
+.layout-article-right {
+  @include breakpoint(small) {
+  order:1;
+  }
+  @include breakpoint(medium) {
+  order:3;
+  }
+}
+.style-article-container {
+  padding: 1.5rem 0;
+  
+  .style-article {
+  @include xy-grid-container;
+  @include xy-grid;
+  @include flex-align($x:center);    
+  }
+  
+.left-top {
+	&.layout-article-left {
+  order:1;
+}
+&.layout-article-right {
+  @include breakpoint(small) {
+  order:1;
+  }
+  @include breakpoint(medium) {
+  order:3;
+  }
+}
+
+    @include breakpoint(small) {
+     @include xy-cell(12);
+     margin-bottom: 1rem;
+     }
+   @include breakpoint(medium) {
+     @include xy-cell(6);
+     }
+  }
+   .right-top {
+	  & .layout-article-left {
+  order:3;
+}
+&.layout-article-right {
+  @include breakpoint(small) {
+  order:1;
+  }
+  @include breakpoint(medium) {
+  order:1;
+  }
+}
+    @include breakpoint(small) {
+     @include xy-cell(6);
+     }
+   @include breakpoint(medium) {
+     @include xy-cell(3);
+     }
+  }
+
+    
+   .left-bottom {
+
+    @include breakpoint(small) {
+     @include xy-cell(12);
+     margin-bottom: 1rem;
+     text-align: center;
+     h1,h2,h3,h4,h5,h6 {font-weight: normal;
+       color: $primary-color;
+     }
+//      p {font-style: italic;}
+     }
+   @include breakpoint(medium) {
+     @include xy-cell(6);
+     }
+  }
+   .right-bottom {
+    @include breakpoint(small) {
+     @include xy-cell(12);
+     order:1;
+     }
+   @include breakpoint(medium) {
+     @include xy-cell(6);
+     order:2;
+     }
+  }
+
+  
+      .left-top-image, .right-top-image, {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: rem-calc(200);
+  margin-bottom: 1rem;
+  @include breakpoint(medium) {
+    height: rem-calc(180);
+  }
+  @include breakpoint(large) {
+    height: rem-calc(285);
+  }
+  @include breakpoint(xlarge) {
+    
+  }
+}
+.right-bottom-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height:100%;
+  min-height: rem-calc(200);
+  
+}
+  
+}
+
+// Thumbnail
+
+.case-study-thumbnail {
+  position: relative;
+  overflow: hidden;
+ height: 100%;
+
+
+  .entry-title-box {
+	   @include xy-grid;
+	  @include flex-align($x:center, $y:middle);
+    position: absolute;
+    top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  
+  
+  transform: scale(0.7);
+  transition: all 0.5s linear;
+  opacity: 0.85;
+ 
+  transition: all .3s ease-in-out;
+  }
+  .entry-title {
+	   
+	  color: $primary-color;
+  text-align: center;
+  font-size: 1.3rem !important;
+  font-family: $header-font-family;
+  text-transform: uppercase;
+  }
+  
+  .case-study-image {
+  transform: scaleY(1);
+  transition: all .3s ease-in-out;
+  }
+}
+
+.case-study-thumbnail:hover {
+  .entry-title-box {
+  transform: scale(1);
+  opacity: .95;
+   background-color: $primary-color;
+  color: $white;
+  .entry-title {
+	  color: $white;
+			font-size: 1rem !important;
 
   }
+
+  transition: all .3s ease-in-out;
+  }
+  
+  .case-study-image {
+ transform: scale(3);
+  opacity: 0;
+  }
+}
+
+
+// ACF GOOGLE MAP
+
+.acf-map {
+	width: 100%;
+	height: 500px;
+	border: #ccc solid 0px;
+	margin: 0 0;
+	}
+	
+// ACF BACKGROUND IMAGE
+
+.parallax {
+	overflow: hidden;
+}
+
+/* fixes potential theme css conflict */
+.acf-map img {
+   max-width: inherit !important;
+}
+
+#wpmem_login .div_text, #wpmem_reg .div_text {
+
+width: 100% !important;
+}
+#wpmem_reg .button_div, #wpmem_login .button_div {
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.wpmem_msg {
+	width: 100% !important;
+}
+
+
+
+// BLOCK QUOTE
+
+blockquote p {font-style: italic;
+	font-size: 1.2rem;
+}
+
+blockquote p:before {
+  content: open-quote;
+  font-family: "arial black";
+  display: inline;
+  height: 0;
+  line-height: 0;
+  left: -10px;
+  position: relative;
+  top: 20px;
+  color: inherit;
+  font-size: 3em;
+}
+blockquote p::after {
+  content: close-quote;
+  font-family: "arial black";
+  display: inline;
+  height: 0;
+  line-height: 0;
+  left: 0px;
+  position: relative;
+  top: 25px;
+  color: inherit;
+  font-size: 3em;
 }

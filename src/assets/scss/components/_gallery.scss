@@ -1,0 +1,47 @@
+.gallery {
+@include xy-grid;
+ @include xy-grid-layout(4, '.gallery-item', true); 
+// @include flex-align(justify);
+
+ &.gallery-columns-2 {
+      @include breakpoint(small) {
+							@include xy-grid-layout(12, '.gallery-item', true);
+      }
+       @include breakpoint(medium) {  
+        @include xy-grid-layout(6, '.gallery-item', true); 
+      }
+   }
+ &.gallery-columns-3 {
+      @include breakpoint(small) {
+							@include xy-grid-layout(12, '.gallery-item', true);
+      }
+       @include breakpoint(medium) {  
+        @include xy-grid-layout(4, '.gallery-item', true); 
+      }
+   }
+ &.gallery-columns-4 {
+      @include breakpoint(small) {
+							@include xy-grid-layout(12, '.gallery-item', true);
+      }
+       @include breakpoint(medium) {  
+        @include xy-grid-layout(3, '.gallery-item', true); 
+      }
+   }
+&.gallery-columns-6 {
+      @include breakpoint(small) {
+							@include xy-grid-layout(12, '.gallery-item', true);
+      }
+       @include breakpoint(medium) {  
+        @include xy-grid-layout(2, '.gallery-item', true); 
+      }
+   }
+ .gallery-item {
+      padding: 0.5rem 0;
+      @include flex-align-self($y:middle);
+    }
+}
+
+.gallery-icon {
+
+}
+

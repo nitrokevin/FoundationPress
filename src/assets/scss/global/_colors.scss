@@ -1,1 +1,29 @@
 $dark-nav-color: #2C3840;
+$primary-color: #00567D;
+$light-blue: #D7E4EA;
+$white: #fefefe;
+$light-gray: #efefef;
+
+.dark-blue-background {
+  background: $primary-color;
+   position: relative;
+   z-index: 1;
+  color:$white;
+  h1,h2,h3,h4,h5,h6 {color:$white !important;}
+  a {color:$white !important;}
+}
+.light-blue-background {
+  background: $light-blue;
+   position: relative;
+   z-index: 1;
+}
+.light-gray-background {
+  background: $light-gray;
+   position: relative;
+   z-index: 1;
+}
+.white-background {
+  background: $white;
+  position: relative;
+  z-index: 1;
+}

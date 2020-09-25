@@ -7,80 +7,75 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
-$footer_phone = get_theme_mod('footer_phone_number');
-$footer_email = get_theme_mod('footer_email');
-$footer_company_number = get_theme_mod('footer_company_number');
-$footer_copyright = get_theme_mod('footer_copyright');
-$footer_address_1 = get_theme_mod('footer_address_1');
-$footer_address_2 = get_theme_mod('footer_address_2');
-$footer_address_3 = get_theme_mod('footer_address_3');
-$footer_address_4 = get_theme_mod('footer_address_4');
-$footer_address_5 = get_theme_mod('footer_address_5');
-$footer_address_6 = get_theme_mod('footer_address_6');
-$footer_background_image = get_theme_mod('footer_background_image');
-$small = wp_get_attachment_image_url( $footer_background_image, 'fp-small' ); ;
-$medium =  wp_get_attachment_image_url( $footer_background_image, 'fp-medium' );
-$large = wp_get_attachment_image_url( $footer_background_image, 'fp-large' );
-$xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
-
 ?>
 
-<footer class="footer"  <?php if ($footer_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium;?>, medium], [<?php echo $large;?>, large], [<?php echo $xlarge;?>, xlarge]"<?php } ?> >
 <div class="footer-container">
-	<div class="footer-grid">
+	<footer class="footer">
 		<?php dynamic_sidebar( 'footer-widgets' ); ?>
-	</div>
-	<div class="footer-grid">
-
-		<section>
-		<?php foundationpress_footer_nav_l(); ?>
-			<ul class="footer-contact menu  footer-menu">
-				<li><?php echo $footer_address_1 ?></li>
-				<li><?php echo $footer_address_2 ?> </li>
-				<li><?php echo $footer_address_3 ?> </li>
-				<li><?php echo $footer_address_4 ?> </li>
-				<li><?php echo $footer_address_5 ?></li>
-				<li><?php echo $footer_address_6 ?></li>
-			</ul>
-		
-		</section>
-		<section>
-			<ul class="social-links menu  footer-menu align-center">
-				<?php if (get_theme_mod('social-facebook')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
-							<i class="fab fa-facebook-f fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-twitter')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-twitter-url')); ?>" rel="noreferrer" target="_blank" aria-label="Twitter">
-							<i class="fab fa-twitter fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-instagram')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-instagram-url')); ?>" rel="noreferrer" target="_blank" aria-label="Instagram">
-
-							<i class="fab fa-instagram fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-linkedin')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-linkedin-url')); ?>" rel="noreferrer" target="_blank" aria-label="LinkedIn">
-
-							<i class="fab fa-linkedin-in fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-				<?php if (get_theme_mod('social-pinterest')) : ?>
-					<li><a href="<?php echo esc_url(get_theme_mod('social-pinterest-url')); ?>" rel="noreferrer" target="_blank" aria-label="Pinterest">
-							<i class="fab fa-pinterest fa-fw"></i>
-						</a></li>
-				<?php endif; ?>
-			</ul>
-		</section>
-		<section>
-		<?php foundationpress_footer_nav_r(); ?>
-		</section>
-	</div>
+	</footer>
+  <footer class="sub-footer">
+		<section class="footer-left">
+  		<h5><?php echo get_theme_mod( 'footer_contact_header' ); ?></h5>
+  		 <ul class="contact-details">
+  		<?php if ( get_theme_mod( 'footer_address_1' ) ): ?>
+        <li><a><span><?php echo get_theme_mod( 'footer_address_1' ); ?>
+        <?php if ( get_theme_mod( 'footer_address_2' ) ): ?> <br /><?php echo get_theme_mod( 'footer_address_2' ); ?><?php endif; ?>
+        <?php if ( get_theme_mod( 'footer_address_3' ) ): ?> <br /><?php echo get_theme_mod( 'footer_address_3' ); ?><?php endif; ?>
+        <?php if ( get_theme_mod( 'footer_address_4' ) ): ?> <br /><?php echo get_theme_mod( 'footer_address_4' ); ?><?php endif; ?>
+        <?php if ( get_theme_mod( 'footer_address_5' ) ): ?> <br /><?php echo get_theme_mod( 'footer_address_5' ); ?><?php endif; ?>
+        <?php if ( get_theme_mod( 'footer_address_6' ) ): ?> <br /><?php echo get_theme_mod( 'footer_address_6' ); ?><?php endif; ?></span></a></li>
+        <?php endif; ?>
+								<?php if ( get_theme_mod( 'footer_phone_number' ) ): ?>
+        <li><a href="tel:<?php echo get_theme_mod( 'footer_phone_number' ); ?>">T - <span><?php echo get_theme_mod( 'footer_phone_number' ); ?></span></a></li>
+        <?php endif; ?>
+								<?php if ( get_theme_mod( 'footer_mobile_phone_number' ) ): ?>
+				  		<li><a href="tel:<?php echo get_theme_mod( 'footer_mobile_phone_number' ); ?>">M -  <span><?php echo get_theme_mod( 'footer_mobile_phone_number' ); ?></span></a></li>
+				  		<?php endif; ?>
+								<?php if ( get_theme_mod( 'footer_email' ) ): ?>
+	       <li><a  href="mailto:<?php echo get_theme_mod( 'footer_email' ); ?>">E -  <span><?php echo get_theme_mod( 'footer_email' ); ?></span></a></li>
+        <?php endif; ?>
+  		 </ul>
+    </section>
+    <section class="footer-center">
+     <h2>Keep in touch</h2>
+       <ul class="menu align-center">
+  			<?php if ( get_theme_mod( 'social-facebook' ) ): ?>
+  			<li><a href="<?php echo esc_url(get_theme_mod( 'social-facebook-url' ) ); ?> " aria-label="Facebook">
+    			<span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+          </span>
+          </a></li>
+  			<?php endif; ?> 
+  				<?php if ( get_theme_mod( 'social-twitter' ) ): ?>
+  			<li><a href="<?php echo esc_url(get_theme_mod( 'social-twitter-url' ) ); ?>" aria-label="Twitter">	<span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+          </span></a></li>
+  			<?php endif; ?>
+  			<?php if ( get_theme_mod( 'social-instagram' ) ): ?>
+  			<li><a href="<?php echo esc_url(get_theme_mod( 'social-instagram-url' ) ); ?>" aria-label="Instagram">	<span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+          </span> </a></li>
+  			<?php endif; ?>
+  			<?php if ( get_theme_mod( 'social-linkedin' ) ): ?>
+  			<li><a href="<?php echo esc_url(get_theme_mod( 'social-linkedin-url' ) ); ?>" aria-label="LinkedIn">	<span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+          </span></a></li>
+  			<?php endif; ?>
+      </ul>
+      <p><a href="//avidd.design">Website by AVIDD</a></p>
+    </section>
+    <section class="footer-right">
+				<?php foundationpress_footer_nav(); ?>
+				      <p>© The Stamford Kitchen Company - Stamford Companies Ltd 11158449</p>
+    </section>
+	</footer>
+	
+	
 </div>
-</footer>
 
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	</div><!-- Close off-canvas content -->
