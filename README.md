@@ -21,10 +21,7 @@ If you have not worked with a Sass-based workflow before, I would recommend read
 
 ### 1. Clone the repository and install with npm
 ```bash
-$ cd my-wordpress-folder/wp-content/themes/
-$ git clone https://github.com/olefredrik/FoundationPress.git
-$ cd FoundationPress
-$ npm install
+$ mkdir $HOME/Local\ Sites/avidd/app/public/wp-content/themes/name-of-theme && cd "$_" && git clone -b FoundationPressAVIDD --single-branch https://github.com/nitrokevin/FoundationPress.git && mv FoundationPress/.[!.]* ./ && mv FoundationPress/* ./ && rmdir ./FoundationPress && npm install
 ```
 
 ### 2. Configuration
