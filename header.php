@@ -44,18 +44,19 @@
 		<nav class="site-navigation top-bar" role="navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
 		<div class="top-bar-inner-container">
 			<div class="top-bar-left">
-			<?php foundationpress_top_bar_l(); ?>
-			</div>
-			<div class="top-bar-center">
-				<div class="site-desktop-title top-bar-title">
+			<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
 						<img src="<?php echo esc_url(get_theme_mod('header_logo')); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
 					</a>
 				</div>
+			<?php foundationpress_top_bar_l(); ?>
+			</div>
+			<div class="top-bar-center">
+				
 			</div>
 
 			<div class="top-bar-right">
-				<?php foundationpress_top_bar_r(); ?>
+			<button aria-label="<?php _e('Main Menu', 'foundationpress'); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 				<?php if ( ! get_theme_mod( 'foundationpress_mobile_menu_layout' ) || get_theme_mod( 'foundationpress_mobile_menu_layout' ) === 'topbar' ) : ?>
 					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 				<?php endif; ?>

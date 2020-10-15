@@ -40,18 +40,26 @@
 
 // Intro
 .intro {
-  @include xy-grid-container;
   @include xy-grid;
-  @include flex-align($x:center, $y:top);
-
-  .fp-intro {
+  
+  .left-upper {
+    
+    background-color: $secondary-color;
+    }
+    .left-lower{
+     
+      background-color: $primary-color;
+    }
+  
+  .intro-right {
     @include breakpoint(small) {
-      @include xy-cell(12);
+      @include xy-cell(12,true, 15, padding);
     }
 
     @include breakpoint(medium) {
-      @include xy-cell(10);
 
+      @include xy-cell(8, true, 30, padding);
     }
+    background-color: $secondary-color;
   }
 }

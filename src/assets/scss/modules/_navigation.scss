@@ -44,7 +44,6 @@
 .top-bar {
   .top-bar-inner-container {
     @include xy-cell(12);
-    @include xy-grid-container();
     @include xy-grid;
     @include flex-align($x:center, $y:middle);
 
@@ -54,12 +53,13 @@
     .top-bar-right {
       flex: 1;
       img{
-      padding: $global-padding 0}
+        max-width: 16rem;
+      padding: $global-padding}
     }
 
     .top-bar-center {
       text-align: center;
-      flex: 0.6;
+     
     }
 
     .top-bar-right {
