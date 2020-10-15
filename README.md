@@ -5,11 +5,7 @@
 [![GitHub version](https://badge.fury.io/gh/olefredrik%2Ffoundationpress.svg)](https://github.com/olefredrik/FoundationPress/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a starter-theme for WordPress based on Zurb's [Foundation for Sites 6](https://foundation.zurb.com/sites.html), the most advanced responsive (mobile-first) framework in the world. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product.
-
-Please fork, copy, modify, delete, share or do whatever you like with this.
-
-All contributions are welcome!
+This is AVIDD's internal starter theme based on FoundationPress, we have customised it to use Advanced Custom Fields and Kirki Customiser Framework
 
 ## Requirements
 
@@ -25,10 +21,7 @@ If you have not worked with a Sass-based workflow before, I would recommend read
 
 ### 1. Clone the repository and install with npm
 ```bash
-$ cd my-wordpress-folder/wp-content/themes/
-$ git clone https://github.com/olefredrik/FoundationPress.git
-$ cd FoundationPress
-$ npm install
+$ mkdir $HOME/Local\ Sites/avidd/app/public/wp-content/themes/name-of-theme && cd "$_" && git clone -b FoundationPressAVIDD --single-branch https://github.com/nitrokevin/FoundationPress.git && mv FoundationPress/.[!.]* ./ && mv FoundationPress/* ./ && rmdir ./FoundationPress && npm install
 ```
 
 ### 2. Configuration
