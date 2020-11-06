@@ -8,20 +8,33 @@ get_header(); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-<div class="intro grid-x grid-padding-x " data-equalizer="foo">
-  <div class="cell small-4 flex-container flex-dir-column flex-stretch">
-    <div class="left-upper   flex-container flex-dir-row " data-equalizer-watch="foo">
-    <div class="align-self-bottom" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
-    </div>
-    <div class="left-lower  flex-container flex-dir-row" data-equalizer-watch="foo">
-    <div class="align-self-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
-    </div>
-  </div>
-  <div class="cell small-8  align-self-top align-stretch"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</div>
-</div>
+<section class="intro" role="main">
+	<div class="fp-intro">
 
+		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div>
+			<footer>
+				<?php
+					wp_link_pages(
+						array(
+							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+							'after'  => '</p></nav>',
+						)
+					);
+				?>
+				<p><?php the_tags(); ?></p>
+			</footer>
+			<?php do_action( 'foundationpress_page_before_comments' ); ?>
+			<?php comments_template(); ?>
+			<?php do_action( 'foundationpress_page_after_comments' ); ?>
+		</div>
+
+	</div>
+
+</section>
 <?php endwhile; ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
 <?php
