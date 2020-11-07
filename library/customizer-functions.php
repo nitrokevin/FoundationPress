@@ -62,7 +62,7 @@ function avidd_theme_settings( $wp_customize ) {
       ],     
       'output'      => array(
         array(
-          'element'  => ' .top-bar, .top-bar ul',
+          'element'  => ' .top-bar, .top-bar ul, .title-bar',
           'property' => 'background-color'
         ),
       ));
