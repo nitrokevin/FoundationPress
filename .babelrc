@@ -1,5 +1,6 @@
-"presets": [
-  ["@babel/preset-env"]
-],
- sourceType: "module"
+{
+  "presets": [
+    ["@babel/preset-env"]
+  ],
+   "sourceType": "module"
 } 
