@@ -42,7 +42,7 @@
 		</div>
 		
 		<nav class="site-navigation top-bar" role="navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
-		<div class="top-bar-inner-container">
+	<div class="top-bar-inner-container <?php if ( true == get_theme_mod( 'contained_header', true ) ) { ?>contained<?php } ?>">
 			<div class="top-bar-left">
 			<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">

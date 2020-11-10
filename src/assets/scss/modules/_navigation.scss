@@ -46,7 +46,7 @@
     @include xy-cell(12);
     @include xy-grid;
     @include flex-align($x:center, $y:middle);
-
+    &.contained {@include xy-grid-container();}
 
     .top-bar-left,
     .top-bar-center,

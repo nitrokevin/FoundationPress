@@ -98,6 +98,18 @@ function avidd_theme_settings( $wp_customize ) {
           ]
           );
           $fields[] = array(
+            'type'        => 'switch',
+            'settings'    => 'contained_header',
+            'label'       => esc_html__( 'Contained Header', 'avidd' ),
+            'section'     => 'avidd_header',
+            'default'     => '1',
+            'priority'    => 10,
+            'choices'     => [
+              'on'  => esc_html__( 'Enable', 'avidd' ),
+              'off' => esc_html__( 'Disable', 'avidd' ),
+              ]
+            );
+          $fields[] = array(
           'type'        => 'switch',
         	'settings'    => 'sticky_header',
         	'label'       => esc_html__( 'Sticky Header', 'avidd' ),
