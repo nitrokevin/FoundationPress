@@ -16,16 +16,13 @@
 	$medium = $section_background_image['sizes'][$medium_size];
 	$large = $section_background_image['sizes'][$large_size];
 	?>
-	<?php if (get_sub_field('section_width')  == 'align-full' )  { ?>
-	<section id="<?php $section_heading_remove = preg_replace("/[\s_]/", "-", $section_heading); $section_heading_processed = strtolower($section_heading_remove); echo $section_heading_processed; ?>" class="flexible-layout-article-outer-container <?php echo $section_background; ?>  <?php echo $section_trigger; ?> <?php if ($section_background_image) { ?>background-image<?php } ?>" <?php if ($section_background_image) { ?>src="<?php echo $small; ?>" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" <?php } ?>>
-		<div class="flexible-layout-article-container <?php echo $section_width; ?>">
-			<div class="flexible-layout-article-grid  <?php echo $section_padding; ?>">
-	<?php } ?>
+
 	
-	<?php if (get_sub_field('section_width')  != 'align-full' )  { ?>
+
 	<section id="<?php $section_heading_remove = preg_replace("/[\s_]/", "-", $section_heading); $section_heading_processed = strtolower($section_heading_remove); echo $section_heading_processed; ?>" class="flexible-layout-section  <?php echo $section_background; ?>   <?php echo $section_padding; ?>  <?php echo $section_trigger; ?> <?php if ($section_background_image) { ?>background-image<?php } ?>" <?php if ($section_background_image) { ?>src="<?php echo $small; ?>" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" <?php } ?>>
 		<div class="flexible-layout-article-container <?php echo $section_width; ?>">
-	<?php } ?>
+		<div class="flexible-layout-article-grid <?php echo $section_padding; ?>"   data-equalizer="header" >
+
 			<?php if ($section_heading) { ?><header class="section-header">
 					<h4 class="<?php if($section_heading_color){ echo $section_heading_color; } ?>"><?php echo $section_heading; ?></h4>
 					<?php if ($section_sub_heading) { ?><p><?php echo $section_sub_heading; ?></p><?php } ?>
@@ -33,8 +30,8 @@
 			<?php if ($section_content) { ?><div class="section-content"><?php echo $section_content; ?></div><?php } ?>
 
 			<?php if (have_rows('repeater_grid')) { ?>
-				<div class="flexible-layout-article-grid" data-equalizer="header">
-					<div class="flexible-layout-article-<?php echo $number_of_mobile_columns ?>-small-<?php echo $number_of_desktop_columns ?>-large">
+				
+					<div class="flexible-layout-article-<?php echo $number_of_mobile_columns ?>-small-<?php echo $number_of_desktop_columns ?>-large" data-equalizer="content">
 					<?php while (have_rows('repeater_grid')) : the_row();
 								$cell_alignment = get_sub_field('cell_alignment');
 								$cell_header = get_sub_field('cell_header');
@@ -75,7 +72,7 @@
 							<?php } ?>
 							<?php if ($cell_content) { ?>
 							
-								<div class="entry-content flex-child-shrink">
+								<div class="entry-content flex-child-shrink" data-equalizer-watch="content">
 									<?php echo $cell_content; ?>
 								</div>
 							
@@ -90,14 +87,37 @@
 					<?php endwhile; ?>
 				</div>
 			<?php } ?>
-	<?php if (get_sub_field('section_width')  == 'align-full' )  { ?>	
-	</div>
-	</div>
-	</section>
-	<?php } ?>
-	<?php if (get_sub_field('section_width')  != 'align-full' )  { ?>
+	
+	
 	</div>	
 	</section>
+
+	<div data-equalizer="header">
+	<div data-equalizer="content">
+	<div class="grid-x grid-padding-x"  >
 	
-	<?php } ?>
+  <div class="cell small-4 flex-container flex-dir-column">
+    <div class="callout primary" data-equalizer-watch="header">
+	<h3>Header 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+	</div>
+    <div class="callout primary " data-equalizer-watch="content">Auto</div>
+	<div class="callout primary ">Auto</div>
+    <div class="callout primary ">Shrink</div>
+  </div>
+  <div class="cell small-4 flex-container flex-dir-column">
+    <div class="callout primary " data-equalizer-watch="header">Auto</div>
+    <div class="callout primary " data-equalizer-watch="content">content lorum ipson gyuf drd e ugyf  tftydt rdrt srtr</div>
+	<div class="callout primary ">Auto</div>
+    <div class="callout primary ">Shrink</div>
+  </div>
+  <div class="cell small-4 flex-container flex-dir-column">
+    <div class="callout primary " data-equalizer-watch="header">Auto</div>
+    <div class="callout primary " data-equalizer-watch="content">Shrink</div>
+	<div class="callout primary ">Auto</div>
+    <div class="callout primary">Shrink</div>
+  </div>
+</div>
+	</div>
+</div>
+
 <?php } ?>
