@@ -1,67 +1,67 @@
-// FLEXIBLE LAYOUTS
-
+//GLOBAL
 section, article {
-    &.primary-color {
-      background-color: $primary-color;
-      .entry-content, .entry-footer, .main-content,h1,h2,h3,h4,h5 {
-        color: $white;
-      }
-      a { color: $white;}
+  &.primary-color {
+    background-color: $primary-color;
+    .entry-content, .entry-footer, .main-content,h1,h2,h3,h4,h5 {
+      color: $white;
     }
-
-    &.secondary-color {
-      background-color: $secondary-color;
-      .entry-content, .entry-footer, .main-content ,h1,h2,h3,h4,h5{
-        color: $white;
-      }
-      a { color: $white;}
-    }
-    &.white {
-      background-color: $white;
-      .entry-content, .entry-footer, .main-content ,h1,h2,h3,h4,h5{
-        color: $dark-gray;
-      }
-    }
-
-  
-    &.dark-gray {
-      background-color: $secondary-color;
-  
-      .entry-content, .entry-footer,h1,h2,h3,h4,h5 {
-        color: $white;
-        
-      }
-    }
-    &.light-gray {
-      background-color: $light-gray;
-  
-      .entry-content, .entry-footer,h1,h2,h3,h4,h5  {
-        color: $primary-color;
-      }
-      a { color: $secondary-color;}
-    }
-  
-    &.transparent {
-      background-color: transparent;
-      .button {color:$white;
-       border: 1px solid $white}
-       a { color: $white;}
-    }
-    &.background-image {
-      .entry-content, .entry-footer {
-        color: $white;
-      }
-      a { color: $white;}
-    }
+    a { color: $white;}
   }
-  h1,h2,h3,h4,h5,h6 {
-    &.primary-color{color: $primary-color;}
-    &.secondary-color{color: $secondary-color;}
-    &.white{color: $white;}
-    &.dark-gray{color: $dark-gray;}
+
+  &.secondary-color {
+    background-color: $secondary-color;
+    .entry-content, .entry-footer, .main-content ,h1,h2,h3,h4,h5{
+      color: $white;
+    }
+    a { color: $white;}
+  }
+  &.white {
+    background-color: $white;
+    .entry-content, .entry-footer, .main-content ,h1,h2,h3,h4,h5{
+      color: $dark-gray;
+    }
   }
 
 
+  &.dark-gray {
+    background-color: $secondary-color;
+
+    .entry-content, .entry-footer,h1,h2,h3,h4,h5 {
+      color: $white;
+      
+    }
+  }
+  &.light-gray {
+    background-color: $light-gray;
+
+    .entry-content, .entry-footer,h1,h2,h3,h4,h5  {
+      color: $primary-color;
+    }
+    a { color: $secondary-color;}
+  }
+
+  &.transparent {
+    background-color: transparent;
+    .button {color:$white;
+     border: 1px solid $white}
+     a { color: $white;}
+  }
+  &.background-image {
+    .entry-content, .entry-footer {
+      color: $white;
+    }
+    a { color: $white;}
+  }
+}
+h1,h2,h3,h4,h5,h6 {
+  &.primary-color{color: $primary-color;}
+  &.secondary-color{color: $secondary-color;}
+  &.white{color: $white;}
+  &.dark-gray{color: $dark-gray;}
+}
+
+
+// FLEXIBLE LAYOUTS
 .flexible-layout-article-container {
 
   &.align-normal, .align-full {
@@ -76,7 +76,7 @@ section, article {
     }
   }
   
-}
+
 
   .flexible-layout-article-grid {
     @include xy-grid();
@@ -149,7 +149,7 @@ section, article {
       @include xy-grid();
       @include xy-cell(12);
       @include breakpoint(small) {
-        @include xy-grid-layout($small-columns, '.flexible-item', true, $grid-margin-gutters, margin, left right, small, false);
+        @include xy-grid-layout($small-columns, '.flexible-item', $output: (size gutters));
        
        .cell-background-image {
         padding-bottom: 30%;
@@ -157,14 +157,14 @@ section, article {
       }
       @include breakpoint(medium) {
         @include xy-cell(12);
-        @include xy-grid-layout($medium-columns, '.flexible-item', true, $grid-margin-gutters, margin, left right, small, false);
+        @include xy-grid-layout($medium-columns, '.flexible-item',  $output: (size gutters));
         .cell-background-image {
           padding-bottom: 20%;
         }
     }
     @include breakpoint(large) {
       @include xy-cell(12);
-      @include xy-grid-layout($large-columns, '.flexible-item', true, $grid-margin-gutters, margin, left right, small, false);
+      @include xy-grid-layout($large-columns, '.flexible-item', $output: (size gutters));
       .cell-background-image {
         padding-bottom: 15%;
       }
@@ -372,7 +372,7 @@ article.align-top-left {
       }
     }
   }
-
+}
 
   //Shortcode
 
@@ -432,12 +432,12 @@ article.align-top-left {
 
     .hover-block-grid-one-columns-small-three-columns-large {
       @include xy-grid();
-      @include xy-cell(12,true,0);
+      @include xy-cell(12,$gutters: 0);
       margin-top:$global-margin;
       margin-bottom: 0;
-      @include xy-grid-layout(2, '.hover-block-grid-item', true, $grid-margin-gutters, margin, left right, small, false);
+      @include xy-grid-layout(2, '.hover-block-grid-item', $output: (size gutters));
       @include breakpoint(large) {
-        @include xy-grid-layout(3, '.hover-block-grid-item', true, $grid-margin-gutters, margin, left right, small, false);
+        @include xy-grid-layout(3, '.hover-block-grid-item', $output: (size gutters));
         }
       @include flex-align($x:left, $y:middle);
       margin-left:0;
