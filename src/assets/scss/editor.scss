@@ -13,6 +13,9 @@
 @include foundation-button;
 @include foundation-table;
 
+.is-root-container {
+	@include xy-grid-container;
+  }
 
 /** === Content Width === */
 .wp-block {
@@ -84,3 +87,4 @@ body {
 .wp-block-latest-posts.is-grid{
 	list-style: none;
 }
+
