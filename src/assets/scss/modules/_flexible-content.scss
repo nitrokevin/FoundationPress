@@ -171,6 +171,7 @@ h1,h2,h3,h4,h5,h6 {
   .flexible-layout-article-grid {
     @include xy-grid();
     @include flex-align($x:center, $y:top);
+    width:100%;
 
     &.small-padding {
       padding-top: $global-padding;
@@ -208,7 +209,7 @@ h1,h2,h3,h4,h5,h6 {
     @include xy-cell(12);
     }
     text-align: center;
-    margin: $global-margin 0;
+    margin: 0 0 $global-margin 0;
   }
 
   $blockgrid: 
@@ -228,6 +229,7 @@ h1,h2,h3,h4,h5,h6 {
   @each $name, $small-columns, $medium-columns, $large-columns in $blockgrid {
    .flexible-layout-article-#{$name}{
     @include xy-grid();
+    width:100%;
       @include breakpoint(small) {
         @include xy-grid-layout($small-columns, '.flexible-item', $output: (size gutters));
       }
@@ -430,7 +432,7 @@ article.align-top-left {
     }
   
       .shortcode-content {
-        @include xy-cell(10, true, 0);
+        @include xy-cell(10,$gutters: 0);
         text-align: center;
         header{
           text-transform: uppercase;
@@ -438,179 +440,3 @@ article.align-top-left {
       }
     }
   }
-
-  // Hover BLOCK
-
-.hover-block-grid-container{
-  @include breakpoint(medium) {
-  @include xy-grid-container();
-  &.small-padding {
-    padding-top: $global-padding;
-    padding-bottom: $global-padding;
-  }
-  &.large-padding {
-    padding-top: $global-padding*2;
-    padding-bottom: $global-padding*2;
-  }
-  }
-  .hover-block-grid{
-    @include xy-grid();
-    @include flex-align($x:center);
-
- }
-
-    .hover-block-grid-one-columns-small-three-columns-large {
-      @include xy-grid();
-      @include xy-cell(12,$gutters: 0);
-      margin-top:$global-margin;
-      margin-bottom: 0;
-      @include xy-grid-layout(2, '.hover-block-grid-item', $output: (size gutters));
-      @include breakpoint(large) {
-        @include xy-grid-layout(3, '.hover-block-grid-item', $output: (size gutters));
-        }
-      @include flex-align($x:left, $y:middle);
-      margin-left:0;
-    &.primary-color{background: $primary-color;}
-    &.secondary-color{background: $secondary-color;}
-    &.white{background: $white;}
-    &.dark-gray{background: $dark-gray;}
-
-    }
-
-
-    .hover-block-grid-item {
-      
-      list-style: none;
-      margin:0;
-      margin-bottom:$global-margin;
-  
-    }
-   
-
-  /* turning on hover */
-
-
-  .hover-container:hover .no-hoverper  {
-    transform: rotateY(0deg) !important;
-  }
-  
-  .hover-container,
-  .hover-front,
-  .hover-back {
-    
-    text-align: center;
-    p,a{    
-      margin-bottom: 0rem;
-      font-size: rem-calc(14);
-      @include breakpoint(medium) {
-        font-size: rem-calc(18);
-      }
-      @include breakpoint(large) {
-        font-size: rem-calc(14);
-      }
-      @include breakpoint(xlarge) {
-        font-size: rem-calc(14);
-      }
-      @include breakpoint(xxlarge) {
-        font-size: rem-calc(16);
-      }
-    }
-      h3{    
-        font-size: rem-calc(16);
-        @include breakpoint(medium) {
-          font-size: rem-calc(30);
-        }
-        @include breakpoint(large) {
-          font-size: rem-calc(14);
-        }
-        @include breakpoint(xlarge) {
-          font-size: rem-calc(16);
-        }
-        @include breakpoint(xxlarge) {
-          font-size: rem-calc(18);
-        }
-      }
-      font-weight: $global-weight-bold;
-     
-      text-transform: uppercase;
-
-    img {
-      padding: 0 2rem;
-    }
-  }
-  .hover, .no-hover {
-    transition: 0.7s;
-    transform-style: preserve-3d;
-    position: relative;
-    padding-bottom:100%;
-  }
-  .front-header, .back-header{
-    margin-bottom: 0;
-    @include flex-align-self(middle);
-    &.force-center{
-      @include absolute-center;
-    }
-  }
-  
-  .hover-front,
-  .hover-back {
-    @include xy-grid();
-     @include flex-align($x:center, $y:bottom);
-     margin-bottom: 0rem !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    backface-visibility: hidden;
-    background-position: center !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding:$global-padding;
-    @include breakpoint(large) {
-      padding:$global-padding;
-      }
-    @include breakpoint(xlarge) {
-    padding:$global-padding;
-    }
-    &.primary-color{background: $primary-color;color:$dark-gray; h1,h2,h3,h4,h5{color:$dark-gray;}}
-    &.secondary-color{background: $secondary-color;color:$white;h1,h2,h3,h4,h5{color:$white;}}
-
-
-  }
-  .cell-background-image-contain {
-    background-size: 80% !important;
-
-  }
-  
-  .hover-front{
-    width: 100%;
-    height: 100%;
-    background:$secondary-color;
-    backface-visibility:hidden;
-
-    transform:perspective(800px) rotateY(0deg);
-
-    transition:0.5s ease-in-out;
-  }
-  
-  .hover-back {
-    width: 100%;
-    height: 100%;
-
-    backface-visibility:hidden;
-
-    transform:perspective(800px) rotateY(180deg);
-
-    transition:0.5s ease-in-out;
-  }
-  .hover-container:hover .hover .hover-front  {
-
-  transform:perspective(800px) rotateY(-179.9deg);
-
-  transition:0.5s ease-in-out;
-  }
-  .hover-container:hover .hover .hover-back  {
-
-  transform:perspective(800px) rotateY(0);
-  transition:0.5s ease-in-out;
-  }
-}

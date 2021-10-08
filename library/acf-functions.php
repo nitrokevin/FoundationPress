@@ -1119,11 +1119,30 @@ acf_add_local_field_group(array(
 		'description' => '',
 	));
 
-//FAQ OPTIONS PAGE
+	//FAQ OPTIONS PAGE
 	acf_add_local_field_group(array(
 		'key' => 'group_5d54589f208266',
 		'title' => 'Options Page',
 		'fields' => array(
+			array(
+				'key' => 'field_5c3j4ede232af66',
+				'label' => 'Accordion',
+				'name' => 'repeater_accordion',
+				'type' => 'repeater',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'collapsed' => '',
+				'min' => 0,
+				'max' => 0,
+				'layout' => 'block',
+				'button_label' => '',
+				'sub_fields' => array(
 			array(
 				'key' => 'field_5d49ad43a131e16',
 				'label' => 'Section heading',
@@ -1143,104 +1162,7 @@ acf_add_local_field_group(array(
 				'append' => '',
 				'maxlength' => '',
 			),
-			array(
-				'key' => 'field_5d492ad72131e26',
-				'label' => 'Section heading color',
-				'name' => 'section_heading_color',
-				'type' => 'swatch',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '33',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => $color_array,
-				'allow_null' => 1,
-				'default_value' => '',
-				'layout' => 'horizontal',
-				'return_format' => 'label',
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-			),
-			array(
-				'key' => 'field_5d49aea91311e36',
-				'label' => 'Section background',
-				'name' => 'section_background',
-				'type' => 'swatch',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '33',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => $color_array,
-				'allow_null' => 1,
-				'default_value' => '',
-				'layout' => 'horizontal',
-				'return_format' => 'label',
-				'other_choice' => 0,
-				'save_other_choice' => 0,
-			),
-			array(
-				'key' => 'field_5c4812a7a8519bf6',
-				'label' => 'Section padding',
-				'name' => 'section_padding',
-				'type' => 'select',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '25',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => array(
-					'no-padding' => 'No padding',
-					'small-padding' => 'Small padding',
-					'large-padding' => 'Large padding',
-				),
-				'default_value' => array(
-					0 => 'small-padding',
-				),
-				'allow_null' => 0,
-				'multiple' => 0,
-				'ui' => 1,
-				'ajax' => 0,
-				'return_format' => 'value',
-				'placeholder' => '',
-			),
-			array(
-				'key' => 'field_5c3812bea6819c16',
-				'label' => 'Section width',
-				'name' => 'section_width',
-				'type' => 'select',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '25',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => array(
-					'align-normal' => 'Normal width content',
-					'align-full' => 'Full width content'
-				),
-				'default_value' => array(
-					0 => 'align-normal',
-				),
-				'allow_null' => 0,
-				'multiple' => 0,
-				'ui' => 1,
-				'ajax' => 0,
-				'return_format' => 'value',
-				'placeholder' => '',
-			),
-
+			
 			array(
 				'key' => 'field_5c34ede232af66',
 				'label' => 'Accordion Content',
@@ -1261,33 +1183,6 @@ acf_add_local_field_group(array(
 				'button_label' => '',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5c34ee0002af76',
-						'label' => 'Category',
-						'name' => 'category',
-						'type' => 'select',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '33',
-							'class' => '',
-							'id' => '',
-						),
-						'choices' => array(
-							'one' => 'One',
-							'two' => 'Two',
-							'three' => 'Three',
-						
-						),
-						'default_value' => array(),
-						'allow_null' => 0,
-						'multiple' => 0,
-						'ui' => 0,
-						'return_format' => 'value',
-						'ajax' => 0,
-						'placeholder' => '',
-					),
-					array(
 						'key' => 'field_5c34ee0032af76',
 						'label' => 'Header',
 						'name' => 'header',
@@ -1296,7 +1191,7 @@ acf_add_local_field_group(array(
 						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
-							'width' => '66',
+							'width' => '100',
 							'class' => '',
 							'id' => '',
 						),
@@ -1305,6 +1200,29 @@ acf_add_local_field_group(array(
 						'prepend' => '',
 						'append' => '',
 						'maxlength' => '',
+					),
+	
+					array(
+						'key' => 'field_614b0df41e61b6',
+						'label' => 'Categories',
+						'name' => 'categories',
+						'type' => 'taxonomy',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '50',
+							'class' => '',
+							'id' => '',
+						),
+						'taxonomy' => 'category',
+						'field_type' => 'checkbox',
+						'add_term' => 0,
+						'save_terms' => 0,
+						'load_terms' => 0,
+						'return_format' => 'object',
+						'multiple' => 0,
+						'allow_null' => 0,
 					),
 					array(
 						'key' => 'field_5c34ee0932af86',
@@ -1328,6 +1246,9 @@ acf_add_local_field_group(array(
 				),
 			),
 		),
+	),
+),
+
 		'location' => array(
 			array(
 				array(
@@ -1346,6 +1267,7 @@ acf_add_local_field_group(array(
 		'active' => true,
 		'description' => '',
 	));
+
 
 endif; 
 
