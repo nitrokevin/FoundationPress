@@ -18,12 +18,17 @@ function my_layout_title($title, $field, $layout, $i) {
 	return $title;
 }
 add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
-
+include 'colors.php';
 $color_array =  array(
 	'#fefefe' => 'white',
-	'#004987' => 'primary-color',
-	'#6ABF4B' => 'secondary-color',
-	'#E8E8E8' => 'light-gray',
+	$primary_color => 'primary-color',
+	$secondary_color => 'secondary-color',
+	$light_gray => 'light-gray',
+	$medium_gray => 'medium-gray',
+	$dark_gray => 'dark-gray',
+	$theme_color_1 => 'theme-color-1',
+	$theme_color_2 => 'theme-color-2',
+	$theme_color_3 => 'theme-color-3',
 	'transparent' => 'transparent',
 );
 

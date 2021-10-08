@@ -1,6 +1,7 @@
 <?php
 
 function avidd_theme_settings( $wp_customize ) {
+ 
      /**
      * Add Panel
      */
@@ -44,10 +45,23 @@ function avidd_theme_settings( $wp_customize ) {
     add_action( 'customize_register', 'avidd_theme_settings' );
 
     function avidd_theme_settings_fields( $fields ) {
+      include 'colors.php';
     /**
     * Add a Field to change the header
     */
-    $color_array = [ '#FFB400', '#707070', '#E8E8E8', '#fefefe' ];
+    $color_array =  array(
+      '#fefefe' ,
+      $primary_color ,
+      $secondary_color ,
+      $light_gray ,
+      $medium_gray ,
+      $dark_gray ,
+      $theme_color_1,
+      $theme_color_2,
+      $theme_color_3,
+      'transparent' => 'transparent',
+    );
+   
     $fields[] = array(
       'type'        => 'color-palette',
       'setting'     => 'avidd_headerbackground_color',
