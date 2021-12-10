@@ -13,6 +13,7 @@
 get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
+<?php if ( !empty( get_the_content() ) ) {?> 
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content">
@@ -24,6 +25,7 @@ get_header(); ?>
 		<?php get_sidebar(); ?>
 	</div>
 </div>
+<?php } ?>
 <?php
 if (have_rows('sections')) :
 	while (have_rows('sections')) : the_row();
