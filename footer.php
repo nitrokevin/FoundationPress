@@ -31,16 +31,16 @@ $settings = get_theme_mod( 'repeater_setting', $defaults );
 
 		<section>
 		<?php foundationpress_footer_nav_l(); ?>
-		<div class="footer-icons">
-		<?php foreach ( $settings as $setting ) :
-			$img_url = wp_get_attachment_url($setting['footer_image']); ?>
-			<span class="icon">
-			<a href="<?php echo $setting['link_url']; ?>" target="_blank">   
-				<img src="<?php echo $img_url; ?>" alt="">
-			 </a>
-			 </span>
-		<?php endforeach; ?>
-	</div>
+			<ul class="footer-contact menu  footer-menu">
+				<li><?php echo $footer_address_1 ?></li>
+				<li><?php echo $footer_address_2 ?> </li>
+				<li><?php echo $footer_address_3 ?> </li>
+				<li><?php echo $footer_address_4 ?> </li>
+				<li><?php echo $footer_address_5 ?></li>
+				<li><?php echo $footer_address_6 ?></li>
+				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . $string . "." ;?></li>
+			</ul>
+		
 		</section>
 		<section>
 		<?php foundationpress_footer_nav_r(); ?>
