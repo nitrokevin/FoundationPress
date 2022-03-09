@@ -41,6 +41,7 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 				<li><?php echo $footer_address_4 ?> </li>
 				<li><?php echo $footer_address_5 ?></li>
 				<li><?php echo $footer_address_6 ?></li>
+				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . $string . "." ;?></li>
 			</ul>
 		
 		</section>
