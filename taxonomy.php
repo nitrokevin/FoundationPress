@@ -19,7 +19,7 @@ get_header(); ?>
 <header class="header-container">
 	<div class="header-text-content">
 		<div class="header-content">
-		<h1 class="entry-title"><?php echo post_type_archive_title( '', false );?></h1>
+		<h1 class="entry-title"><?php single_term_title(); ?></h1>
 		</div>
 	</div>
 	<div class="header-image-content">
@@ -29,13 +29,12 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/share-links' ); ?>
 <div class="main-container">
 	<div class="main-grid">
-	<main class="main-content-full-width">
-	<span class="filter-bar"><h3>Filter Results:</h3><?php echo do_shortcode( '[searchandfilter fields="resources_categories,search"]' ); ?></span>
 
 	<div class="block-grid-container">
-		
 		<ul class="block-grid-2up-4up-content">
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
+
+		
 			<?php while ( have_posts() ) : the_post(); ?>
 			<li class="grid-item">	<?php get_template_part( 'template-parts/content', get_post_format() ); ?></li>
 			<?php endwhile; ?>
@@ -45,10 +44,8 @@ get_header(); ?>
 
 			<?php endif; // End have_posts() check. ?>
 			
-		</ul>
-		
-	</div>
-	</main>
+			</ul>
+			</div>
 		
 			<?php
 			if ( function_exists( 'foundationpress_pagination' ) ) :
@@ -60,6 +57,10 @@ get_header(); ?>
 					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
 				</nav>
 			<?php endif; ?>
+
+		
+	
+
 	</div>
 </div>
 

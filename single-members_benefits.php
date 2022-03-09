@@ -28,20 +28,30 @@ get_header(); ?>
 				<?php get_template_part( 'template-parts/content', '' ); ?>
 			<?php endwhile; ?>
 		</main>
+		<?php if (have_rows('sidebar_sections')) : ?>
+			
+			<aside class="sidebar">
 		
-		<?php get_sidebar(); ?>
+				<?php while (have_rows('sidebar_sections')) : the_row();
+					get_template_part('template-parts/acf-sidebar-content');
+						get_template_part('template-parts/acf-shortcode');
+				endwhile; ?>
 			
+					</aside>
 			
+			<?php endif;?>
 		
 	</div>
 </div>
 <?php } ?>
+
 <?php
 if (have_rows('sections')) :
 	while (have_rows('sections')) : the_row();
 		get_template_part('template-parts/flexible-layout-article');
 		get_template_part('template-parts/acf-cta');
 		get_template_part('template-parts/acf-tabs');
+		get_template_part('template-parts/acf-accordion');
 	endwhile;
 endif;
 ?>

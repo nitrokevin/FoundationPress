@@ -40,8 +40,16 @@
 				
 				</div>
 		</div>
-		
-		<nav class="site-navigation top-bar" role="navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
+		<div class="upper-bar hide-for-print">
+			<span class="header-search"><?php get_search_form(); ?></span>
+			<span class="members">
+				<a class="button secondary upper-bar-button" >Join</a>
+				<a class="button secondary upper-bar-button" >Login</a>
+				<a class="button white upper-bar-button" >Contact</a>
+				<span>0129 571 3344</span>
+			</span>
+		</div>
+		<nav class="site-navigation top-bar hide-for-print" role="navigation" id="<?php foundationpress_mobile_menu_id(); ?>">
 	<div class="top-bar-inner-container <?php if ( true == get_theme_mod( 'contained_header', true ) ) { ?>contained<?php } ?>">
 			<div class="top-bar-left">
 			<div class="site-desktop-title top-bar-title">
@@ -51,12 +59,11 @@
 				</div>
 			<?php foundationpress_top_bar_l(); ?>
 			</div>
-			<div class="top-bar-center">
-				
-			</div>
+			
 
 			<div class="top-bar-right">
-			<button aria-label="<?php _e('Main Menu', 'foundationpress'); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+			<?php foundationpress_top_bar_r(); ?>
+			
 				<?php if ( ! get_theme_mod( 'foundationpress_mobile_menu_layout' ) || get_theme_mod( 'foundationpress_mobile_menu_layout' ) === 'topbar' ) : ?>
 					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 				<?php endif; ?>
