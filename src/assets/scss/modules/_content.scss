@@ -1,88 +1,16 @@
-.header-container{
-  @include xy-grid-container;
-  @include xy-grid();
- margin-top:2rem;
-}
-.header-text-content{
- 
-  position:relative;
-  @include xy-cell(12,$gutters:0);
-  clip-path: polygon(0% 0%, 80% 0, 100% 20%, 100% 100%, 0% 100%);
-  order:2;
-  margin-top:-8rem;
-  z-index: 2;
-  @include breakpoint(large){
-  @include xy-cell(8,$gutters:0);
-  clip-path: none;
-  order:1;
-  margin-top:0;
-  }
-  background-color:$primary-color;
-}
-.header-image-content{
- 
-  position:relative;
-  @include xy-cell(12,$gutters:0);
-  order:1;
-  @include breakpoint(large){
-  @include xy-cell(4,$gutters:0);
-  order:2;
-  }
- 
-}
-.header-content {
- 
-  padding: 90px 60px;
-  
-  color:$white;
-}
-.header-content:before {
-  @include breakpoint(large){
-  content: "";
-width: 148px;
-height: 100px;
-background-color: $primary-color;
-position: absolute;
-top: 34px;
-right: -92px;
-border-radius: 10px;
-border-top-right-radius: 15px;
--webkit-transform: rotate(45deg);
--ms-transform: rotate(45deg);
-transform: rotate(45deg);
-z-index: 1;
-  }
-}
-.header-content:after{
-  @include breakpoint(large){
-  position: absolute;
-content: "";
-width: 115px;
-background-color: $primary-color;
-top: 95px;
-bottom: 0;
-right: -100px;
-border-radius: 10px;
-z-index: 1;
-  }
-}
-
-
 .main-container {
   @include xy-grid-container;
 }
 
 .main-grid {
-  background-color:$white;
   @include xy-grid();
   margin-top: 1rem;
 
   @include breakpoint(medium) {
-    margin-top: 1rem;
-    margin-bottom:3rem;
+    margin-top: 3rem;
   }
 
-  &.sidebar-right {
+  &.sidebar-left {
     // Place the sidebar below main content on small screens ...
     @include breakpoint(small) {
       .main-content { order: 1; }
@@ -91,121 +19,39 @@ z-index: 1;
 
     // ... and to the left on medium-up screens, when using the sidebar-left template
     @include breakpoint(medium) {
-      .main-content { order: 1; }
-      .sidebar { order: 2; }
+      .main-content { order: 2; }
+      .sidebar { order: 1; }
     }
   }
 
   // Full width template
-  .main-content-full-width{
-   padding:$global-padding;
-    
+  .main-content-full-width {
     @include xy-cell(12);
-    @include breakpoint(large) {
-      padding: 90px 60px 105px;
-    }
   }
-
 
   // Default template
   .main-content {
-    background-color:$white;
-    padding: 90px 60px 105px;
     @include breakpoint(small) {
       @include xy-cell(12);
     }
 
     @include breakpoint(medium) {
-      @include xy-cell(auto);
+      @include xy-cell(8);
     }
   }
 
   .sidebar {
-    border-left: 1px solid $dark-gray;
-    padding:$global-padding;
     @include breakpoint(small) {
       @include xy-cell(12);
     }
 
     @include breakpoint(medium) {
       @include xy-cell(4);
-      margin-top: 4rem;
+      margin-top: 1rem;
     }
-    form{
-      background-color: $secondary-color;
-      padding:$global-padding*2;
-      color:$white;
-    }
+
   }
 }
 .grecaptcha-badge { 
   visibility: hidden;
-}
-
-.share-links-container{
- 
-  background-color: $light-gray;
-  @include xy-grid-container;
-  
-  .share-links{
-    @include xy-grid;
-    @include flex-align($x:right, $y:bottom);
-    @include xy-cell(12);
-    padding:0.4rem 0;
-    font-size: rem-calc(20);
-   
-    a{color:$secondary-color;}
-    i{
-      margin-left:$global-margin;
-    }
-  }
-}
-
-// ARCHIVE BLOCK GRID
-.block-grid-container{
-  background-color:$white;
-  @include xy-cell(12, $gutters:0);
-  padding: $global-padding 0;
-.block-grid-2up-4up-content {
-  @include xy-grid;
-  @include xy-grid-layout(1, '.grid-item');
-  @include breakpoint(medium){
-    @include xy-grid-layout(2, '.grid-item');
-  }
-  @include breakpoint(large){
-    @include xy-grid-layout(4, '.grid-item');
-  }
-  
-  list-style:none;
-  margin-left: 0;
-  .category-labels{
-    background-color: $primary-color;
-    color:$white;
-    padding:0.2rem;
-    position: absolute;
-  }
-}
-.block-grid-1up-3up-content {
-  @include xy-grid;
-  @include xy-grid-layout(1, '.grid-item');
-  @include breakpoint(medium){
-    @include xy-grid-layout(1, '.grid-item');
-  }
-  @include breakpoint(large){
-    @include xy-grid-layout(3, '.grid-item');
-  }
-  
-  list-style:none;
-  margin-left: 0;
-  
-}
-}
-
-//FILTER BAR
-
-.filter-bar{
-  @include xy-grid;
-  @include xy-cell(12);
-  ul{margin-bottom:0;
-  margin-left:0;}
 }

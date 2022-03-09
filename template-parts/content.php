@@ -11,26 +11,19 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 	<header>
 	<?php
 		if ( is_single() ) {
-			
-		} else { ?>
-			<div  class="grid-image"  data-interchange="[<?php the_post_thumbnail_url( 'fp-small' ); ?>, small], [<?php the_post_thumbnail_url( 'fp-small' ); ?>, medium]"></div>
-		<?php	the_title( '<h5 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h5>' );
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		} else {
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}
 	?>
-	
+		<?php foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
-	<?php if ( is_single() ) { 
-			the_content();
-			} elseif (is_home()) {
-			foundationpress_entry_meta();
-			} else { the_excerpt();
-			} ?>
-		
+		<?php the_content(); ?>
+		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 	<footer>
 		<?php
@@ -41,5 +34,6 @@
 				)
 			);
 		?>
+		<?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
 	</footer>
 </article>

@@ -1,14 +1,5 @@
 <?php
 	
-  function get_first_post_date() {
-	
-    $all_posts = get_posts(array('numberposts' => -1, 'post_status' => 'publish', 'order' => 'ASC'));
-    
-    $first_post = $all_posts[0];
-    
-    return date('Y', strtotime($first_post->post_date));
-    
-  }
 	
 /** IMAGE FUNCTIONS */
 

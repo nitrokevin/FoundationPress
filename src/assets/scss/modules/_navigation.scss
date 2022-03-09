@@ -7,7 +7,6 @@
 //
 .desktop-menu,
 .top-bar{
- 
   @include show-for(medium);
 }
 
@@ -41,115 +40,12 @@
   img{width:100%;}
 }
 }
-.upper-bar{
-  
-  background-color: $light-gray;
-  @include xy-grid;
-  @include flex-align($x:right, $y:bottom);
-  @include xy-cell(12);
-  padding:0.4rem 0;
-  .header-search{
-    flex: 0 20%;
-    .expanding-search{
-      max-width: unset;
-      justify-content: left;
-      width:100%;
-    }
-    .search__label, .search__label__go{
-      font-size:rem-calc(20);
-      color:$black;
-    }
-    [type=checkbox]+label, [type=radio]+label{
-      margin-left:1rem;
-    }
-    .expanding-search {
-      width: 90%;
-      margin-bottom:0;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-    }
-    .sr-only {
-      display: none;
-    }
-    .search__label {
-      display: block;
-      
-      &:focus {
-        outline: 0;
-      }
-    }
-    .search__icn {
-      width: 35px;
-      height: 35px;
-      display: block;
-      margin-right: 5px;
-    }
-    
-    
-    
-    .search__input {
-      height: 35px;
-      width: 0;
-      display: block;
-      padding: 0;
-      border: 2px solid transparent;
-      border-radius: 3px;
-      margin:0;
-      background: transparent;
-      color: $dark-gray;
-      line-height: 1em;
-      transition: all .8s ease;
-     
-    }
-    .search__go {
-      display:none;
-    }
-    .search__label__go  {
-    
-      opacity:0;
-      font-size: rem-calc(18);
-      cursor: pointer;
-      transition: opacity 1s ease;
-    & :hover{
-      color:$primary-color;
-    }
-    }
-    
-    // -------------------------------
-    // Checked States
-    input[type=checkbox]:checked ~ .search__input {
-      width: 100%;
-      border-color:$dark-gray;
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-right: 5px;
-    }
-    input[type=checkbox]:checked ~  .search__label__go {
-      opacity:1;
-      width:55px;
-      transition: all .8s ease;
-    }
-    input[type=checkbox] ~  .search__label__go {
-      opacity:0;
-      width:0px;
-      transition: all .8s ease;
-    }
-    
-  }
-  .input-group{
-    margin-bottom:0;
-  }
-}
 // Top Bar
 .top-bar {
   .top-bar-inner-container {
     @include xy-cell(12);
     @include xy-grid;
-    @include flex-align($x:center, $y:bottom);
+    @include flex-align($x:center, $y:middle);
     &.contained {@include xy-grid-container();}
 
     .top-bar-left,
@@ -158,7 +54,7 @@
       flex: 1;
       img{
         max-width: 16rem;
-      padding: 0}
+      padding: $global-padding}
     }
 
     .top-bar-center {
@@ -167,7 +63,6 @@
     }
 
     .top-bar-right {
-      flex: 1 65%;
       text-align: right;
     }
   }

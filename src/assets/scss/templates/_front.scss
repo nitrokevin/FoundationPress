@@ -1,221 +1,57 @@
-//Carousel
-.front{
-  @include xy-grid-container();
+// Page header
+.front-hero {
+  .marketing {
+    @include xy-grid-container(55rem);
+    @include xy-grid;
+  }
 
-.home-main-section{
-  @include xy-grid;
-  @include flex-align($x:left, $y:stretch);
-  margin-top:2rem;
-  margin-bottom:2rem;
-.home-carousel{
-  @include xy-cell(12,$gutters:0);
-  @include breakpoint(large){
-  @include xy-cell(9);
-}
-  @include xy-grid;
-  @include flex-align($x:left, $y:stretch);
-  color:$white;
-  .home-carousel-fade{
+  @include breakpoint(small) {
+    background-size: cover;
+    background-position: bottom;
+    padding: rem-calc(65%) 0;
+    margin: 0 0 rem-calc(32);
+    height: auto;
     position: relative;
-    z-index: 2;
-    border-top-left-radius: 10px;
-   
-    @include xy-cell(12,$gutters:0);
-    clip-path: polygon(0% 0%, 80% 0, 100% 40%, 100% 100%, 0% 100%);
-    margin-top:-8rem;
-    order:2;
-    padding:$global-padding*3 $global-padding*2 $global-padding*5 $global-padding*2;
-    @include breakpoint(large){
-      clip-path: none;
-    @include xy-cell(4,$gutters:0);
-    margin-top:0;
-    order:1;
-    padding:$global-padding*6 $global-padding*2 $global-padding $global-padding*2;
-    }
-    
-    background-color: $primary-color;
-    a{@include button(false, $secondary-color, scale-color($secondary-color,$lightness:-20%), $button-color, solid);}
-    .slick-slider{
-    margin-bottom:0;
-    }
+    text-align: left;
   }
-  .home-carousel-fade:before{
-  content: "";
-  
-  @include breakpoint(large){
-width: 174px;
-height: 187px;
-top: 31px;
-right: -79px;
-  }
-background-color: $primary-color;
-position: absolute;
 
-border-radius: 10px;
-border-top-right-radius: 15px;
--webkit-transform: rotate(45deg);
--ms-transform: rotate(45deg);
-transform: rotate(45deg);
-z-index: 0;
-  }
-  .home-carousel-fade:after{
-  position: absolute;
-content: "";
-
-@include breakpoint(large){
-width: 120px;
-top: 114px;
-bottom: 0;
-right: -114px;
-}
-background-color: $primary-color;
-border-radius: 10px;
-z-index: 0;
-  }
-  .home-carousel-slide{
-    position: relative;
-    z-index: 0;
-    order:1;
-    @include xy-cell(12,$gutters:0);
-    @include breakpoint(large){
-    @include xy-cell(8,$gutters:0);
-    }
-    background-color: $secondary-color;
-    
-    .slider-content{
-      @include show-for(large);
-      padding:$global-padding*2 $global-padding*2 $global-padding*2 $global-padding*10;
-    }
-    .slider-image{
-      
-      padding-bottom:50%;
-      background-repeat: no-repeat;
+  @include breakpoint(medium) {
     background-size: cover;
     background-position: center;
+    height: rem-calc(600);
+    margin: 0 0 rem-calc(72);
+  }
+
+  .tagline {
+    @include breakpoint(small) {
+      @include xy-cell(8);
+    }
+
+    @include breakpoint(medium) {
+      @include xy-cell(5);
+      padding-top: 6rem;
     }
   }
-}
-//Member
-.home-member{
-  @include xy-cell(12,$gutters:0);
-  @include breakpoint(large){
-  @include xy-cell(3);
-  }
-  background-color: $white;
-  .member-content{
-    padding:$global-padding*2;
-  }
-  .member-image{
-    background-color: $light-gray;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom:50%;
-  }
-}
-}
-}
-//Mid section
-.home-mid-section{
-  background-color: $white;
-  .home-mid-section-container{
-    @include xy-grid-container();
-    @include flex-align($x:left, $y:stretch);
-    @include xy-grid;
-    padding:$global-padding 0;
-  .latest-news{
-    @include xy-cell(12);
-    @include breakpoint(large){
-    @include xy-cell(4);
-    }
-    ul{
-     
-      margin-left:0;
-      list-style: none;
-   li {margin-bottom:$global-margin;}
-  header{
-    @include xy-grid;
-  .grid-image{
-    @include xy-cell(5,$gutters:0);
-    padding-bottom:30%;
-  }
-  .entry-title{
-    @include xy-cell(7);
-    font-size: rem-calc(16);
-  }
-}
-  .entry-content{
-    display:none;
-  }
-  
- 
-  }
-  }
-  .right-section{
-    @include flex-align($x:left, $y:stretch);
-    @include xy-grid;
-    @include xy-cell(12);
-    @include breakpoint(large){
-    @include xy-cell(8,$gutters:0);
-    padding:$global-padding;
-    }
-    
-    .training-image{
-      @include xy-cell(12,$gutters:0);
-      padding-bottom:50%;
-      @include breakpoint(large){
-      @include xy-cell(4,$gutters:0);
-      }
-      background-color: $light-gray;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-  .training{
-    @include xy-cell(12,$gutters:0);
-    @include breakpoint(large){
-    @include xy-cell(8,$gutters:0);
-    }
-   color:$white;
-   padding:$global-padding*2;
-    background-color: $primary-color;
-   a{@include button(true, get-color(theme-color-1), scale-color(get-color(theme-color-1), $lightness: -14%), $button-color, solid);}
-  }
-}
+
+  h1 {
+    color: #fff;
   }
 }
 
-//Featured pages
-.featured-pages-container{
-  @include xy-grid-container();
-  
+// Intro
+.intro {
+  @include xy-grid-container;
+  @include xy-grid;
+  @include flex-align($x:center, $y:top);
 
-    padding: $global-padding 0;
-  .featured-pages-2up-3up-content {
-    @include xy-grid;
-  
-    @include xy-grid-layout(1, '.grid-item');
-    @include breakpoint(medium){
-      @include xy-grid-layout(2, '.grid-item');
+  .fp-intro {
+    @include breakpoint(small) {
+      @include xy-cell(12);
     }
-    @include breakpoint(large){
-      @include xy-grid-layout(3, '.grid-item');
-    }
-    
-    list-style:none;
-    margin-left: 0;
-    .grid-item{
-      background-color: $white;
-      padding-bottom:$global-padding*2;
-      .header-image{
-        padding-bottom:50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-      }
-      .entry-title, .entry-content{
-        padding:$global-padding $global-padding*2 0 $global-padding*2;
-      }
+
+    @include breakpoint(medium) {
+      @include xy-cell(10);
+
     }
   }
 }

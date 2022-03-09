@@ -12,6 +12,6 @@ if ( has_post_thumbnail( $post->ID ) && is_front_page() ) : ?>
 </header>
 	<?php endif;
 if ( has_post_thumbnail( $post->ID ) && !is_front_page()) : ?>
-	<header class="featured-hero" role="banner" data-interchange="[<?php the_post_thumbnail_url( 'fp-small' ); ?>, small], [<?php the_post_thumbnail_url( 'fp-medium' ); ?>, medium]">
+	<header class="featured-hero" role="banner" data-interchange="[<?php the_post_thumbnail_url( 'featured-small' ); ?>, small], [<?php the_post_thumbnail_url( 'featured-medium' ); ?>, medium], [<?php the_post_thumbnail_url( 'featured-large' ); ?>, large], [<?php the_post_thumbnail_url( 'featured-xlarge' ); ?>, xlarge]">
 	</header>
 <?php endif;

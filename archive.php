@@ -16,40 +16,23 @@
  */
 
 get_header(); ?>
-<header class="header-container">
-	<div class="header-text-content">
-		<div class="header-content">
-		<h1 class="entry-title"><?php echo post_type_archive_title( '', false );?></h1>
-		</div>
-	</div>
-	<div class="header-image-content">
-		<?php get_template_part( 'template-parts/featured-image' ); ?>
-	</div>
-</header>
-<?php get_template_part( 'template-parts/share-links' ); ?>
+
 <div class="main-container">
 	<div class="main-grid">
-	<main class="main-content-full-width">
-	<span class="filter-bar"><h3>Filter Results:</h3><?php echo do_shortcode( '[searchandfilter fields="resources_categories,search"]' ); ?></span>
+		<main class="main-content">
+		<?php if ( have_posts() ) : ?>
 
-	<div class="block-grid-container">
-		
-		<ul class="block-grid-2up-4up-content">
-			<?php if ( have_posts() ) : ?>
+			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-			<li class="grid-item">	<?php get_template_part( 'template-parts/content', get_post_format() ); ?></li>
+				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
 			<?php else : ?>
 				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 			<?php endif; // End have_posts() check. ?>
-			
-		</ul>
-		
-	</div>
-	</main>
-		
+
+			<?php /* Display navigation to next/previous pages when applicable */ ?>
 			<?php
 			if ( function_exists( 'foundationpress_pagination' ) ) :
 				foundationpress_pagination();
@@ -60,6 +43,10 @@ get_header(); ?>
 					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
 				</nav>
 			<?php endif; ?>
+
+		</main>
+		<!-- <?php get_sidebar(); ?> -->
+
 	</div>
 </div>
 

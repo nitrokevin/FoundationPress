@@ -22,11 +22,14 @@ $small = wp_get_attachment_image_url( $footer_background_image, 'fp-small' ); ;
 $medium =  wp_get_attachment_image_url( $footer_background_image, 'fp-medium' );
 $large = wp_get_attachment_image_url( $footer_background_image, 'fp-large' );
 $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
-$settings = get_theme_mod( 'repeater_setting', $defaults );
+
 ?>
 
 <footer class="footer"  <?php if ($footer_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium;?>, medium], [<?php echo $large;?>, large], [<?php echo $xlarge;?>, xlarge]"<?php } ?> >
 <div class="footer-container">
+	<div class="footer-grid">
+		<?php dynamic_sidebar( 'footer-widgets' ); ?>
+	</div>
 	<div class="footer-grid">
 
 		<section>
@@ -43,10 +46,7 @@ $settings = get_theme_mod( 'repeater_setting', $defaults );
 		
 		</section>
 		<section>
-		<?php foundationpress_footer_nav_r(); ?>
-		</section>
-		<section class="contact">
-		<ul class="social-links menu  footer-menu">
+			<ul class="social-links menu  footer-menu align-center">
 				<?php if (get_theme_mod('social-facebook')) : ?>
 					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
 							<i class="fab fa-facebook-f fa-fw"></i>
@@ -75,17 +75,9 @@ $settings = get_theme_mod( 'repeater_setting', $defaults );
 						</a></li>
 				<?php endif; ?>
 			</ul>
-		<ul class="footer-contact menu vertical footer-menu">
-		
-				<li><?php echo $footer_email ?></li>
-				<li><?php echo $footer_address_1 ?></li>
-				<li><?php echo $footer_address_2 ?> </li>
-				<li><?php echo $footer_address_3 ?> </li>
-				<li><?php echo $footer_address_4 ?> </li>
-				<li><?php echo $footer_address_5 ?> <?php echo $footer_address_6 ?></li>
-				<li>Company Number<?php echo $footer_company_number ?></li>
-				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . get_first_post_date() .  '-' .  date('Y') . $string . "." ;?></li>
-			</ul>
+		</section>
+		<section>
+		<?php foundationpress_footer_nav_r(); ?>
 		</section>
 	</div>
 </div>

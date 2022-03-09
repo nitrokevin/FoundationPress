@@ -9,7 +9,6 @@
 
 register_nav_menus(
 	array(
-		'top-button-bar'  => esc_html__( 'Top Button Bar', 'foundationpress' ),
 		'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
 		'top-bar-l'  => esc_html__( 'Left Top Bar', 'foundationpress' ),
 		'footer-nav-l'  => esc_html__( 'Footer Left', 'foundationpress' ),
@@ -17,26 +16,7 @@ register_nav_menus(
 		'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
 	)
 );
-/**
- * Desktop navigation - button bar
- *
- * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
- */
-if ( ! function_exists( 'foundationpress_top_button_bar' ) ) {
-	function foundationpress_top_button_bar() {
-		wp_nav_menu(
-			array(
-				'container'      => false,
-				'menu_class'     => 'menu desktop-menu align-right ',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-				'theme_location' => 'top-button-bar',
-				'depth'          => 3,
-				'fallback_cb'    => false,
-				'walker'         => new Foundationpress_Top_Bar_Walker(),
-			)
-		);
-	}
-}
+
 
 /**
  * Desktop navigation - left top bar
@@ -88,7 +68,7 @@ if ( ! function_exists( 'foundationpress_footer_nav_l' ) ) {
 		wp_nav_menu(
 			array(
 				'container'      => false,
-				'menu_class'     => 'dropdown menu vertical',
+				'menu_class'     => 'dropdown menu desktop-menu',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s footer-left-menu" >%3$s</ul>',
 				'theme_location' => 'footer-nav-l',
 				'depth'          => 3,
@@ -108,7 +88,7 @@ if ( ! function_exists( 'foundationpress_footer_nav_r' ) ) {
 		wp_nav_menu(
 			array(
 				'container'      => false,
-				'menu_class'     => 'dropdown menu align-left vertical',
+				'menu_class'     => 'dropdown menu desktop-menu align-right',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s footer-right-menu" >%3$s</ul>',
 				'theme_location' => 'footer-nav-r',
 				'depth'          => 3,
