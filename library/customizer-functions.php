@@ -1,416 +1,435 @@
 <?php
 
-function avidd_theme_settings( $wp_customize ) {
- 
-     /**
-     * Add Panel
-     */
-     $wp_customize->add_panel( 'theme_settings_panel', array(
-      'priority'    => 10,
-      'title'       => __( 'Theme options', 'avidd' ),
-      'description' => __( 'Theme options and styles', 'avidd' ),
-     ) );
 
-     /**
-     * Add a Section for Site Header
-     */
-    $wp_customize->add_section( 'avidd_header', array(
-      'title'       => __( 'Site Header', 'avidd' ),
-      'priority'    => 10,
-      'panel'       => 'theme_settings_panel',
-      'description' => __( 'Modify the site header', 'avidd' ),
-     ) );
-     
-     /**
-     * Add a Section for Site Footer
-     */
-     $wp_customize->add_section( 'avidd_footer', array(
-      'title'       => __( 'Site Footer', 'avidd' ),
-      'priority'    => 10,
-      'panel'       => 'theme_settings_panel',
-      'description' => __( 'Modify the site footer.', 'avidd' ),
-     ) );
-
-      /**
-     * Add a Section for site settings
-     */
-    $wp_customize->add_section( 'avidd_settings', array(
-      'title'       => __( 'Site Settings', 'avidd' ),
-      'priority'    => 10,
-      'panel'       => 'theme_settings_panel',
-      'description' => __( 'Modify the site settings.', 'avidd' ),
-     ) );
-     
-    }
-    add_action( 'customize_register', 'avidd_theme_settings' );
-
-    function avidd_theme_settings_fields( $fields ) {
-      include 'colors.php';
-    /**
-    * Add a Field to change the header
-    */
-    $color_array =  array(
-      '#fefefe' ,
-      $primary_color ,
-      $secondary_color ,
-      $light_gray ,
-      $medium_gray ,
-      $dark_gray ,
-      $theme_color_1,
-      $theme_color_2,
-      $theme_color_3,
-      'transparent' => 'transparent',
-    );
-   
-    $fields[] = array(
-      'type'        => 'color-palette',
-      'setting'     => 'avidd_headerbackground_color',
-      'label'       => __( 'Header background color', 'avidd' ),
-      'description' => __( '', 'avidd' ),
-      'section'     => 'avidd_header',
-      'priority'    => 10,
-      'default'     => '', 
-      'choices'     => [
-        'colors' => $color_array,
-        'style'  => 'round',
-      ],     
-      'output'      => array(
-        array(
-          'element'  => ' .top-bar, .top-bar ul, .title-bar',
-          'property' => 'background-color'
-        ),
-      ));
-      
-      $fields[] = array(
-        'type'        => 'color-palette',
-        'setting'     => 'avidd_headertext_color',
-        'label'       => __( 'Header text color', 'avidd' ),
-        'description' => __( '', 'avidd' ),
-        'section'     => 'avidd_header',
-        'priority'    => 10,
-        'default'     => '#fefefe',
-        'choices'     => [
-          'colors' => $color_array ,
-          'style'  => 'round',
-        ],   
-        'output'      => array(
-          array(
-            'element'  => '.top-bar, .desktop-menu a,
-            .mobile-menu a',
-            'property' => 'color'
-          ),
-        ));
-
-        $fields[] = array(
-          'type'        => 'image',
-          'settings'    => 'header_logo',
-          'label'       => esc_html__( 'Header Image', 'avidd' ),
-          'description' => esc_html__( '', 'avidd' ),
-          'section'     => 'avidd_header',
-          'choices'     => [
-            'save_as' => 'url',
-          ]
-          );
-          $fields[] = array(
-            'type'        => 'switch',
-            'settings'    => 'contained_header',
-            'label'       => esc_html__( 'Contained Header', 'avidd' ),
-            'section'     => 'avidd_header',
-            'default'     => '1',
-            'priority'    => 10,
-            'choices'     => [
-              'on'  => esc_html__( 'Enable', 'avidd' ),
-              'off' => esc_html__( 'Disable', 'avidd' ),
-              ]
-            );
-          $fields[] = array(
-          'type'        => 'switch',
-        	'settings'    => 'sticky_header',
-        	'label'       => esc_html__( 'Sticky Header', 'avidd' ),
-        	'section'     => 'avidd_header',
-        	'default'     => '1',
-        	'priority'    => 10,
-          'choices'     => [
-            'on'  => esc_html__( 'Enable', 'avidd' ),
-            'off' => esc_html__( 'Disable', 'avidd' ),
-            ]
-          );
-          $fields[] = array(
-            'type'        => 'switch',
-            'settings'    => 'fixed_header',
-            'label'       => esc_html__( 'Sticky header over featured image', 'avidd' ),
-            'section'     => 'avidd_header',
-            'default'     => '1',
-            'priority'    => 10,
-            'choices'     => [
-              'on'  => esc_html__( 'Enable', 'avidd' ),
-              'off' => esc_html__( 'Disable', 'avidd' ),
-              ]
-            );
-         
-         
-            $fields[] = array(
-              'type'        => 'color-palette',
-              'setting'     => 'avidd_footerbackground_color',
-              'label'       => __( 'Footer background color', 'avidd' ),
-              'description' => __( '', 'avidd' ),
-              'section'     => 'avidd_footer',
-              'priority'    => 10,
-              'choices'     => [
-                'colors' => $color_array ,
-                'style'  => 'round',
-              ],     
-              'output'      => array(
-                array(
-                  'element'  => '.footer',
-                  'property' => 'background-color'
-                ),
-              ));
-              $fields[] = array(
-                'type'        => 'image',
-                'settings'    => 'footer_background_image',
-                'label'       => esc_html__( 'Footer Background Image', 'avidd' ),
-                'description' => esc_html__( '', 'avidd' ),
-                'section'     => 'avidd_footer',
-                'choices'     => [
-                  'save_as' => 'id',
-                ]
-                );
-
-                $fields[] = array(
-                  'type'        => 'color-palette',
-                  'setting'     => 'avidd_bodybackground_color',
-                  'label'       => __( 'Body background color', 'avidd' ),
-                  'description' => __( '', 'avidd' ),
-                  'section'     => 'avidd_settings',
-                  'priority'    => 10,
-                  'default'     => '#f3f3f3', 
-                  'choices'     => [
-                    'colors' => $color_array,
-                    'style'  => 'round',
-                  ],     
-                  'output'      => array(
-                    array(
-                      'element'  => ' body ',
-                      'property' => 'background-color'
-                    ),
-                  ));
-      
-      return $fields;
-    }
-    add_filter( 'kirki/fields', 'avidd_theme_settings_fields' );
-  
+use Kirki\Util\Helper;
+include 'colors.php';
+$color_array =  array(
+  $primary_color ,
+  $secondary_color ,
+  $light_gray ,
+  $medium_gray ,
+  $dark_gray ,
+  $theme_color_1,
+  $theme_color_2,
+  $theme_color_3,
+  $white,
 
 
-// CUSTOMIZER SOCIAL ICONS
-function social_customizer( $wp_customize ) {
-$wp_customize->add_section(
-'social',
-array(
-  'title' => 'Social Media',
-  'description' => 'Add social media links to header and footer',
-  'priority' => 50,
-)
 );
-$wp_customize->add_setting(
-'social-instagram',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-instagram',
-array(
-'label' => 'Instagram',
-'section' => 'social',
-'type' => 'checkbox',
-)
-);
-$wp_customize->add_setting(
-'social-instagram-url',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-instagram-url',
-array(
-'label' => 'Intagram Page',
-'section' => 'social',
-'type' => 'text',
-)
-);
-$wp_customize->add_setting(
-'social-facebook',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-facebook',
-array(
-'label' => 'Facebook',
-'section' => 'social',
-'type' => 'checkbox',
-)
-);
-$wp_customize->add_setting(
-'social-facebook-url',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-facebook-url',
-array(
-'label' => 'Facebook Page',
-'section' => 'social',
-'type' => 'text',
-)
-);
-$wp_customize->add_setting(
-'social-twitter',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-twitter',
-array(
-'label' => 'Twitter',
-'section' => 'social',
-'type' => 'checkbox',
-)
-);
-$wp_customize->add_setting(
-'social-linkedin',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_setting(
-'social-twitter-url',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-twitter-url',
-array(
-'label' => 'Twitter Page',
-'section' => 'social',
-'type' => 'text',
-)
-);
-$wp_customize->add_control(
-'social-linkedin',
-array(
-'label' => 'LinkedIn',
-'section' => 'social',
-'type' => 'checkbox',
-)
-);
-$wp_customize->add_setting(
-'social-linkedin-url',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-linkedin-url',
-array(
-'label' => 'LinkedIn Page',
-'section' => 'social',
-'type' => 'text',
-)
-);
-$wp_customize->add_setting(
-'social-pinterest',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-pinterest',
-array(
-'label' => 'Pinterest',
-'section' => 'social',
-'type' => 'checkbox',
-)
-);
-$wp_customize->add_setting(
-'social-pinterest-url',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-pinterest-url',
-array(
-'label' => 'Pinterest Page',
-'section' => 'social',
-'type' => 'text',
-)
-);
-$wp_customize->add_setting(
-'social-pinterest',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-pinterest',
-array(
-'label' => 'Pinterest',
-'section' => 'social',
-'type' => 'checkbox',
-)
-);
-$wp_customize->add_setting(
-'social-pinterest-url',
-array(
-'default' => '',
-)
-);
-$wp_customize->add_control(
-'social-pinterest-url',
-array(
-'label' => 'Pinterest Page',
-'section' => 'social',
-'type' => 'text',
-)
-);
-
-$wp_customize->add_setting(
-  'social-youtube',
-  array(
-  'default' => '',
-  )
-  );
-  $wp_customize->add_control(
-  'social-youtube',
-  array(
-  'label' => 'Youtube',
-  'section' => 'social',
-  'type' => 'checkbox',
-  )
-  );
-  $wp_customize->add_setting(
-  'social-youtube-url',
-  array(
-  'default' => '',
-  )
-  );
-  $wp_customize->add_control(
-  'social-youtube-url',
-  array(
-  'label' => 'Youtube Page',
-  'section' => 'social',
-  'type' => 'text',
-  )
-  );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-add_action( 'customize_register', 'social_customizer' );
+
+// Do not proceed if Kirki does not exist.
+if ( ! class_exists( 'Kirki' ) ) {
+	return;
+}
+
+Kirki::add_config(
+	'avidd_theme_config',
+	[
+		'option_type' => 'theme_mod',
+		'capability'  => 'manage_options',
+	]
+);
+
+new \Kirki\Panel(
+	'theme_settings',
+	[
+		'priority'    => 10,
+		'title'       => esc_html__( 'Theme Settings', 'avidd' ),
+		'description' => esc_html__( 'Settings to control the theme styles.', 'avidd' ),
+	]
+);
+
+$sections = [
+  'site_header'      => [ esc_html__( 'Site Header', 'avidd' ), '' ],
+  'site_footer'      => [ esc_html__( 'Site Footer', 'avidd' ), '' ],
+  'site_settings'      => [ esc_html__( 'Site Settings', 'avidd' ), '' ],
+  'social_media'      => [ esc_html__( 'Social Media', 'avidd' ), '' ],
+
+
+];
+
+foreach ( $sections as $section_id => $section ) {
+	$section_args = [
+		'title'       => $section[0],
+		'description' => $section[1],
+		'panel'       => 'theme_settings',
+	];
+	if ( isset( $section[2] ) ) {
+		$section_args['type'] = $section[2];
+	}
+	new \Kirki\Section( str_replace( '-', '_', $section_id ) . '_section', $section_args );
+}
+
+
+new \Kirki\Field\Color_Palette(
+	[
+		'settings'    => 'color_palette_setting_0',
+		'label'       => esc_html__( 'Nav background colour', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => '#fefefe',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => $color_array,
+			'style'  => 'round',
+		],
+    'output'      => [
+      array(
+        'element'  => ' .top-bar, .top-bar ul, .title-bar,#mega-menu-wrap-top-bar-r',
+        'property' => 'background-color'
+      ),
+  ]
+	]
+);
+new \Kirki\Field\Color_Palette(
+	[
+		'settings'    => 'color_palette_setting_1',
+		'label'       => esc_html__( 'Nav menu item colour', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => '$primary-color',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => $color_array,
+			'style'  => 'round',
+		],
+    'output'      => [
+      array(
+        'element'  => '.top-bar, .desktop-menu a, .mobile-menu a, #mega-menu-wrap-top-bar-r #mega-menu-top-bar-r > li.mega-menu-item > a.mega-menu-link',
+            'property' => 'color'
+      ),
+  ]
+	]
+);
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'header_background_image',
+		'label'       => esc_html__( 'Header background image', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => '',
+		'choices'     => [
+      'save_as' => 'id',
+		],
+	]
+);
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'header_logo',
+		'label'       => esc_html__( 'Header logo', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => '',
+		'choices'     => [
+      'save_as' => 'url',
+		],
+	]
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'contained_header',
+		'label'       => esc_html__( 'Contained Header', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'sticky_header',
+		'label'       => esc_html__( 'Sticky Header', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'fixed_header',
+		'label'       => esc_html__( 'Sticky header over featured image', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_header_section',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+//Site Footer
+new \Kirki\Field\Color_Palette(
+	[
+		'settings'    => 'color_palette_setting_3',
+		'label'       => esc_html__( 'Footer background colour', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_footer_section',
+		'default'     => '#fefefe',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => $color_array,
+			'style'  => 'round',
+		],
+    'output'      => [
+      array(
+        'element'  => '.footer',
+        'property' => 'background-color'
+      ),
+  ]
+	]
+);
+new \Kirki\Field\Color_Palette(
+	[
+		'settings'    => 'color_palette_setting_4',
+		'label'       => esc_html__( 'Footer text colour', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_footer_section',
+		'default'     => '$primary-color',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => $color_array,
+			'style'  => 'round',
+		],
+    'output'      => [
+      array(
+        'element'  => '.footer, .footer a, .footer li',
+            'property' => 'color'
+      ),
+  ]
+	]
+);
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'footer_background_image',
+		'label'       => esc_html__( 'Footer background image', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_footer_section',
+		'default'     => '',
+		'choices'     => [
+      'save_as' => 'id',
+		],
+	]
+);
+new \Kirki\Field\Repeater(
+	[
+		'settings' => 'repeater_setting',
+		'label'    => esc_html__( 'Footer images', 'avidd' ),
+		'section'  => 'site_footer_section',
+		'priority' => 11,
+  
+		'default'  => [
+			[
+				
+			],
+			
+		],
+		'fields'   => [
+      'footer_image' =>[
+        'type'        => 'image',
+        'label'       => esc_html__( 'Footer image', 'avidd' ),
+        'description' => esc_html__( '', 'avidd' ),
+        'section'     => 'site_footer_section',
+        'default'     => '',
+        'choices'     => [
+          'save_as' => 'id',
+        ],
+      ],
+	  'link_url'    => [
+		'type'        => 'text',
+		'label'       => esc_html__( 'Link URL', 'avidd' ),
+		'description' => esc_html__( 'Description', 'avidd' ),
+		'default'     => '',
+	],
+		],
+	]
+);
+
+//Site settings
+new \Kirki\Field\Color_Palette(
+	[
+		'settings'    => 'color_palette_setting_7',
+		'label'       => esc_html__( 'Page background colour', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_settings_section',
+		'default'     => '#fefefe',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => $color_array,
+			'style'  => 'round',
+		],
+    'output'      => [
+      array(
+        'element'  => ' body',
+        'property' => 'background-color'
+      ),
+  ]
+	]
+);
+
+//Social Media
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'social-instagram',
+		'label'       => esc_html__( 'Instagram', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'social_media_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'social-instagram-url',
+		'label'    => esc_html__( 'Instagram URL', 'avidd' ),
+		'section'  => 'social_media_section',
+		'default'  => 'https://instagram.com/',
+		'priority' => 10,
+		'active_callback'  => [
+			[
+				'setting'  => 'social-instagram',
+				'operator' => '===',
+				'value'    => true,
+			],
+		],
+	],
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'social-facebook',
+		'label'       => esc_html__( 'Facebook', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'social_media_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'social-facebook-url',
+		'label'    => esc_html__( 'Facebook URL', 'avidd' ),
+		'section'  => 'social_media_section',
+		'default'  => 'https://facebook.com/',
+		'priority' => 10,
+		'active_callback'  => [
+			[
+				'setting'  => 'social-facebook',
+				'operator' => '===',
+				'value'    => true,
+			],
+		],
+	],
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'social-twitter',
+		'label'       => esc_html__( 'Twitter', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'social_media_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'social-twitter-url',
+		'label'    => esc_html__( 'Twitter URL', 'avidd' ),
+		'section'  => 'social_media_section',
+		'default'  => 'https://twitter.com/',
+		'priority' => 10,
+		'active_callback'  => [
+			[
+				'setting'  => 'social-twitter',
+				'operator' => '===',
+				'value'    => true,
+			],
+		],
+	],
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'social-linkedin',
+		'label'       => esc_html__( 'LinkedIn', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'social_media_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'social-linkedin-url',
+		'label'    => esc_html__( 'LinkedIn URL', 'avidd' ),
+		'section'  => 'social_media_section',
+		'default'  => 'https://linkedin.com/',
+		'priority' => 10,
+		'active_callback'  => [
+			[
+				'setting'  => 'social-linkedin',
+				'operator' => '===',
+				'value'    => true,
+			],
+		],
+	],
+);
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'social-youtube',
+		'label'       => esc_html__( 'YouTube', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'social_media_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'social-youtube-url',
+		'label'    => esc_html__( 'YouTube URL', 'avidd' ),
+		'section'  => 'social_media_section',
+		'default'  => 'https://youtube.com/',
+		'priority' => 10,
+		'active_callback'  => [
+			[
+				'setting'  => 'social-youtube',
+				'operator' => '===',
+				'value'    => true,
+			],
+		],
+	],
+);
+
 
 
 
@@ -424,12 +443,7 @@ array(
    'priority' => 40,
 )
 );
-$wp_customize->add_setting( 'footer_logo' );
-$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_logo', array(
-'label' => __( 'Footer Logo', 'logo' ),
-'section' => 'contact_section',
-'settings' => 'footer_logo',
-) ) );
+
 $wp_customize->add_setting(
 'footer_phone_number',
 array(
@@ -549,21 +563,7 @@ array(
 'type' => 'text',
 )
 ); 
-$wp_customize->add_setting(
-'footer_copyright',
-array(
-'default' => '',
-'sanitize_callback' => 'sanitize_text_field',
-)
-);
-$wp_customize->add_control(
-'footer_copyright',
-array(
-'label' => 'Copyright',
-'section' => 'contact_section',
-'type' => 'text',
-)
-); 
+
 $wp_customize->add_setting(
 'footer_company_number',
 array(

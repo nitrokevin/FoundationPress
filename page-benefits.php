@@ -11,11 +11,11 @@
  */
 
 get_header(); ?>
-
 <header class="header-container">
 	<div class="header-text-content">
 		<div class="header-content">
 			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<?php get_template_part( 'template-parts/content', 'page' ); ?>
 		</div>
 	</div>
 	<div class="header-image-content">
@@ -25,37 +25,27 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/share-links' ); ?>
 <div class="main-container">
 	<div class="main-grid">
-	<?php if ( !empty( get_the_content() ) ) {?> 
 		<main class="main-content-full-width">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
-
-			<?php endwhile; ?>
+			<span class="filter-bar"><h3>Filter Results:</h3><?php echo do_shortcode( '[searchandfilter fields="member_benefit_categories,search"]' ); ?></span>
+		<div class="block-grid-container">
+			<ul class="block-grid-2up-4up-content">
+		    <?php $args = array(
+					'posts_per_page' => '200',
+					'post_type' => 'members_benefits',
+					'order' => 'ASC',
+					);
+			$query = new WP_Query($args);
+			
+			while ($query->have_posts()) {
+			$query->the_post(); 
+			 ?>
+			<li class="grid-item">	<?php get_template_part( 'template-parts/content', 'benefits' ); ?></li>
+			<?php } ?>
+			</ul>
+		</div>
 		</main>
-		<?php } ?>
-		<?php if (have_rows('sidebar_sections')) : ?>
-		
-			<aside class="sidebar">
-		
-				<?php while (have_rows('sidebar_sections')) : the_row();
-					get_template_part('template-parts/acf-sidebar-content');
-						get_template_part('template-parts/acf-shortcode');
-				endwhile; ?>
-		
-					</aside>
-				
-			<?php endif;?>
-	</div>
+		</div>
 </div>
 
-<?php
-if (have_rows('sections')) :
-	while (have_rows('sections')) : the_row();
-		get_template_part('template-parts/flexible-layout-article');
-		get_template_part('template-parts/acf-cta');
-		get_template_part('template-parts/acf-tabs');
-	endwhile;
-endif;
-?>
 <?php
 get_footer();

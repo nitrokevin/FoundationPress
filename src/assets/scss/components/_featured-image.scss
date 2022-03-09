@@ -2,13 +2,20 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: rem-calc(100);
+  height: rem-calc(350);
 
   @include breakpoint(medium) {
-    height: rem-calc(200);
+    height: rem-calc(450);
+  }
+  @include breakpoint(large) {
+    height:100%;
   }
 
-  @include breakpoint(xlarge) {
-    height: rem-calc(400);
-  }
+}
+
+.grid-image{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom:70%;
 }
