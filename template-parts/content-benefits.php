@@ -15,10 +15,20 @@
 	<header>
 	<?php
 		if ( is_single() ) {
-			
+			the_title( '<h1 class="entry-title">', '</h1>' );
 		} else { ?>
-			<div  class="grid-image"  data-interchange="[<?php the_post_thumbnail_url( 'fp-small' ); ?>, small], [<?php the_post_thumbnail_url( 'fp-small' ); ?>, medium]"></div>
-		<?php	the_title( '<h5 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h5>' );
+			<div  class="grid-image"  data-interchange="[<?php the_post_thumbnail_url( 'fp-small' ); ?>, small]">
+			<?php $terms =  get_the_terms( get_the_ID(), 'member_benefit_categories' );
+			if ($terms){
+			foreach ( $terms as $term ) { 
+				$benefit_terms .=  $term->name . ', ';
+				
+    			}
+				$benefit_terms = rtrim( $benefit_terms, ', ' );
+				echo '<span class="category-labels">' . $benefit_terms . '</span>';
+			 } ?>
+			</div>
+		<?php	the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' );
 		}
 	?>
 	
@@ -26,8 +36,6 @@
 	<div class="entry-content">
 	<?php if ( is_single() ) { 
 			the_content();
-			} elseif (is_home()) {
-			foundationpress_entry_meta();
 			} else { the_excerpt();
 			} ?>
 		

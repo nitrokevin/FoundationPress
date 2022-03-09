@@ -68,23 +68,25 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1260);
+$global-width: rem-calc(1600);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
+  primary: #232a84,
+  secondary: #009fe3,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
+  theme-color-1: #a7322e,
 );
-$light-gray: #e6e6e6;
+
+$light-gray: #efefef;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Rubik', Helvetica, Roboto, Arial, sans-serif;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -92,7 +94,7 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 3px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -100,8 +102,8 @@ $global-flexbox: true;
 $global-prototype-breakpoints: false;
 $global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
-$print-transparent-backgrounds: true;
-$print-hrefs: true;
+$print-transparent-backgrounds: false;
+$print-hrefs: false;
 
 @include add-foundation-colors;
 
@@ -122,7 +124,7 @@ $breakpoints-hidpi: (
   retina: 2,
   hidpi-3: 3
 );
-$print-breakpoint: large;
+$print-breakpoint: small;
 $breakpoint-classes: (small medium large);
 
 // 3. The Grid
@@ -150,7 +152,7 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'p' : ('font-size': 16),
+    'p' : ('font-size': 18),
     'h1': ('font-size': 24),
     'h2': ('font-size': 20),
     'h3': ('font-size': 19),
@@ -159,9 +161,9 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'p' : ('font-size': 16),
+    'p' : ('font-size': 18, 'line-height':1.6, 'margin-bottom':2rem),
     'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
+    'h2': ('font-size': 2rem),
     'h3': ('font-size': 31),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
@@ -172,7 +174,7 @@ $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;
 $paragraph-lineheight: 1.6;
-$paragraph-margin-bottom: 1rem;
+$paragraph-margin-bottom: 3rem;
 $paragraph-text-rendering: optimizeLegibility;
 $enable-code-inline: true;
 $anchor-color: $primary-color;
@@ -180,8 +182,8 @@ $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
-$hr-border: 1px solid $medium-gray;
-$hr-margin: rem-calc(20) auto;
+$hr-border: 2rem solid $light-gray;
+$hr-margin: rem-calc(0) auto;
 $list-lineheight: $paragraph-lineheight;
 $list-margin-bottom: $paragraph-margin-bottom;
 $list-style-type: disc;
@@ -305,7 +307,7 @@ $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
-$button-color-alt: $black;
+$button-color-alt: $white;
 $button-radius: $global-radius;
 $button-border: 1px solid transparent;
 $button-hollow-border-width: 1px;
@@ -448,8 +450,8 @@ $input-prefix-color: $black;
 $input-prefix-background: $light-gray;
 $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
-$form-label-color: $black;
-$form-label-font-size: rem-calc(14);
+$form-label-color: inherit;
+$form-label-font-size: rem-calc(16);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
@@ -825,15 +827,15 @@ $table-stack-breakpoint: medium;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
+$tab-background: $light-gray;
 $tab-color: $primary-color;
-$tab-background-active: $light-gray;
+$tab-background-active: $medium-gray;
 $tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
+$tab-item-font-size: rem-calc(14);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-border: 0;
 $tab-content-color: $body-font-color;
 $tab-content-padding: 1rem;
 

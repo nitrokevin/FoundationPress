@@ -1,9 +1,11 @@
 .footer{
   background-position: center;
   background-repeat: no-repeat;
+  color:$white;
+  a{color:$white;}
 .footer-container {
   @include xy-grid-container;
-  margin-top: rem-calc(60);
+  margin-top: rem-calc(30);
 }
 
 .footer-grid {
@@ -11,12 +13,26 @@
   padding: rem-calc(30) 0;
 
   section {
-    @include xy-cell();
+    flex: 1;
     @include breakpoint(large) {
-      @include xy-cell(auto);
+      flex: 1 auto;
+    }
+    &.contact{
+      flex: 1  auto;
+      @include breakpoint(medium) {
+      flex: 0 15%;
+      }
     }
   }
-
+  .footer-icons{
+    @include xy-grid;
+  @include flex-align($x:left, $y:middle);
+    .icon{
+    margin-right:$global-margin;
+      img{height: 80px;
+        object-fit: cover;}
+    }
+  }
   ul {
     list-style-type: none;
     margin: 0;

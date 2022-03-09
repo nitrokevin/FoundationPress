@@ -30,12 +30,13 @@ get_header(); ?>
 <div class="main-container">
 	<div class="main-grid">
 	<main class="main-content-full-width">
-	<span class="filter-bar"><h3>Filter Results:</h3><?php echo do_shortcode( '[searchandfilter fields="resources_categories,search"]' ); ?></span>
+	<span class="filter-bar"><h3>Filter Results:</h3><?php echo do_shortcode( '[searchandfilter fields="events_categories,search"]' ); ?></span>
 
 	<div class="block-grid-container">
-		
 		<ul class="block-grid-2up-4up-content">
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
+
+		
 			<?php while ( have_posts() ) : the_post(); ?>
 			<li class="grid-item">	<?php get_template_part( 'template-parts/content', get_post_format() ); ?></li>
 			<?php endwhile; ?>
@@ -45,9 +46,9 @@ get_header(); ?>
 
 			<?php endif; // End have_posts() check. ?>
 			
-		</ul>
-		
-	</div>
+			</ul>
+			
+			</div>
 	</main>
 		
 			<?php
@@ -60,6 +61,10 @@ get_header(); ?>
 					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
 				</nav>
 			<?php endif; ?>
+
+		
+	
+
 	</div>
 </div>
 
