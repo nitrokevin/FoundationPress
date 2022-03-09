@@ -4,6 +4,8 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
+@import 'components/slick';
+
 
 @include foundation-global-styles;
 //@include foundation-grid;
@@ -78,6 +80,8 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
+@import "components/tabs";
+@import "components/elliswhittam";
 
 // Templates
 @import "templates/front";

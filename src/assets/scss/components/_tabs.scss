@@ -1,0 +1,17 @@
+.tab-container{
+    @include xy-grid-container;
+.tab-grid{
+    @include xy-grid;
+    margin-top: 1rem;
+    margin-bottom:3rem;
+    .tab-content{
+        @include xy-cell(12,$gutters:0);
+        padding:$global-padding*2;
+        background-color: $white;
+        .tabs-panel{
+            @include xy-cell(8);
+        }
+
+    }  
+}
+}

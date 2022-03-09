@@ -28,10 +28,12 @@ get_header(); ?>
 				<?php get_template_part( 'template-parts/content', '' ); ?>
 			<?php endwhile; ?>
 		</main>
+
+			<aside class="sidebar" >
+	<?php dynamic_sidebar( 'training-sidebar-widgets' ); ?>
+	</aside>
+	
 		
-		<?php get_sidebar(); ?>
-			
-			
 		
 	</div>
 </div>
