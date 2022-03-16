@@ -8,7 +8,7 @@
 
 ?>
 
-<nav class="mobile-off-canvas-menu off-canvas position-left" id="<?php foundationpress_mobile_menu_id(); ?>" data-off-canvas data-auto-focus="false" role="navigation">
+<nav class="mobile-off-canvas-menu off-canvas position-right " id="<?php foundationpress_mobile_menu_id(); ?>" data-off-canvas data-auto-focus="false" role="navigation">
 <button class="close-button" aria-label="Close menu" type="button" data-close>
   <span aria-hidden="true">&times;</span>
 </button>

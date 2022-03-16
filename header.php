@@ -23,12 +23,12 @@
 	<?php endif; ?>
 	<?php if ( true == get_theme_mod( 'sticky_header', true ) ) : ?>
 	<div data-sticky-container <?php if ( true == get_theme_mod( 'fixed_header', true ) ) : ?><?php if ( has_post_thumbnail( $post->ID ) ) { ?>class="fixed-header"<?php } ?><?php endif; ?>>
-	<div data-sticky data-sticky-on="small" data-options="marginTop:0; z-index:100;">
+	<div data-sticky data-sticky-on="medium" data-options="marginTop:0; z-index:100;" style="width:100%">
 	<?php endif; ?>
 	<header class="site-header" role="banner">
 		<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle(); ?>>
 		<div class="title-bar-left"> 
-					<button aria-label="<?php _e('Main Menu', 'foundationpress'); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+				
 				</div>
 				<div class="title-bar-center">
 					<span class="site-mobile-title title-bar-title">
@@ -37,7 +37,7 @@
 					</span>
 				</div>
 				<div class="title-bar-right">
-				
+				<button aria-label="<?php _e('Main Menu', 'foundationpress'); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 				</div>
 		</div>
 		
@@ -56,7 +56,7 @@
 			</div>
 
 			<div class="top-bar-right">
-			<button aria-label="<?php _e('Main Menu', 'foundationpress'); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+			<?php foundationpress_top_bar_r(); ?>
 				<?php if ( ! get_theme_mod( 'foundationpress_mobile_menu_layout' ) || get_theme_mod( 'foundationpress_mobile_menu_layout' ) === 'topbar' ) : ?>
 					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
 				<?php endif; ?>
