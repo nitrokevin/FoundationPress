@@ -1,1 +1,13 @@
-$dark-nav-color: #2C3840;
+$theme-color-1 : #ff0000;
+$theme-color-2 : #00ff00;
+$theme-color-3 : #0a0a0a;
+$theme-color-4 : #0a0a0a;
+
+section, article {
+&.primary-color {background-color: $primary-color; color:$white;}
+&.secondary-color {background-color: $secondary-color; color:$white;}
+&.theme-color-1 {background-color: $theme-color-1; color:$white;}
+&.theme-color-2 {background-color: $theme-color-2; color:$white;}
+&.theme-color-3 {background-color: $theme-color-3; color:$white;}
+&.theme-color-4 {background-color: $theme-color-4; color:$white;}
+}

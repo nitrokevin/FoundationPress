@@ -8,11 +8,15 @@
 
 @import 'settings';
 @import 'foundation';
+@import "global/blocks";
+@import "global/colors";
 
 @include foundation-typography;
 @include foundation-button;
 @include foundation-table;
-
+.wp-core-ui, .wp-admin{
+	ul{list-style: none;}
+   }
 .is-root-container {
 	@include xy-grid-container;
   }
@@ -87,4 +91,3 @@ body {
 .wp-block-latest-posts.is-grid{
 	list-style: none;
 }
-

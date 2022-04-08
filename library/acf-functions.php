@@ -1,4 +1,6 @@
 <?php if (function_exists('acf_add_local_field_group')) :
+include 'colors.php';
+
 /*************************************************************/
 /*   Friendly Block Titles                                  */
 /***********************************************************/
@@ -18,7 +20,6 @@ function my_layout_title($title, $field, $layout, $i) {
 	return $title;
 }
 add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
-include 'colors.php';
 $color_array =  array(
 	'#fefefe' => 'white',
 	$primary_color => 'primary-color',
@@ -29,6 +30,7 @@ $color_array =  array(
 	$theme_color_1 => 'theme-color-1',
 	$theme_color_2 => 'theme-color-2',
 	$theme_color_3 => 'theme-color-3',
+	$theme_color_4 => 'theme-color-4',
 	'transparent' => 'transparent',
 );
 
@@ -52,7 +54,239 @@ acf_add_local_field_group(array(
 				),
 				'layouts' => array(
 
+//Full width 50-50
+'layout_fullwidth5050' => array(
+	'key' => 'layout_fullwidth5050',
+	'name' => 'full_width_50_50',
+	'label' => 'Full width 50-50',
+	'display' => 'block',
+	'sub_fields' => array(
+	array(
+		'key' => 'field_622b36b9900e2',
+		'label' => 'Section background',
+		'name' => 'section_background',
+		'type' => 'swatch',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '100',
+			'class' => '',
+			'id' => '',
+		),
+		'choices' => $color_array,
+		'allow_null' => 1,
+		'default_value' => array(
+			0 => '#fefefe',
+		),
+		'layout' => 'horizontal',
+		'return_format' => 'label',
+		'other_choice' => 0,
+		'save_other_choice' => 0,
+	),
+	array(
+		'key' => 'field_5c812c92819c9',
+		'label' => 'Section background image',
+		'name' => 'section_background_image',
+		'type' => 'image',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '100',
+			'class' => '',
+			'id' => '',
+		),
+		'return_format' => 'array',
+		'preview_size' => 'thumbnail',
+		'library' => 'all',
+	),
+	array(
+		'key' => 'field_5c812c928h139c4',
+		'label' => 'Full Width',
+		'name' => 'alignfull',
+		'type' => 'true_false',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'message' => '',
+		'ui' => 1,
+		'ui_on_text' => '',
+		'ui_off_text' => '',
+	),
+	array(
+		'key' => 'field_tab1',
+		'label' => 'Left',
+		'name' => '',
+		'type' => 'tab',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'endpoint' => 0,
+	),
+	array(
+		'key' => 'field_5c8129ec8s19be',
+		'label' => 'Left background Colour',
+		'name' => 'left_background',
+		'type' => 'swatch',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '100',
+			'class' => '',
+			'id' => '',
+		),
+		'choices' => $color_array,
+		'allow_null' => 1,
+		'default_value' => '',
+		'layout' => 'horizontal',
+		'return_format' => 'label',
+		'other_choice' => 0,
+		'save_other_choice' => 0,
+	),
+	array(
+		'key' => 'field_5c812c928139c4',
+		'label' => 'Left Overlay color',
+		'name' => 'left_overlay',
+		'type' => 'true_false',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'message' => '',
+		'ui' => 1,
+		'ui_on_text' => '',
+		'ui_off_text' => '',
+	),
+	array(
+		'key' => 'field_5c812c92h819c2',
+		'label' => 'Left background image',
+		'name' => 'left_background_image',
+		'type' => 'image',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '25',
+			'class' => '',
+			'id' => '',
+		),
+		'return_format' => 'array',
+		'preview_size' => 'thumbnail',
+		'library' => 'all',
 
+	),   
+	array(
+		'key' => 'field_5c815c95b12b92',
+		'label' => 'Left content',
+		'name' => 'left_content',
+		'type' => 'wysiwyg',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'default_value' => '',
+		'toolbar' => 'full',
+	),
+	array(
+		'key' => 'field_tab2',
+		'label' => 'Right',
+		'name' => '',
+		'type' => 'tab',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'endpoint' => 0,
+	),
+	array(
+		'key' => 'field_5c8129ec8s19ber',
+		'label' => 'Right background Colour',
+		'name' => 'right_background',
+		'type' => 'swatch',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '100',
+			'class' => '',
+			'id' => '',
+		),
+		'choices' => $color_array,
+		'allow_null' => 1,
+		'default_value' => '',
+		'layout' => 'horizontal',
+		'return_format' => 'label',
+		'other_choice' => 0,
+		'save_other_choice' => 0,
+	),
+	array(
+		'key' => 'field_5c812c928139c4r',
+		'label' => 'Right Overlay color',
+		'name' => 'right_overlay',
+		'type' => 'true_false',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'message' => '',
+		'ui' => 1,
+		'ui_on_text' => '',
+		'ui_off_text' => '',
+	),
+	array(
+		'key' => 'field_5c812c92h819c2r',
+		'label' => 'Right background image',
+		'name' => 'right_background_image',
+		'type' => 'image',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '100',
+			'class' => '',
+			'id' => '',
+		),
+		'return_format' => 'array',
+		'preview_size' => 'thumbnail',
+		'library' => 'all',
+
+	),   
+	array(
+		'key' => 'field_5c815c95b12b92r',
+		'label' => 'Right content',
+		'name' => 'right_content',
+		'type' => 'wysiwyg',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'default_value' => '',
+		'toolbar' => 'full',
+	),
+),
+	'min' => '',
+	'max' => '',
+),
 
  					//FLEXIBLE ARTICLE
 					'5c81298073475' => array(

@@ -44,6 +44,11 @@ if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
             'name' => __( 'Theme Color 3', 'foundationpress' ),
             'slug' => 'theme-color-3',
             'color' => $theme_color_3,
+        ),
+        array(
+            'name' => __( 'Theme Color 4', 'foundationpress' ),
+            'slug' => 'theme-color-4',
+            'color' => $theme_color_4,
         )
     ) );
 
