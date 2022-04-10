@@ -224,7 +224,7 @@ new \Kirki\Field\Image(
 );
 new \Kirki\Field\Repeater(
 	[
-		'settings' => 'repeater_setting',
+		'settings' => 'footer_links',
 		'label'    => esc_html__( 'Footer images', 'avidd' ),
 		'section'  => 'site_footer_section',
 		'priority' => 11,
@@ -249,7 +249,6 @@ new \Kirki\Field\Repeater(
 	  'link_url'    => [
 		'type'        => 'text',
 		'label'       => esc_html__( 'Link URL', 'avidd' ),
-		'description' => esc_html__( 'Description', 'avidd' ),
 		'default'     => '',
 	],
 		],

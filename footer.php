@@ -41,7 +41,7 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 				<li><?php echo $footer_address_4 ?> </li>
 				<li><?php echo $footer_address_5 ?></li>
 				<li><?php echo $footer_address_6 ?></li>
-				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . $string . "." ;?></li>
+				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . "." ;?></li>
 			</ul>
 		
 		</section>
@@ -78,6 +78,14 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 		</section>
 		<section>
 		<?php foundationpress_footer_nav_r(); ?>
+		<div class="footer-links">
+			<?php $footer_links = get_theme_mod( 'footer_links' );
+				foreach ( $footer_links as $footer_link ) : ?>
+				<a href="<?php $footer_link['link_url']; ?>">
+					<?php echo wp_get_attachment_image($footer_link['footer_image'], 'thumbnail','false',["class" => "footer-icon"] ); ?>
+				</a>
+			<?php endforeach; ?>
+		</div>
 		</section>
 	</div>
 </div>

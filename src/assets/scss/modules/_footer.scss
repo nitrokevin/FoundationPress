@@ -8,11 +8,19 @@
 
 .footer-grid {
   @include xy-grid;
+  @include flex-align($x:center, $y:middle);
   padding: rem-calc(30) 0;
 
   section {
     @include xy-cell();
     @include breakpoint(large) {
+      @include xy-cell(auto);
+    }
+  }
+
+  .footer-links{
+    @include xy-grid;
+    a{
       @include xy-cell(auto);
     }
   }
