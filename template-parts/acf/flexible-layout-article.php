@@ -37,8 +37,9 @@
 								$cell_background = get_sub_field('cell_background');
 								$text_padding = get_sub_field('text_padding');
 								$link = get_sub_field('link');
-								$new_window = get_sub_field('new_window'); ?>
-
+								$new_window = get_sub_field('new_window');
+								$content_type = get_sub_field('content_type') ?>
+			
 				<article class=" <?php echo $text_padding; ?> flexible-item <?php echo $cell_background; ?> <?php echo $mobile_order; ?> <?php echo $cell_alignment; ?>" >
 					<?php if ($link) { ?><a href="<?php echo $link ?>" <?php if ($new_window) {?> target="_blank" <?php } ?>> <?php } ?>
 	
@@ -47,10 +48,15 @@
 							<h4 class="<?php if($cell_heading_color){  echo $cell_heading_color; } ?>"><?php echo $cell_header; ?></h4>
 						</header>
 					<?php } ?>
+					<?php if($content_type == 'content-text'){?>
 					<?php if ($cell_content) { ?>
 						<div class="entry-content " data-equalizer-watch="content">
 							<?php echo $cell_content; ?>
 						</div>
+					<?php } ?>
+					<?php } ?>
+					<?php if($content_type == 'content-accordion'){?>
+						<?php get_template_part( 'template-parts/content', 'accordion' ); ?>
 					<?php } ?>
 					<?php if ($cell_footer) { ?>
 						<div class="entry-footer">
@@ -59,6 +65,7 @@
 					<?php } ?>
 					<?php if ($link) { ?></a><?php } ?>
 				</article>
+			
 			<?php endwhile; ?>
 		</div>
 	<?php } ?>

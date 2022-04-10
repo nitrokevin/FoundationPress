@@ -72,4 +72,5 @@ $counter++;
 			</article>
 		
 		</div>
+	</div>
 </section>

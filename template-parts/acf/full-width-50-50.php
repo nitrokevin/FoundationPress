@@ -51,6 +51,7 @@ $counter++; ?>
 			</article>
 		
 		</div>
+    </div>
 </section>
 
 <?php } ?>
