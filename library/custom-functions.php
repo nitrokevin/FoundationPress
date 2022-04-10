@@ -22,6 +22,18 @@ add_filter( 'acf_the_content', 'a_unautop', 30 );
 add_post_type_support( 'page', 'excerpt' );
 // GUTENBURG
 add_theme_support( 'align-wide' );
+function custom_block_categories( $categories ) {
+  return array_merge(
+      $categories,
+      [
+          [
+              'slug'  => 'avidd',
+              'title' => __( 'AVIDD Blocks', 'avidd' ),
+          ],
+      ]
+  );
+}
+add_action( 'block_categories_all', 'custom_block_categories', 10, 2 );
 
 // change buttons in WYSWIG post editor, edit color palette
 function my_mce4_options($init) {
@@ -37,6 +49,7 @@ function my_mce4_options($init) {
                        "'.$theme_color_1 = substr($theme_color_1, 1).'", "theme color 1",
                        "'.$theme_color_2 = substr($theme_color_2, 1).'", "theme color 2",
                        "'.$theme_color_3 = substr($theme_color_3, 1).'", "theme color 3",
+                       "'.$theme_color_4 = substr($theme_color_4, 1).'", "theme color 4",
 
                       ';
   $init['textcolor_map'] = '['.$default_colours.']';

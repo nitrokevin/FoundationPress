@@ -62,6 +62,8 @@ require_once( 'library/customizer-functions.php' );
 
 /** ACF functions */
 require_once( 'library/acf-functions.php' );
+/** ACF blocks */
+require_once( 'library/acf-blocks.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );

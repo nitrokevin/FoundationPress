@@ -1,4 +1,6 @@
 <?php if (function_exists('acf_add_local_field_group')) :
+include 'colors.php';
+
 /*************************************************************/
 /*   Friendly Block Titles                                  */
 /***********************************************************/
@@ -18,7 +20,6 @@ function my_layout_title($title, $field, $layout, $i) {
 	return $title;
 }
 add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
-include 'colors.php';
 $color_array =  array(
 	'#fefefe' => 'white',
 	$primary_color => 'primary-color',
@@ -29,6 +30,7 @@ $color_array =  array(
 	$theme_color_1 => 'theme-color-1',
 	$theme_color_2 => 'theme-color-2',
 	$theme_color_3 => 'theme-color-3',
+	$theme_color_4 => 'theme-color-4',
 	'transparent' => 'transparent',
 );
 
@@ -52,7 +54,239 @@ acf_add_local_field_group(array(
 				),
 				'layouts' => array(
 
+				//Full width 50-50
+				'layout_fullwidth5050' => array(
+					'key' => 'layout_fullwidth5050',
+					'name' => 'full_width_50_50',
+					'label' => 'Full width 50-50',
+					'display' => 'block',
+					'sub_fields' => array(
+					array(
+						'key' => 'field_622b36b9900e2',
+						'label' => 'Section background',
+						'name' => 'section_background',
+						'type' => 'swatch',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '100',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => $color_array,
+						'allow_null' => 1,
+						'default_value' => array(
+							0 => '#fefefe',
+						),
+						'layout' => 'horizontal',
+						'return_format' => 'label',
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+					),
+					array(
+						'key' => 'field_5c812c92819c9',
+						'label' => 'Section background image',
+						'name' => 'section_background_image',
+						'type' => 'image',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '100',
+							'class' => '',
+							'id' => '',
+						),
+						'return_format' => 'array',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+					),
+					array(
+						'key' => 'field_5c812c928h139c4',
+						'label' => 'Full Width',
+						'name' => 'alignfull',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => '',
+						'ui' => 1,
+						'ui_on_text' => '',
+						'ui_off_text' => '',
+					),
+					array(
+						'key' => 'field_tab1',
+						'label' => 'Left',
+						'name' => '',
+						'type' => 'tab',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'endpoint' => 0,
+					),
+					array(
+						'key' => 'field_5c8129ec8s19be',
+						'label' => 'Left background Colour',
+						'name' => 'left_background',
+						'type' => 'swatch',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '100',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => $color_array,
+						'allow_null' => 1,
+						'default_value' => '',
+						'layout' => 'horizontal',
+						'return_format' => 'label',
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+					),
+					array(
+						'key' => 'field_5c812c928139c4',
+						'label' => 'Left Overlay color',
+						'name' => 'left_overlay',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => '',
+						'ui' => 1,
+						'ui_on_text' => '',
+						'ui_off_text' => '',
+					),
+					array(
+						'key' => 'field_5c812c92h819c2',
+						'label' => 'Left background image',
+						'name' => 'left_background_image',
+						'type' => 'image',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '25',
+							'class' => '',
+							'id' => '',
+						),
+						'return_format' => 'array',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
 
+					),   
+					array(
+						'key' => 'field_5c815c95b12b92',
+						'label' => 'Left content',
+						'name' => 'left_content',
+						'type' => 'wysiwyg',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'toolbar' => 'full',
+					),
+					array(
+						'key' => 'field_tab2',
+						'label' => 'Right',
+						'name' => '',
+						'type' => 'tab',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'endpoint' => 0,
+					),
+					array(
+						'key' => 'field_5c8129ec8s19ber',
+						'label' => 'Right background Colour',
+						'name' => 'right_background',
+						'type' => 'swatch',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '100',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => $color_array,
+						'allow_null' => 1,
+						'default_value' => '',
+						'layout' => 'horizontal',
+						'return_format' => 'label',
+						'other_choice' => 0,
+						'save_other_choice' => 0,
+					),
+					array(
+						'key' => 'field_5c812c928139c4r',
+						'label' => 'Right Overlay color',
+						'name' => 'right_overlay',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => '',
+						'ui' => 1,
+						'ui_on_text' => '',
+						'ui_off_text' => '',
+					),
+					array(
+						'key' => 'field_5c812c92h819c2r',
+						'label' => 'Right background image',
+						'name' => 'right_background_image',
+						'type' => 'image',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '100',
+							'class' => '',
+							'id' => '',
+						),
+						'return_format' => 'array',
+						'preview_size' => 'thumbnail',
+						'library' => 'all',
+
+					),   
+					array(
+						'key' => 'field_5c815c95b12b92r',
+						'label' => 'Right content',
+						'name' => 'right_content',
+						'type' => 'wysiwyg',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'toolbar' => 'full',
+					),
+				),
+					'min' => '',
+					'max' => '',
+				),
 
  					//FLEXIBLE ARTICLE
 					'5c81298073475' => array(
@@ -530,6 +764,34 @@ acf_add_local_field_group(array(
 										'ui_on_text' => '',
 										'ui_off_text' => '',
 									),
+									array(
+										'key' => 'field_5c812es90ff165',
+										'label' => 'Content Type',
+										'name' => 'content_type',
+										'type' => 'select',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '33',
+											'class' => '',
+											'id' => '',
+										),
+										'choices' => array(
+											'content-text' => 'Text',
+											'content-accordion' => 'Accordion',
+											'content-tab' => 'Tab',
+				
+										),
+										'default_value' => array(),
+										'allow_null' => 0,
+										'multiple' => 0,
+										'ui' => 1,
+										'ajax' => 0,
+										'return_format' => 'value',
+										'placeholder' => '',
+									),
+
 									
 
 									array(
@@ -575,7 +837,15 @@ acf_add_local_field_group(array(
 										'type' => 'wysiwyg',
 										'instructions' => '',
 										'required' => 0,
-										'conditional_logic' => 0,
+										'conditional_logic' => array(
+											array(
+												array(
+													'field' => 'field_5c812es90ff165',
+													'operator' => '==',
+													'value' => 'content-text',
+												),
+											),
+										),
 										'wrapper' => array(
 											'width' => '',
 											'class' => '',
@@ -586,6 +856,35 @@ acf_add_local_field_group(array(
 										'toolbar' => 'full',
 										'media_upload' => 1,
 										'delay' => 0,
+									),
+									array(
+										'key' => 'field_6251dff5ff388',
+										'label' => 'Accordion',
+										'name' => 'accordion_cloned',
+										'type' => 'clone',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => array(
+											array(
+												array(
+													'field' => 'field_5c812es90ff165',
+													'operator' => '==',
+													'value' => 'content-accordion',
+												),
+											),
+										),
+										'wrapper' => array(
+											'width' => '',
+											'class' => '',
+											'id' => '',
+										),
+										'clone' => array(
+											0 => 'field_5c34ede232af6',
+										),
+										'display' => 'seamless',
+										'layout' => 'block',
+										'prefix_label' => 0,
+										'prefix_name' => 0,
 									),
 									array(
 										'key' => 'field_5c81366b5d402',
@@ -650,10 +949,10 @@ acf_add_local_field_group(array(
 								'placeholder' => '',
 							),
 							array(
-								'key' => 'field_5c38212a72a819bf1',
-								'label' => 'Accordion Category',
-								'name' => 'accordion_category',
-								'type' => 'select',
+								'key' => 'field_5c812c928h139c4',
+								'label' => 'Full Width',
+								'name' => 'alignfull',
+								'type' => 'true_false',
 								'instructions' => '',
 								'required' => 0,
 								'conditional_logic' => 0,
@@ -662,20 +961,10 @@ acf_add_local_field_group(array(
 									'class' => '',
 									'id' => '',
 								),
-								'choices' => array(
-									'category-one' => 'Category one',
-									'category-two' => 'Category two',
-									
-								),
-								'default_value' => array(
-									0 => 'custom',
-								),
-								'allow_null' => 0,
-								'multiple' => 0,
+								'message' => '',
 								'ui' => 1,
-								'ajax' => 0,
-								'return_format' => 'value',
-								'placeholder' => '',
+								'ui_on_text' => '',
+								'ui_off_text' => '',
 							),
 							array(
 								'key' => 'field_5d49ad43a131e1',
@@ -738,61 +1027,8 @@ acf_add_local_field_group(array(
 								'other_choice' => 0,
 								'save_other_choice' => 0,
 							),
-							array(
-								'key' => 'field_5c4812a7a8519bf',
-								'label' => 'Section padding',
-								'name' => 'section_padding',
-								'type' => 'select',
-								'instructions' => '',
-								'required' => 0,
-								'conditional_logic' => 0,
-								'wrapper' => array(
-									'width' => '25',
-									'class' => '',
-									'id' => '',
-								),
-								'choices' => array(
-									'no-padding' => 'No padding',
-									'small-padding' => 'Small padding',
-									'large-padding' => 'Large padding',
-								),
-								'default_value' => array(
-									0 => 'small-padding',
-								),
-								'allow_null' => 0,
-								'multiple' => 0,
-								'ui' => 1,
-								'ajax' => 0,
-								'return_format' => 'value',
-								'placeholder' => '',
-							),
-							array(
-								'key' => 'field_5c3812bea6819c1',
-								'label' => 'Section width',
-								'name' => 'section_width',
-								'type' => 'select',
-								'instructions' => '',
-								'required' => 0,
-								'conditional_logic' => 0,
-								'wrapper' => array(
-									'width' => '25',
-									'class' => '',
-									'id' => '',
-								),
-								'choices' => array(
-									'align-normal' => 'Normal width content',
-									'align-full' => 'Full width content'
-								),
-								'default_value' => array(
-									0 => 'align-normal',
-								),
-								'allow_null' => 0,
-								'multiple' => 0,
-								'ui' => 1,
-								'ajax' => 0,
-								'return_format' => 'value',
-								'placeholder' => '',
-							),
+
+							
 
 							array(
 								'key' => 'field_5c34ede232af6',
@@ -842,9 +1078,31 @@ acf_add_local_field_group(array(
 										'placeholder' => '',
 									),
 									array(
+										'key' => 'field_5c8129gec8s19be1',
+										'label' => 'Accordion Colour',
+										'name' => 'accordion_color',
+										'type' => 'swatch',
+										'instructions' => '',
+										'required' => 0,
+										'conditional_logic' => 0,
+										'wrapper' => array(
+											'width' => '0',
+											'class' => '',
+											'id' => '',
+										),
+										'choices' => $color_array,
+										'allow_null' => 1,
+										'default_value' => '',
+										'layout' => 'horizontal',
+										'return_format' => 'label',
+										'other_choice' => 0,
+										'save_other_choice' => 0,
+									),
+									
+									array(
 										'key' => 'field_5c34ee0032af7',
-										'label' => 'Header',
-										'name' => 'header',
+										'label' => 'Title',
+										'name' => 'accordion_title',
 										'type' => 'text',
 										'instructions' => '',
 										'required' => 0,
@@ -863,7 +1121,7 @@ acf_add_local_field_group(array(
 									array(
 										'key' => 'field_5c34ee0932af8',
 										'label' => 'Content',
-										'name' => 'content',
+										'name' => 'accordion_content',
 										'type' => 'wysiwyg',
 										'instructions' => '',
 										'required' => 0,

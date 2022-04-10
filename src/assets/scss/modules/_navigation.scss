@@ -70,16 +70,19 @@
 
 .sticky-container {
   z-index: 99;
-  max-width:100% !important;
-  
   .sticky.is-anchored{
     position: fixed;
     width: 100%;
+    max-width: 100vw !important;
+  }
+  .sticky.is-stuck{
+    max-width: 100vw !important;
   }
 }
 
 .fixed-header{
   position: fixed;
+  width:100%;
   right: 0;
   left: 0;
   backface-visibility: hidden;
