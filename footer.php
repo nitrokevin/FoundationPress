@@ -78,6 +78,7 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 		</section>
 		<section>
 		<?php foundationpress_footer_nav_r(); ?>
+		<?php if($footer_links) {?>
 		<div class="footer-links">
 			<?php $footer_links = get_theme_mod( 'footer_links' );
 				foreach ( $footer_links as $footer_link ) : ?>
@@ -86,6 +87,7 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 				</a>
 			<?php endforeach; ?>
 		</div>
+		<?php } ?>
 		</section>
 	</div>
 </div>
