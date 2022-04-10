@@ -58,3 +58,20 @@ Frontend styles for gutenberg blocks
 .wp-block-file .wp-block-file__button{
   @include button();
 }
+
+/** === Group === */
+.wp-block-group.alignfull {
+  margin-left: calc( -50vw + 50%  );
+  margin-right: calc( -50vw + 50% );
+  max-width: 100vw;
+  padding:$global-padding 0;
+  .wp-block-group__inner-container{
+    @include xy-grid-container;
+    @each $breakpoint, $size in $grid-margin-gutters {
+      @include breakpoint($breakpoint) {
+        padding: $global-padding $size;
+      }
+    }
+
+  }
+}

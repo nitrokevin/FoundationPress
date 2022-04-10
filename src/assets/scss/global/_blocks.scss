@@ -7,19 +7,18 @@
         min-height:25rem;
     }
 
-.full-width-50-50-container{
-  &.alignfull{
-    margin-left: calc( -100vw / 2 + 100% / 2 );
-  	margin-right: calc( -100vw / 2 + 100% / 2 );
-  	max-width: 100vw;
-  }
- .full-width-50-50-grid{
-        min-height:25rem;
-        position: relative;
-        @include xy-grid();
-        @include flex-align($x:center, $y:stretch);
-        padding:0;
-
+    &.full-width-50-50-outer-container{
+      &.alignfull{
+        margin-left: calc( -100vw / 2 + 100% / 2 );
+        margin-right: calc( -100vw / 2 + 100% / 2 );
+        max-width: 100vw;
+      }
+     .full-width-50-50-grid{
+            min-height:25rem;
+            position: relative;
+            @include xy-grid();
+            @include flex-align($x:center, $y:stretch);
+            padding:0;
 
         .article-container{
             position: relative;
