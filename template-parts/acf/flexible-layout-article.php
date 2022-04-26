@@ -58,6 +58,9 @@
 					<?php if($content_type == 'content-accordion'){?>
 						<?php get_template_part( 'template-parts/content', 'accordion' ); ?>
 					<?php } ?>
+					<?php if($content_type == 'content-tab'){?>
+						<?php get_template_part( 'template-parts/content', 'tab' ); ?>
+					<?php } ?>
 					<?php if ($cell_footer) { ?>
 						<div class="entry-footer">
 							<?php echo $cell_footer; ?>

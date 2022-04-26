@@ -476,7 +476,7 @@ acf_add_local_field_group(array(
         array(
             'key' => 'field_5c34ede232awf613',
             'label' => 'Tab',
-            'name' => 'repeater_content',
+            'name' => 'repeater',
             'type' => 'repeater',
             'instructions' => '',
             'required' => 0,

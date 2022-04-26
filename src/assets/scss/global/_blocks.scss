@@ -76,10 +76,11 @@
             }
             .article-grid{
               @include xy-grid(); 
-              max-width: calc(1260px / 2 - 40px);
-              @include breakpoint(medium) {  
-              max-width: calc(1260px / 2 - 60px);
-             }     
+              @each $breakpoint, $size in $grid-margin-gutters {
+                @include breakpoint($breakpoint) {
+                  max-width: calc(#{$global-width}  / 2 - #{$size*2});
+                }
+              }   
             }     
             .entry-content{
               @include xy-cell(auto,$gutters:0);
@@ -288,10 +289,11 @@
         @include xy-grid(); 
         margin-left: auto;
         margin-right: auto;
-        max-width: calc(1260px  - 40px);
-        @include breakpoint(medium) {  
-        max-width: calc(1260px - 60px);
-       } 
+        @each $breakpoint, $size in $grid-margin-gutters {
+          @include breakpoint($breakpoint) {
+            max-width: calc(#{$global-width}  / 2 - #{$size*2});
+          }
+        } 
        
       
       }
