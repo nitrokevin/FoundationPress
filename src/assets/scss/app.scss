@@ -4,6 +4,7 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
+@import "node_modules/@splidejs/splide/dist/css/splide.min";
 
 @include foundation-global-styles;
 //@include foundation-grid;
@@ -79,6 +80,7 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
+@import "components/carousel";
 
 // Templates
 @import "templates/front";

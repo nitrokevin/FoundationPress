@@ -1,0 +1,23 @@
+.gallery-carousel{
+	.splide__list{
+	margin-left:0;	
+		.splide__slide{
+		padding-bottom:50%;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		} 
+	}
+	.splide__arrows{
+		font-size: 2rem;
+		.splide__arrow{
+			&.splide__arrow--prev{	
+			left:0;
+			}
+			&.splide__arrow--next{
+			right:0;
+			}
+		}
+	}			
+}
+  
