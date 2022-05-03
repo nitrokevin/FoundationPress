@@ -16,3 +16,19 @@ if ($(".gallery-carousel").length) {
     galleryslider.mount()
   }
 }
+
+// SLIDE SLIDER
+if ($(".slide-carousel").length) {
+  var slidesliders = document.querySelectorAll('.splide.slide-carousel');
+  for (var i = 0; i < slidesliders.length; i++) {
+      var slideslider = new Splide(slidesliders[i], {
+    type:'loop',
+      autoplay: false,
+  autoheight: true,
+  rewind: true,
+  arrows: true,
+
+  });
+  slideslider.mount()
+}
+}

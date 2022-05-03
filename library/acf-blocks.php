@@ -379,7 +379,7 @@ acf_add_local_field_group(array(
                 array(
                     'key' => 'field_5c8129ec8s19be1',
                     'label' => 'Accordion Colour',
-                    'name' => 'accordion_background_color',
+                    'name' => 'accordion_heading_background_color',
                     'type' => 'swatch',
                     'instructions' => '',
                     'required' => 0,
@@ -879,7 +879,7 @@ array(
     'button_label' => 'Add Slide',
     'sub_fields' => array(
         array(
-            'key' => 'field_626dd4413e2k19',
+            'key' => 'field_626ddp4413e2k19',
             'label' => 'Carousel Image',
             'name' => 'carousel_image',
             'type' => 'image',
@@ -903,7 +903,7 @@ array(
             'mime_types' => '',
         ),
         array(
-            'key' => 'field_626dd35f03e216',
+            'key' => 'field_626dd35jf03e216',
             'label' => 'Carousel Heading',
             'name' => 'carousel_heading',
             'type' => 'text',
@@ -922,7 +922,7 @@ array(
             'maxlength' => '',
         ),
         array(
-            'key' => 'field_626dd3503el217',
+            'key' => 'field_626dd3503ell217',
             'label' => 'Carousel Background Colour',
             'name' => 'carousel_background_color',
             'type' => 'swatch',
@@ -943,7 +943,7 @@ array(
             'save_other_choice' => 0,
         ),
         array(
-            'key' => 'field_626edd3503e218',
+            'key' => 'field_626hedd3503e218',
             'label' => 'Carousel Content',
             'name' => 'carousel_content',
             'type' => 'wysiwyg',

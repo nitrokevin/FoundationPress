@@ -1,4 +1,4 @@
-<div class="splide gallery-carousel">
+<div class="splide slide-carousel">
 	<div class="splide__arrows splide__arrows--ltr">
 		<button class="splide__arrow splide__arrow--prev" type="button" aria-label="Go to last slide">
 		<i class="fa-solid fa-arrow-left-long"></i>

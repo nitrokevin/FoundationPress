@@ -53,7 +53,7 @@
             min-height:300px;
        
             @include breakpoint(medium) {  
-              flex:1 50%;  
+              @include xy-cell(6,$gutters:0);
               min-height: unset;
              
             }
@@ -76,6 +76,7 @@
             }
             .article-grid{
               @include xy-grid(); 
+              background-color: $light-gray;
               @each $breakpoint, $size in $grid-margin-gutters {
                 @include breakpoint($breakpoint) {
                   max-width: calc(#{$global-width}  / 2 - #{$size*2});

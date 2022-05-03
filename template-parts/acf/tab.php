@@ -7,6 +7,7 @@ $className = 'acf-tab';
 $section_heading_color = get_sub_field('section_heading_color');
 $section_heading = get_sub_field('section_heading');
 $section_background_color = get_sub_field('section_background_color');
+$tab_background_color = get_sub_field('tab_background_color');
 $full_width = get_sub_field('full_width');
 
 
@@ -15,7 +16,7 @@ $counter++; ?>
     <div class="<?php echo esc_attr($className); ?>-container <?php if($full_width == 1){?>alignfull<?php }?>"> 
 		<div class="<?php echo esc_attr($className); ?>-grid" >
 	
-			<div class="<?php echo esc_attr($className); ?>-content" >
+			<div class="<?php echo esc_attr($className); ?>-content <?php echo $tab_background_color; ?>" >
 			<?php if ($section_heading) { ?><header class="section-header">
 					<h4 class="<?php if($section_heading_color){ echo $section_heading_color; } ?>"><?php echo $section_heading; ?></h4>
 				</header><?php } ?>

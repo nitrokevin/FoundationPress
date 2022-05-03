@@ -17,8 +17,33 @@
 		.acf-flexible-article-grid{
 			@include xy-grid();
 			@include flex-align($x:center, $y:stretch);
+			&.collapsed{
+				margin: 0 15px;
+				
+				article{
+					@include xy-cell(12,$gutters:0);
+					&.onethird-width{
+						@include xy-cell(4,$gutters:0)
+					}
+					&.twothirds-width{
+						@include xy-cell(8,$gutters:0)
+					}
+					&.half-width{
+						@include xy-cell(6,$gutters:0)
+					}
+					&.full-width{
+						@include xy-cell(12,$gutters:0)
+					}
+					&.auto-width{
+						@include xy-cell(auto,$gutters:0)
+					}
+				
+				}
+			}
 			.section-header{
 				@include xy-cell(12);
+				padding-left:0.24rem;
+				
 			  }
 			  article {
 				background-size:cover;

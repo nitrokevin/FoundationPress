@@ -7,9 +7,16 @@
 		  max-width: 100vw;
 		  padding-left: 0;
 		  padding-right: 0;
+		  width:100%;
+		  .acf-accordion-content{
+			@include xy-cell(12, $gutters:0);
+		}
 		}
 		.acf-accordion-grid{
 			@include xy-grid;
+			.section-header{
+				@include xy-cell(12);
+			}
 			.acf-accordion-content{
 				@include xy-cell(12);
 			}

@@ -13,11 +13,11 @@
 		$content_type = get_sub_field('content_type');
 		$accordion_heading = get_sub_field('accordion_heading');
 		$accordion_content = get_sub_field('accordion_content');
-		$accordion_background_color = get_sub_field('accordion_background_color');
+		$accordion_heading_background_color = get_sub_field('accordion_heading_background_color');
 		$counter++;
 		?>
 
-		<li class="accordion-item <?php echo $accordion_background_color ?>" data-accordion-item>  
+		<li class="accordion-item <?php echo $accordion_heading_background_color ?>" data-accordion-item>  
 			<a href="#" class="accordion-title">
 					<?php echo $accordion_heading ?>
 			</a>
