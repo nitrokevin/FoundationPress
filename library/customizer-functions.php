@@ -407,7 +407,27 @@ new \Kirki\Field\URL(
 	],
 );
 
-
+//Site Settings
+new \Kirki\Field\Color_Palette(
+	[
+		'settings'    => 'color_palette_setting_10',
+		'label'       => esc_html__( 'Page background colour', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'site_settings_section',
+		'default'     => '#fefefe',
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'colors' => $color_array,
+			'style'  => 'round',
+		],
+    'output'      => [
+      array(
+        'element'  => 'body',
+        'property' => 'background-color'
+      ),
+  ]
+	]
+);
 
 
 // CUSTOMIZER FOOTER CONTACT

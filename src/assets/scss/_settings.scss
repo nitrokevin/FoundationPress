@@ -76,10 +76,17 @@ $foundation-palette: (
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
+  theme-color-1:#ff0000,
+  theme-color-2 : #00ff00,
+  light-gray: #e6e6e6,
+  medium-gray: #cacaca,
+  dark-gray: #8a8a8a,
 );
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$theme-color-1:get-color(theme-color-1);
+$theme-color-2 : get-color(theme-color-2);
+$light-gray:  get-color(light-gray);
+$medium-gray:get-color(medium-gray);
+$dark-gray: get-color(dark-gray);
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;

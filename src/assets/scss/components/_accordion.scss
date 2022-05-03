@@ -1,0 +1,50 @@
+.acf-accordion{
+	.acf-accordion-container {
+		@include xy-grid-container;
+		&.alignfull{
+		  margin-left: calc( -50vw + 50% );
+		  margin-right: calc( -50vw  + 500%  );
+		  max-width: 100vw;
+		  padding-left: 0;
+		  padding-right: 0;
+		}
+		.acf-accordion-grid{
+			@include xy-grid;
+			.acf-accordion-content{
+				@include xy-cell(12);
+			}
+		}
+	}
+}
+.accordion{
+	.accordion-item{
+		@each $color, $code in $foundation-palette {
+			&.#{$color} {
+				.accordion-title{
+				background-color: $code;
+				color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color), $tolerance: $global-color-pick-contrast-tolerance) !important;
+				&:hover,
+				&:focus {
+					background-color: scale-color( $code, $lightness: 10%) ;
+					color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color), $tolerance: $global-color-pick-contrast-tolerance) !important;
+				}
+			}
+			}
+			}
+		.accordion-title{
+			font-size: rem-calc(16);
+
+		}
+	
+		.accordion-title::before{
+			font-size: rem-calc(26);
+			margin:0;
+			transform:translateY(-50%);
+		}
+		.accordion-content{
+			.accordion-content-inner{
+
+			}
+		}
+	}
+}

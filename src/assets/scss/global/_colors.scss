@@ -4,10 +4,10 @@ $theme-color-3 : #0a0a0a;
 $theme-color-4 : #0a0a0a;
 
 section, article {
-&.primary-color {background-color: $primary-color; color:$white;}
-&.secondary-color {background-color: $secondary-color; color:$white;}
-&.theme-color-1 {background-color: $theme-color-1; color:$white;}
-&.theme-color-2 {background-color: $theme-color-2; color:$white;}
-&.theme-color-3 {background-color: $theme-color-3; color:$white;}
-&.theme-color-4 {background-color: $theme-color-4; color:$white;}
+	@each $color, $code in $foundation-palette {
+		&.#{$color} {
+			background-color: $code;
+			color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color, $theme-color-1,$theme-color-2), $tolerance: $global-color-pick-contrast-tolerance) !important;
+		}
+	}
 }

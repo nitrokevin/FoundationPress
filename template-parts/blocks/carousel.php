@@ -34,10 +34,65 @@ $large = $section_background_image['sizes']['fp-large'];
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> carousel-container <?php echo $carousel_type; ?>   <?php echo $section_background; ?> " >
 		<div class="carousel-grid" >
 		
-		<?php if($carousel_type == 'centered-carousel'){?>
-			<?php get_template_part('template-parts/content', 'centeredcarousel'); ?>
-			<?php } if($carousel_type == 'gallery-carousel'){ ?>
-				<?php get_template_part('template-parts/content', 'gallerycarousel'); ?>
+		<?php if($carousel_type == 'slidecarousel'){?>
+			<div class="splide gallery-carousel">
+	<div class="splide__arrows splide__arrows--ltr">
+		<button class="splide__arrow splide__arrow--prev" type="button" aria-label="Go to last slide">
+		<i class="fa-solid fa-arrow-left-long"></i>
+		</button>
+		<button class="splide__arrow splide__arrow--next" type="button" aria-label="Next slide">
+		<i class="fa-solid fa-arrow-right-long"></i>
+		</button>
+	</div>
+	<div class="splide__track">
+	<ul class="splide__list">
+			<?php if (have_rows('repeater_content_carousel')) { 
+				while (have_rows('repeater_content_carousel')) { the_row();
+					$carousel_heading = get_field('carousel_heading');
+					$carousel_image = get_field('carousel_image');
+					$carousel_background_color = get_field('carousel_background_color');
+					$carousel_content = get_field('carousel_content');
+					$small = $carousel_image['sizes']['fp-small'];
+					$medium = $carousel_image['sizes']['fp-medium'];
+					$large = $carousel_image['sizes']['fp-large'];
+
+					?>
+			<li class="splide__slide">
+				<div class="image" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]"></div>
+			
+				<h3><?php echo $carousel_heading ?></h3>
+
+				<?php echo $carousel_content; ?>
+			</li>
+			<?php } ?>
+			<?php } ?>
+		</ul>
+	</div>
+</div>
+			<?php } if($carousel_type == 'gallerycarousel'){ ?>
+				<div class="splide gallery-carousel">
+	<div class="splide__arrows splide__arrows--ltr">
+		<button class="splide__arrow splide__arrow--prev" type="button" aria-label="Go to last slide">
+		<i class="fa-solid fa-arrow-left-long"></i>
+		</button>
+		<button class="splide__arrow splide__arrow--next" type="button" aria-label="Next slide">
+		<i class="fa-solid fa-arrow-right-long"></i>
+		</button>
+	</div>
+	<div class="splide__track">
+		<ul class="splide__list">
+			<?php
+			$carousel_gallery= (get_field('carousel_gallery'));
+			foreach( $carousel_gallery as $image ):      
+			$small = $image['sizes']['featured-small'];
+			$medium = $image['sizes']['featured-medium'];
+			$large = $image['sizes']['featured-large']; 
+			$xlarge = $image['sizes']['featured-xlarge'];  ?>
+			<li class="splide__slide" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large], [<?php echo $xlarge; ?>, xlarge]" data-index="<?php echo $counter;?>"></li>
+			<?php endforeach; ?>
+		</ul>	
+	</div>
+</div>
 
 			<?php } ?>
 		</div>

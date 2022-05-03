@@ -1,4 +1,4 @@
-<?php if (get_row_layout() == 'tabs') {
+<?php if (get_row_layout() == 'tab') {
  /**
  * Tab
  */
@@ -6,13 +6,13 @@ $id = 'acf-tab-' . get_row_index();
 $className = 'acf-tab';
 $section_heading_color = get_sub_field('section_heading_color');
 $section_heading = get_sub_field('section_heading');
-$section_background = get_sub_field('section_background');
-$alignfull = get_sub_field('alignfull');
+$section_background_color = get_sub_field('section_background_color');
+$full_width = get_sub_field('full_width');
 
 
 $counter++; ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> tab-outer-container <?php echo $section_background; ?>  " >
-    <div class="<?php echo esc_attr($className); ?>-container <?php if($alignfull == 1){?>alignfull<?php }?>"> 
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?php echo $section_background_color; ?>  " >
+    <div class="<?php echo esc_attr($className); ?>-container <?php if($full_width == 1){?>alignfull<?php }?>"> 
 		<div class="<?php echo esc_attr($className); ?>-grid" >
 	
 			<div class="<?php echo esc_attr($className); ?>-content" >
