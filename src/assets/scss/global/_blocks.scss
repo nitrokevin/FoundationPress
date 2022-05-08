@@ -76,7 +76,6 @@
             }
             .article-grid{
               @include xy-grid(); 
-              background-color: $light-gray;
               @each $breakpoint, $size in $grid-margin-gutters {
                 @include breakpoint($breakpoint) {
                   max-width: calc(#{$global-width}  / 2 - #{$size*2});
