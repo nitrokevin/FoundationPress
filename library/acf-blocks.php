@@ -1,4 +1,4 @@
-<?php
+<?php if (function_exists('acf_add_local_field_group')) :
 include 'colors.php';
 
 add_action('acf/init', 'my_acf_init_block_types');
@@ -985,3 +985,5 @@ array(
 'description' => '',
 'show_in_rest' => 0,
 ));
+
+endif ?>

@@ -101,16 +101,32 @@
 				&.top{
 				@include flex-align($y:top);
 				@include flex-align-self($y:stretch);
+				.article-padding{
+					@include flex;
+					@include flex-direction(column);
+					height:100%;
 				}
+				}
+				
 				&.middle{
 				@include flex-align($y:middle);
   				@include flex-align-self($y:stretch);
+				  .article-padding{
+					@include flex;
+					@include flex-direction(column);
+					height:auto;
+				}
 				}
 				&.bottom{
 				@include flex-align($y:bottom);
   				@include flex-align-self($y:stretch);
+				  .article-padding{
+					@include flex;
+					@include flex-direction(column);
+					height:auto;
 				}
-
+				}
+				}
 				.article-padding{
 					@each $breakpoint, $size in $grid-margin-gutters {
 						@include breakpoint($breakpoint) {
@@ -118,11 +134,7 @@
 						}
 					}
 					
-					@include flex;
-					@include flex-direction(column);
-					height:100%;
-					
-				}
+			
 				
 				header{
 				  @include breakpoint(small) {
