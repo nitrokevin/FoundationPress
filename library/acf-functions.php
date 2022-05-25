@@ -33,6 +33,8 @@ $color_array =  array(
 	$theme_color_4 => 'theme-color-4',
 	'transparent' => 'transparent',
 );
+
+
 //FLEXIBLE CONTENT
 acf_add_local_field_group(array(
 	'key' => 'group_626da5f67ee6b',
@@ -1057,7 +1059,7 @@ acf_add_local_field_group(array(
 					'min' => '',
 					'max' => '',
 				),
-				//END FLEXIBLE ARTICLE
+				//END FLEXIBLE GRID
 				//ACCORDION
 				'layout_626dadec738bf' => array(
 					'key' => 'layout_626dadec738bf',
@@ -2096,15 +2098,15 @@ acf_add_local_field_group(array(
 ),
 ),
 
-		'location' => array(
+	'location' => array(
+		array(
 			array(
-				array(
-					'param' => 'options_page',
-					'operator' => '==',
-					'value' => 'faqs',
-				),
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'faqs',
 			),
 		),
+	),
 		'menu_order' => 0,
 		'position' => 'normal',
 		'style' => 'default',
@@ -2113,7 +2115,7 @@ acf_add_local_field_group(array(
 		'hide_on_screen' => '',
 		'active' => true,
 		'description' => '',
-	));
+));
 
 
 endif; 

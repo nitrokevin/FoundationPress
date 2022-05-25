@@ -67,7 +67,7 @@
 								<?php echo $article_footer; ?>
 							</div>
 						<?php } ?>									
-
+						</div>
 					</article>
 				<?php endwhile; ?>
 			<?php } ?>
