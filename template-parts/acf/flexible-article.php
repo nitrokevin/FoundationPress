@@ -6,9 +6,11 @@
 	$section_heading_color = get_sub_field('section_heading_color');
 	$section_background_color = get_sub_field('section_background_color');
 	$section_background_image = get_sub_field('section_background_image');
+	if ($section_background_image) {;
 	$small = $section_background_image['sizes']['fp-small'];
 	$medium = $section_background_image['sizes']['fp-medium'];
 	$large = $section_background_image['sizes']['fp-large'];
+	};
 	$article_gutter = get_sub_field('article_gutter');
 
 	?>
@@ -25,7 +27,7 @@
 			</header>
 			<?php } ?>
 		</div>
-		<div class="<?php echo esc_attr($className);?>-grid  <?php if($article_gutter == 0){ ?>collapsed<?php }?> <?php if($alignfull == 1){?>alignfull<?php }?>" >
+		<div class="<?php echo esc_attr($className);?>-grid  <?php if($article_gutter == 0){ ?>collapsed<?php }?> <?php if($full_width == 1){?>alignfull<?php }?>" >
 			<?php if (have_rows('repeater_content_article')) { ?>
 					<?php while (have_rows('repeater_content_article')) : the_row();
 						$content_type = get_sub_field('content_type');
@@ -36,9 +38,11 @@
 						$article_content = get_sub_field('article_content');
 						$article_padding = get_sub_field('article_padding'); 
 						$article_background_image = get_sub_field('article_background_image');
+						if($article_background_image){;
 						$article_small = $article_background_image['sizes']['fp-small'];
 						$article_medium = $article_background_image['sizes']['fp-medium'];
 						$article_large = $article_background_image['sizes']['fp-large'];	
+						};
 						?>
 			
 				<article class="<?php echo $article_background_color;?> <?php echo $article_width;?>" <?php if ($article_background_image) { ?> src="<?php echo $article_small; ?>" data-interchange="[<?php echo $article_small; ?>, small], [<?php echo $article_medium; ?>, medium], [<?php echo $article_large; ?>, large]" <?php } ?>>

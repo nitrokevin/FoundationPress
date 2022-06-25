@@ -15,13 +15,15 @@
 					$carousel_image = get_sub_field('carousel_image');
 					$carousel_background_color = get_sub_field('carousel_background_color');
 					$carousel_content = get_sub_field('carousel_content');
+					if($carousel_image){;
 					$small = $carousel_image['sizes']['fp-small'];
 					$medium = $carousel_image['sizes']['fp-medium'];
 					$large = $carousel_image['sizes']['fp-large'];
+					};
 
 					?>
 			<li class="splide__slide">
-				<div class="image" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]"></div>
+				<div class="image" <?php if($carousel_image){ ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" <?php } ?>></div>
 			
 				<h3><?php echo $carousel_heading ?></h3>
 

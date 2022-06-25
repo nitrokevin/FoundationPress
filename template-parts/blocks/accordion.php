@@ -8,7 +8,7 @@
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
-
+$section_background_color = get_sub_field('section_background_color');
 // Create id attribute allowing for custom "anchor" value.
 $id = 'accordion-' . $block['id'];
 if( !empty($block['anchor']) ) {
@@ -25,7 +25,7 @@ if( !empty($block['align']) ) {
 }
 
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>  <?php echo $section_background; ?> " >
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>  <?php echo $section_background_color; ?> " >
     <div class="block-accordion-container "> 
 		<div class="block-accordion-grid" >
 		

@@ -9,9 +9,11 @@
 	$section_heading_color = get_sub_field('section_heading_color');
 	$section_background_color = get_sub_field('section_background_color');
 	$section_background_image = get_sub_field('section_background_image');
+	if($section_background_image){;
 	$small = $section_background_image['sizes']['fp-small'];
 	$medium = $section_background_image['sizes']['fp-medium'];
 	$large = $section_background_image['sizes']['fp-large'];
+	};
 	$article_gutter = get_sub_field('article_gutter');
 	$article_padding = get_sub_field('article_padding');
 	?>
@@ -28,7 +30,7 @@
 				</header>
 			<?php } ?>
 		</div>
-		<div class="<?php echo esc_attr($className);?>-grid  <?php if($article_gutter == 0){ ?>collapsed<?php }?> <?php if($alignfull == 1){?>alignfull<?php }?>" >
+		<div class="<?php echo esc_attr($className);?>-grid  <?php if($article_gutter == 0){ ?>collapsed<?php }?> <?php if($full_width == 1){?>alignfull<?php }?>" >
 		<div class="flexible-grid-<?php echo $mobile_columns ?>-small-<?php echo $tablet_columns ?>-medium-<?php echo $desktop_columns ?>-large">
 			<?php if (have_rows('repeater_content_grid')) { ?>
 				<?php while (have_rows('repeater_content_grid')) : the_row();
@@ -40,9 +42,11 @@
 					$article_horizontal_alignment = get_sub_field('article_horizontal_alignment');
 					$article_image = get_sub_field('article_image');
 					$article_background_image = get_sub_field('article_background_image');
+					if($article_background_image){;
 					$article_small = $article_background_image['sizes']['fp-small'];
 					$article_medium = $article_background_image['sizes']['fp-medium'];
-					$article_large = $article_background_image['sizes']['fp-large'];	
+					$article_large = $article_background_image['sizes']['fp-large'];
+			};	
 					?>	
 					<article class="<?php echo $article_background_color;?> <?php echo $article_vertical_alignment;?> <?php echo $article_horizontal_alignment;?>" <?php if ($article_background_image) { ?> src="<?php echo $article_small; ?>" data-interchange="[<?php echo $article_small; ?>, small], [<?php echo $article_medium; ?>, medium], [<?php echo $article_large; ?>, large]" <?php } ?>>
 						<div class=" <?php if($article_padding == 1){ ?>article-padding<?php }?>">

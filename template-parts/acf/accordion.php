@@ -4,6 +4,7 @@
  */
 $id = 'acf-accordion-' . get_row_index();
 $className = 'acf-accordion';
+$counter = 0;
 $section_heading = get_sub_field('section_heading');
 $full_width = get_sub_field('full_width');
 $section_heading_color = get_sub_field('section_heading_color');

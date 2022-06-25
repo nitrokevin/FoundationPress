@@ -10,9 +10,11 @@
 	$section_heading_color = get_sub_field('section_heading_color');
 	$section_background_color = get_sub_field('section_background_color');
 	$section_background_image = get_sub_field('section_background_image');
+	if ($section_background_image) {;
 	$small = $section_background_image['sizes']['fp-small'];
 	$medium = $section_background_image['sizes']['fp-medium'];
 	$large = $section_background_image['sizes']['fp-large'];
+	};
 	$count = 0;
 	$count ++;
 	?>

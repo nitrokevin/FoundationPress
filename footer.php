@@ -18,10 +18,12 @@ $footer_address_4 = get_theme_mod('footer_address_4');
 $footer_address_5 = get_theme_mod('footer_address_5');
 $footer_address_6 = get_theme_mod('footer_address_6');
 $footer_background_image = get_theme_mod('footer_background_image');
+if($footer_background_image){;
 $small = wp_get_attachment_image_url( $footer_background_image, 'fp-small' ); ;
 $medium =  wp_get_attachment_image_url( $footer_background_image, 'fp-medium' );
 $large = wp_get_attachment_image_url( $footer_background_image, 'fp-large' );
 $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
+};
 
 ?>
 
@@ -78,9 +80,11 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 		</section>
 		<section>
 		<?php foundationpress_footer_nav_r(); ?>
-		<?php if($footer_links) {?>
+		<?php
+		$footer_links = get_theme_mod( 'footer_links' );
+		 if($footer_links) {?>
 		<div class="footer-links">
-			<?php $footer_links = get_theme_mod( 'footer_links' );
+			<?php 
 				foreach ( $footer_links as $footer_link ) : ?>
 				<a href="<?php $footer_link['link_url']; ?>">
 					<?php echo wp_get_attachment_image($footer_link['footer_image'], 'thumbnail','false',["class" => "footer-icon"] ); ?>

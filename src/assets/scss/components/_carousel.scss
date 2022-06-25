@@ -45,10 +45,12 @@
 	.splide__list{
 	margin-left:0;	
 		.splide__slide{
-		padding-bottom:50%;
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
+			.image{
+				padding-bottom:50%;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+					}
 		} 
 	}
 	.splide__arrows{

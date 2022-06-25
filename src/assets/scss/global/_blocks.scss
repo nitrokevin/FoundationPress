@@ -79,7 +79,8 @@
               @each $breakpoint, $size in $grid-margin-gutters {
                 @include breakpoint($breakpoint) {
                   max-width: calc(#{$global-width}  / 2 - #{$size*2});
-                  width: calc(#{100vw} - #{$size*2});
+                  width: calc((100vw / 2) - #{$size*2});
+                 
                 }
               }   
             }     

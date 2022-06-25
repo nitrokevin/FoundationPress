@@ -24,26 +24,33 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
-
+$counter=0;
 $section_background = get_field('section_background');
 $section_background_image = get_field('section_background_image');
-$small = $section_background_image['sizes']['fp-small'];
+
+if ($section_background_image) {;
+$small = $section_background_image['size']['featured-small'];
 $medium = $section_background_image['sizes']['featured-medium'];
 $large = $section_background_image['sizes']['featured-large'];
+};
 $left_content = get_field('left_content');
 $left_background = get_field('left_background');
 $left_overlay = get_field('left_overlay');
 $left_background_image = get_field('left_background_image');
+if ($left_background_image) {;
 $left_small = $left_background_image['sizes']['fp-small'];
 $left_medium = $left_background_image['sizes']['fp-medium'];
 $left_large = $left_background_image['sizes']['fp-large'];
+};
 $right_content = get_field('right_content');
 $right_background = get_field('right_background');
 $right_overlay = get_field('right_overlay');
 $right_background_image = get_field('right_background_image');
+if ($right_background_image) {;
 $right_small = $right_background_image['sizes']['fp-small'];
 $right_medium = $right_background_image['sizes']['fp-medium'];
 $right_large = $right_background_image['sizes']['fp-large'];
+};
 $counter++;
 
 ?>

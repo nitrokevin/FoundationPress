@@ -26,9 +26,7 @@ if( !empty($block['align']) ) {
 $carousel_type = get_field('carousel_type');
 $section_background = get_field('section_background');
 $section_background_image = get_field('section_background_image');
-$small = $section_background_image['sizes']['fp-small'];
-$medium = $section_background_image['sizes']['fp-medium'];
-$large = $section_background_image['sizes']['fp-large'];
+
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> carousel-container <?php echo $carousel_type; ?>   <?php echo $section_background; ?> " >

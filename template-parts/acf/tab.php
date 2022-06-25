@@ -4,6 +4,7 @@
  */
 $id = 'acf-tab-' . get_row_index();
 $className = 'acf-tab';
+$counter = 0;
 $section_heading_color = get_sub_field('section_heading_color');
 $section_heading = get_sub_field('section_heading');
 $section_background_color = get_sub_field('section_background_color');
