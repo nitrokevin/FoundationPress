@@ -85,3 +85,16 @@ function oembed_related( $html, $url, $attr, $post_id ) {
     return $html;
 }
 add_filter('embed_oembed_html', 'oembed_related', 10, 4 );
+
+
+// Fix a long-standing issue with ACF, where fields sometimes aren't shown
+// in previews (ie. from Preview > Open in new tab).
+if ( class_exists( 'acf_revisions' ) )
+{
+	// Reference to ACF's <code>acf_revisions</code> class
+	// We need this to target its method, acf_revisions::acf_validate_post_id
+	$acf_revs_cls = acf()->revisions;
+
+	// This hook is added the ACF file: includes/revisions.php:36 (in ACF PRO v5.11)
+	remove_filter( 'acf/validate_post_id', array( $acf_revs_cls, 'acf_validate_post_id', 10 ) );
+}

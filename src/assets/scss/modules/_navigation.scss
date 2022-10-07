@@ -70,6 +70,9 @@
 
 .sticky-container {
   z-index: 99;
+  .sticky{
+    width: 100%;
+  }
   .sticky.is-anchored{
     position: fixed;
     width: 100%;

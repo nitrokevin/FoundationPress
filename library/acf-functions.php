@@ -1,4 +1,4 @@
-<?php if (function_exists('acf_add_local_field_group')) :
+<?php if (function_exists('acf_add_local_field_group')) {
 include 'colors.php';
 
 /*************************************************************/
@@ -527,7 +527,7 @@ acf_add_local_field_group(array(
 										'id' => '',
 									),
 									'clone' => array(
-										0 => 'field_626da7410655fg',
+										0 => 'field_626db2h7e738c3',
 										1 => 'field_626db345738d5',
 										2 => 'field_626db2f7738c7',
 									),
@@ -2118,7 +2118,9 @@ acf_add_local_field_group(array(
 ));
 
 
-endif; 
+} //END ACF 
+
+
 
 function my_acf_google_map_api( $api ){
 $api['key'] = 'AIzaSyAfTQrruPAgNEuSbjIKozxNEnRMAeLczQM';

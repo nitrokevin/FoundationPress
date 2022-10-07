@@ -18,6 +18,29 @@
 		}
 	}
 }
+.block-tab{
+	margin-left: calc( -50vw + 50% );
+	margin-right: calc( -50vw  + 50%  );
+	max-width: 100vw;
+	padding-left: 0;
+	padding-right: 0;
+	&.alignfull{
+		.block-tab-grid{
+			margin-left: calc( -50vw + 50% );
+	margin-right: calc( -50vw  + 50%  );
+	max-width: 100vw;
+		}
+	}
+	.block-tab-container {
+		@include xy-grid-container;
+		.block-tab-content{
+			@include xy-cell(12);
+		
+	
+		}
+	}
+
+}
 .tabs{
 	@each $color, $code in $foundation-palette {
 

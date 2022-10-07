@@ -27,7 +27,7 @@
   "dependencies": {
     "@splidejs/splide": "^4.0.1",
     "acorn": "^8.7.0",
-    "foundation-sites": "6.7.4",
+    "foundation-sites": "6.7.5",
     "jquery": "~3.6.0",
     "motion-ui": "latest",
     "what-input": "^5.2.10"
@@ -53,12 +53,11 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-load-plugins": "^2.0.7",
     "gulp-rev": "^9.0.0",
-    "gulp-sass": "^5.1.0",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "js-yaml": "^4.1.0",
     "rimraf": "^3.0.2",
-    "sass": "~1.52.2",
     "vinyl-named": "^1.1.0",
     "webpack": "^5.73.0",
     "webpack-stream": "^7.0.0",
