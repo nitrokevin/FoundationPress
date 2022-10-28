@@ -35,6 +35,16 @@ function custom_block_categories( $categories ) {
 }
 add_action( 'block_categories_all', 'custom_block_categories', 10, 2 );
 
+add_filter(
+    'acf/pre_save_block',
+    function( $attributes ) {
+        if ( empty( $attributes['anchor'] ) ) {
+            $attributes['anchor'] = 'acf-block-' . uniqid();
+        }
+        return $attributes;
+    }
+);
+
 // change buttons in WYSWIG post editor, edit color palette
 function my_mce4_options($init) {
   include 'colors.php';
