@@ -6,3 +6,5 @@ var thisTabContent = $('[data-tabs-content="'+$(this).attr('id')+'"]');
     }, 350);
 
 });
+
+

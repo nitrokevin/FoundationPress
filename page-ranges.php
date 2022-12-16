@@ -22,7 +22,7 @@ $background = get_field('intro_background');?>
 //  Case Studies
     $args = array(
       'post_type' => 'projects',
-      'posts_per_page'=> '10',
+      'posts_per_page'=> '80',
       'tax_query' => array(       
       )
     );
@@ -77,9 +77,3 @@ $background = get_field('intro_background');?>
 ?>
 
 <?php get_footer();
-
-
-
-
-
-

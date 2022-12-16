@@ -21,7 +21,7 @@ $background = get_field('intro_background');?>
 //  Projects
     $args = array(
       'post_type' => 'projects',
-      'posts_per_page'=> '10',
+      'posts_per_page'=> '100',
       'tax_query' => array(       
       )
     );
@@ -37,14 +37,16 @@ $background = get_field('intro_background');?>
         $casestudies->the_post();
         ?>
            <div class="block-grid-item tabs-title">
-									<a href="#panel<?php the_ID(); ?>"><?php get_template_part( 'template-parts/content-case-study-thumbnail', get_post_format() ); ?></a>
-								</div>
+			<a href="<?php echo esc_url( get_permalink() ) ?>"><?php get_template_part( 'template-parts/content-case-study-thumbnail', get_post_format() ); ?></a>
+				</div>
         <?php	       
       } ?>
 	    </div> 
    </div>
 		</div>
+
    </div>
+   
     <div class="main-container">
      <div class="main-grid">
 	     <div class="main-content-full-width">
@@ -80,9 +82,3 @@ $background = get_field('intro_background');?>
   ?>
 
 <?php get_footer();
-
-
-
-
-
-

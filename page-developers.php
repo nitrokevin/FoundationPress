@@ -21,7 +21,7 @@ $background = get_field('intro_background');?>
 //  Projects
     $args = array(
       'post_type' => 'developers',
-      'posts_per_page'=> '10',
+      'posts_per_page'=> '80',
       'tax_query' => array(       
       )
     );

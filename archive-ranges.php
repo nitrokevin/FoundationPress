@@ -30,7 +30,7 @@ get_header(); ?>
 						<?php /* Start the Loop */ ?>
 							<?php while ( have_posts() ) : the_post(); ?>
 								<div class="block-grid-item tabs-title">
-									<a href="#panel<?php the_ID(); ?>"><?php get_template_part( 'template-parts/content-case-study-thumbnail', get_post_format() ); ?></a>
+									<a href="<?php echo esc_url( get_permalink() ); ?>"><?php get_template_part( 'template-parts/content-case-study-thumbnail', get_post_format() ); ?></a>
 								</div>
 							<?php endwhile; ?>
 							<?php else : ?>

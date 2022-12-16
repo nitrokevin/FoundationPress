@@ -11,7 +11,8 @@ import './lib/shrinknav';
 import './lib/scrollmagic';
 import './lib/map';
 import './lib/orbit-tab';
-import './lib/slick';
+// import './lib/addclass-lightbox';
+// import './lib/slick';
 
 
 $(document).foundation();
