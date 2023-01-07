@@ -1,0 +1,14 @@
+{
+    "name": "acf/carousel",
+    "title": "Carousel",
+    "description": "",
+    "style": [ "file:./dist/assets/css/editor.css" ],
+    "category": "AVIDD",
+    "icon": "admin-comments",
+    "keywords": ["carousel"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template-parts/blocks/carousel.php"
+    },
+    "align": "full"
+}

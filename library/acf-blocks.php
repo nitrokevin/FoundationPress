@@ -1,5 +1,33 @@
 <?php
 include 'colors.php';
+$color_array =  array(
+	$primary_color => 'primary',
+	$secondary_color => 'secondary',
+	$light_gray => 'light-gray',
+	$medium_gray => 'medium-gray',
+	$dark_gray => 'dark-gray',
+	$theme_color_1 => 'theme-color-1',
+	$theme_color_2 => 'theme-color-2',
+	$theme_color_3 => 'theme-color-3',
+	$theme_color_4 => 'theme-color-4',
+	$white => 'white',
+	'transparent' => 'transparent',
+);
+
+
+// add_action( 'init', 'register_acf_blocks' );
+// function register_acf_blocks() {
+//     register_block_type(  __DIR__ . '/acf-5050/block.json' );
+//     register_block_type(  __DIR__ . '/acf-accordion/block.json' );
+//     register_block_type(  __DIR__ . '/acf-backgroundvideo/block.json' );
+//     register_block_type(  __DIR__ . '/acf-carousel/block.json' );
+//     register_block_type(  __DIR__ . '/acf-tab/block.json' );
+
+
+// }
+
+
+
 if( function_exists('acf_register_block_type') ) {
 add_action('acf/init', 'my_acf_init_block_types');
 function my_acf_init_block_types() {
@@ -30,10 +58,10 @@ add_filter( 'block_categories', 'checkCategoryOrder', 99, 1);
    
         // register a 50-50 block.
         acf_register_block_type(array(
-            'name'              => 'full-width-50-50',
+            'name'              => '0-50',
             'title'             => __('50 / 50 Block'),
             'description'       => __('Full with background image with contained content'),
-            'render_template'   => 'template-parts/blocks/full-width-50-50.php',
+            'render_template'   => 'template-parts/blocks/50-50.php',
          
             'category'          => 'avidd',
             'icon'              => '<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect x="1.16" y="10.86" width="18.28" height="18.28" fill="#fff" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="3"/><rect x="20.56" y="10.86" width="18.28" height="18.28" fill="#fff" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="3"/></svg>',
@@ -69,26 +97,7 @@ add_filter( 'block_categories', 'checkCategoryOrder', 99, 1);
               },
         ));
 
-         // register a people list.
-         acf_register_block_type(array(
-            'name'              => 'people-list',
-            'title'             => __('People List'),
-            'description'       => __(''),
-            'render_template'   => 'template-parts/blocks/people-list.php',
-            'supports'			=> array(
-				'align' => true,
-				'mode' => false,
-				'jsx' => true
-			),
-            'category'          => 'avidd',
-            'icon'              => '<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v180.705882h1024V0H0z m963.764706 120.470588H60.235294V60.235294h903.529412v60.235294zM0 783.058824h1024V240.941176H0v542.117648z m60.235294-481.882353h903.529412v421.647058H60.235294V301.176471zM0 1024h1024v-180.705882H0v180.705882z m60.235294-120.470588h903.529412v60.235294H60.235294v-60.235294z" /></svg>',
-            'keywords'          => array( 'people' ),
-            'enqueue_assets' => function(){
-                wp_enqueue_style( 'editor-css', get_stylesheet_directory_uri() . '/dist/assets/css/editor.css');
-                
-              },
-        ));
-        
+    
         // register a tab block.
         acf_register_block_type(array(
         'name'              => 'tab',
@@ -142,22 +151,10 @@ add_filter( 'block_categories', 'checkCategoryOrder', 99, 1);
             
             },
         ));
-
+ 
     }
 
-$color_array =  array(
-	$primary_color => 'primary',
-	$secondary_color => 'secondary',
-	$light_gray => 'light-gray',
-	$medium_gray => 'medium-gray',
-	$dark_gray => 'dark-gray',
-	$theme_color_1 => 'theme-color-1',
-	$theme_color_2 => 'theme-color-2',
-	$theme_color_3 => 'theme-color-3',
-	$theme_color_4 => 'theme-color-4',
-	$white => 'white',
-	'transparent' => 'transparent',
-);
+
 //50-50
 acf_add_local_field_group(array(
 	'key' => 'group_622b363287772',
@@ -252,6 +249,24 @@ acf_add_local_field_group(array(
             'ui_off_text' => '',
         ),
         array(
+            'key' => 'field_5c812kc928139c4',
+            'label' => 'Left Padded',
+            'name' => 'left_padded',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+        ),
+        array(
             'key' => 'field_5c812c92h819c2',
             'label' => 'Left background image',
             'name' => 'left_background_image',
@@ -269,6 +284,24 @@ acf_add_local_field_group(array(
             'library' => 'all',
     
         ),   
+        array(
+            'key' => 'field_5c812kc928d139c4',
+            'label' => 'Contain background image',
+            'name' => 'left_background_image_contain',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+        ),
         array(
             'key' => 'field_5c815c95b12b92',
             'label' => 'Left content',
@@ -334,6 +367,24 @@ acf_add_local_field_group(array(
             'ui_off_text' => '',
         ),
         array(
+            'key' => 'field_5c812kc928k139c4',
+            'label' => 'Right Padded',
+            'name' => 'right_padded',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+        ),
+        array(
             'key' => 'field_5c812c92h819c2r',
             'label' => 'Right background image',
             'name' => 'right_background_image',
@@ -350,7 +401,25 @@ acf_add_local_field_group(array(
             'preview_size' => 'thumbnail',
             'library' => 'all',
     
-        ),   
+        ),  
+        array(
+            'key' => 'field_5c81s2kc928d139c4',
+            'label' => 'Contain background image',
+            'name' => 'right_background_image_contain',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'ui' => 1,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+        ), 
         array(
             'key' => 'field_5c815c95b12b92r',
             'label' => 'Right content',
@@ -665,13 +734,14 @@ acf_add_local_field_group(array(
 	'description' => '',
 	'show_in_rest' => 0,
 ));
-//Carousel
 
-acf_add_local_field_group(array(
+
+//Carousel
+acf_add_local_field_group(array(    
 	'key' => 'group_622b36328777a24',
 	'title' => 'Block: Carousel',
 	'fields' => array(
-array(
+        array(
     'key' => 'field_5c3812a7a819bf1',
     'label' => 'Carousel Type',
     'name' => 'carousel_type',
@@ -687,7 +757,8 @@ array(
     'choices' => array(
         'gallerycarousel' => 'Gallery Carousel',
         'slidecarousel' => 'Slide Carousel',
-
+        'people-carousel' => 'People carousel',
+        'download-carousel' => 'Download carousel',
 
     ),
     'default_value' => array(
@@ -699,10 +770,10 @@ array(
     'ajax' => 0,
     'return_format' => 'value',
     'placeholder' => '',
-),
+    ),
 
 
-array(
+    array(
     'key' => 'field_5d49aea9131e31',
     'label' => 'Section background',
     'name' => 'section_background',
@@ -724,8 +795,8 @@ array(
     'return_format' => 'label',
     'other_choice' => 0,
     'save_other_choice' => 0,
-),
-array(
+    ),
+    array(
     'key' => 'field_625407c6661c0f',
     'label' => 'Gallery Carousel',
     'name' => 'carousel_gallery',
@@ -748,8 +819,8 @@ array(
     'preview_size' => 'thumbnail',
     'insert' => 'append',
     'library' => 'all',
-),
-array(
+    ),
+    array(
     'key' => 'field_626dd3503e215h',
     'label' => 'Carousel Content',
     'name' => 'repeater_content_carousel',
@@ -860,28 +931,102 @@ array(
             'delay' => 0,
         ),
     ),
-),
-
-    
-),
-'location' => array(
+    ),
     array(
+        'key' => 'field_626dd35jfd03e216',
+        'label' => 'Section Heading',
+        'name' => 'section_heading',
+        'type' => 'text',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+        ),
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'maxlength' => '',
+    ),
+    array(
+        'key' => 'field_626dd3503e215a95',
+        'label' => 'Carousel Content',
+        'name' => 'repeater_content_carousel_download',
+        'type' => 'repeater',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => array(
+            array(
+                array(
+                    'field' => 'field_5c3812a7a819bf1',
+                    'operator' => '==',
+                    'value' => 'download-carousel',
+                ),
+            ),
+        ),
+        'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+        ),
+        'collapsed' => 'field_626dd3503e2169',
+        'min' => 1,
+        'max' => 0,
+        'layout' => 'block',
+        'button_label' => 'Add File',
+        'sub_fields' => array(
+          
+            array(
+                'key' => 'field_626dd3503ed2169',
+                'label' => 'Download',
+                'name' => 'download',
+                'type' => 'file',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'return_format' => 'array',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+        
+            
+        ),
+        ),
+
+
+        ),
+        'location' => array(
         array(
-            'param' => 'block',
-            'operator' => '==',
-            'value' => 'acf/carousel',
+            array(
+                'param' => 'block',
+                'operator' => '==',
+                'value' => 'acf/carousel',
+            ),
         ),
     ),
-),
-'menu_order' => 0,
-'position' => 'normal',
-'style' => 'seemless',
-'label_placement' => 'top',
-'instruction_placement' => 'label',
-'hide_on_screen' => '',
-'active' => true,
-'description' => '',
-'show_in_rest' => 0,
-));
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'seemless',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+    'show_in_rest' => 0,
+    )
+);   
+
+
 
 } ?>

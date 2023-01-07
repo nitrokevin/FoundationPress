@@ -26,8 +26,6 @@ if( !empty($block['align']) ) {
 $carousel_type = get_field('carousel_type');
 $section_background = get_field('section_background');
 $section_background_image = get_field('section_background_image');
-
-
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> carousel-container <?php echo $carousel_type; ?>   <?php echo $section_background; ?> " >
 		<div class="carousel-grid" >
@@ -50,11 +48,13 @@ $section_background_image = get_field('section_background_image');
 		<ul class="splide__list">
 			<?php
 			$carousel_gallery= (get_field('carousel_gallery'));
-			foreach( $carousel_gallery as $image ):      
+			foreach( $carousel_gallery as $image ):  
+				if($image) {;  
 			$small = $image['sizes']['featured-small'];
 			$medium = $image['sizes']['featured-medium'];
 			$large = $image['sizes']['featured-large']; 
-			$xlarge = $image['sizes']['featured-xlarge'];  ?>
+			$xlarge = $image['sizes']['featured-xlarge']; 
+				 }; ?>
 			<li class="splide__slide" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large], [<?php echo $xlarge; ?>, xlarge]" data-index="<?php echo $counter;?>"></li>
 			<?php endforeach; ?>
 		</ul>	

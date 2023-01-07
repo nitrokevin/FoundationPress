@@ -1,0 +1,14 @@
+{
+    "name": "acf/tab",
+    "title": "Tab",
+    "description": "",
+    "style": [ "file:./dist/assets/css/editor.css" ],
+    "category": "AVIDD",
+    "icon": "admin-comments",
+    "keywords": ["tab"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "../template-parts/blocks/tab.php"
+    },
+    "align": "full"
+}

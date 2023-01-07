@@ -1,0 +1,13 @@
+{
+    "name": "acf/5050",
+    "title": "50 / 50 Block",
+    "description": "test",
+    "style": [ "file:./dist/assets/css/editor.css" ],
+    "icon": "admin-comments",
+    "keywords": ["50/50", "split"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template-parts/blocks/50-50.php"
+    },
+    "align": "full"
+}
