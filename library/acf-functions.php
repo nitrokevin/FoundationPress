@@ -1,25 +1,7 @@
 <?php if (function_exists('acf_add_local_field_group')) {
 include 'colors.php';
 
-/*************************************************************/
-/*   Friendly Block Titles                                  */
-/***********************************************************/
 
-function my_layout_title($title, $field, $layout, $i) {
-	if($value = get_sub_field('section_heading')) {
-		return $value;
-	} else {
-		foreach($layout['sub_fields'] as $sub) {
-			if($sub['name'] == 'section_heading') {
-				$key = $sub['key'];
-				if(array_key_exists($i, $field['value']) && $value = $field['value'][$i][$key])
-					return $value;
-			}
-		}
-	}
-	return $title;
-}
-add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
 $color_array =  array(
 	'#fefefe' => 'white',
 	$primary_color => 'primary',
