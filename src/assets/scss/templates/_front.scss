@@ -1,41 +1,32 @@
 // Page header
 .front-hero {
-  .marketing {
-    @include xy-grid-container(55rem);
+  background: $white;
+  .header-grid {
     @include xy-grid;
-  }
-
-  @include breakpoint(small) {
-    background-size: cover;
-    background-position: bottom;
-    padding: rem-calc(65%) 0;
-    margin: 0 0 rem-calc(32);
-    height: auto;
-    position: relative;
-    text-align: left;
-  }
-
-  @include breakpoint(medium) {
-    background-size: cover;
-    background-position: center;
-    height: rem-calc(600);
-    margin: 0 0 rem-calc(72);
-  }
-
-  .tagline {
-    @include breakpoint(small) {
-      @include xy-cell(8);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-      padding-top: 6rem;
+    .header-content {
+      @include breakpoint(small) {
+        @include xy-cell(12,$gutters:0);
+      }
+      @include breakpoint(medium) {
+        @include xy-cell(12,$gutters:0);
+      }
+      
+      .header-image {
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        @include breakpoint(small) {
+          padding-bottom: 100%;
+        }
+        @include breakpoint(medium) {
+          padding-bottom: 0;
+          height: 100%;
+        }
+      }
     }
   }
 
-  h1 {
-    color: #fff;
-  }
 }
 
 // Intro
@@ -50,7 +41,7 @@
     }
 
     @include breakpoint(medium) {
-      @include xy-cell(10);
+      @include xy-cell(12);
 
     }
   }

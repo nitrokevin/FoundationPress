@@ -9,10 +9,10 @@ $color_array =  array(
   $light_gray ,
   $medium_gray ,
   $dark_gray ,
-  $theme_color_1,
-  $theme_color_2,
-  $theme_color_3,
+  $black,
+$transparent,
   $white,
+
 
 
 );
@@ -65,13 +65,23 @@ foreach ( $sections as $section_id => $section ) {
 }
 
 
+new \Kirki\Section(
+	'opening_times',
+	[
+		'title'       => esc_html__( 'Opening Times', 'avidd' ),
+		'description' => esc_html__( '', 'avidd' ),
+		'priority'    => 20,
+	]
+);
+
+
 new \Kirki\Field\Color_Palette(
 	[
 		'settings'    => 'color_palette_setting_0',
 		'label'       => esc_html__( 'Nav background colour', 'avidd' ),
 		'description' => esc_html__( '', 'avidd' ),
 		'section'     => 'site_header_section',
-		'default'     => '#fefefe',
+		'default'     => 'transparent',
 		'transport'   => 'postMessage',
 		'choices'     => [
 			'colors' => $color_array,
@@ -430,6 +440,30 @@ new \Kirki\Field\Color_Palette(
 );
 
 
+
+new \Kirki\Field\Repeater(
+	[
+		'settings' => 'opening_times',
+		'label'    => esc_html__( 'Opening Hours', 'avidd' ),
+		'section'  => 'opening_times',
+		'priority' => 11,
+		'fields'   => [
+      'day' =>[
+        'type'        => 'text',
+        'label'       => esc_html__( 'Day', 'avidd' ),
+       
+      
+      ],
+	  'hours'    => [
+		'type'        => 'text',
+		'label'       => esc_html__( 'Hours', 'avidd' ),
+	
+	],
+		],
+	]
+);
+
+
 // CUSTOMIZER FOOTER CONTACT
 function footer_contact_customizer( $wp_customize ) {
 $wp_customize->add_section(
@@ -442,28 +476,42 @@ array(
 );
 
 $wp_customize->add_setting(
-'footer_phone_number',
+'contact_phone_number',
 array(
 'default' => '',
 )
 );
 $wp_customize->add_control(
-'footer_phone_number',
+'contact_phone_number',
 array(
 'label' => 'Phone Number',
 'section' => 'contact_section',
 'type' => 'text',
 )
 );
+$wp_customize->add_setting(
+	'contact_mobile_number',
+	array(
+	'default' => '',
+	)
+	);
+	$wp_customize->add_control(
+	'contact_mobile_number',
+	array(
+	'label' => 'Mobile Number',
+	'section' => 'contact_section',
+	'type' => 'text',
+	)
+	);
 
 $wp_customize->add_setting(
-'footer_email',
+'contact_email',
 array(
 'default' => '',
 )
 );
 $wp_customize->add_control(
-'footer_email',
+'contact_email',
 array(
 'label' => 'Email',
 'section' => 'contact_section',
@@ -471,14 +519,14 @@ array(
 )
 );
 $wp_customize->add_setting(
-'footer_address_1',
+'contact_address_1',
 array(
 'default' => '',
 'sanitize_callback' => 'sanitize_text_field',
 )
 );
 $wp_customize->add_control(
-'footer_address_1',
+'contact_address_1',
 array(
 'label' => 'Street',
 'section' => 'contact_section',
@@ -486,14 +534,14 @@ array(
 )
 );
 $wp_customize->add_setting(
-'footer_address_2',
+'contact_address_2',
 array(
 'default' => '',
 'sanitize_callback' => 'sanitize_text_field',
 )
 );
 $wp_customize->add_control(
-'footer_address_2',
+'contact_address_2',
 array(
 'label' => 'Street 2',
 'section' => 'contact_section',
@@ -501,14 +549,14 @@ array(
 )
 );
 $wp_customize->add_setting(
-'footer_address_3',
+'contact_address_3',
 array(
 'default' => '',
 'sanitize_callback' => 'sanitize_text_field',
 )
 );
 $wp_customize->add_control(
-'footer_address_3',
+'contact_address_3',
 array(
 'label' => 'Street 3',
 'section' => 'contact_section',
@@ -516,14 +564,14 @@ array(
 )
 );
 $wp_customize->add_setting(
-'footer_address_4',
+'contact_address_4',
 array(
 'default' => '',
 'sanitize_callback' => 'sanitize_text_field',
 )
 );
 $wp_customize->add_control(
-'footer_address_4',
+'contact_address_4',
 array(
 'label' => 'City',
 'section' => 'contact_section',
@@ -531,14 +579,14 @@ array(
 )
 );
 $wp_customize->add_setting(
-'footer_address_5',
+'contact_address_5',
 array(
 'default' => '',
 'sanitize_callback' => 'sanitize_text_field',
 )
 );
 $wp_customize->add_control(
-'footer_address_5',
+'contact_address_5',
 array(
 'label' => 'County',
 'section' => 'contact_section',
@@ -546,14 +594,14 @@ array(
 )
 );
 $wp_customize->add_setting(
-'footer_address_6',
+'contact_address_6',
 array(
 'default' => '',
 'sanitize_callback' => 'sanitize_text_field',
 )
 );
 $wp_customize->add_control(
-'footer_address_6',
+'contact_address_6',
 array(
 'label' => 'Postcode',
 'section' => 'contact_section',

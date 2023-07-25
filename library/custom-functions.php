@@ -56,16 +56,45 @@ function my_mce4_options($init) {
                        "'.$light_gray = substr($light_gray, 1).'", "dark gray",
                        "'.$medium_gray = substr($medium_gray, 1).'", "dark gray",
                        "'.$dark_gray = substr($dark_gray, 1).'", "dark gray",
-                       "'.$theme_color_1 = substr($theme_color_1, 1).'", "theme color 1",
-                       "'.$theme_color_2 = substr($theme_color_2, 1).'", "theme color 2",
-                       "'.$theme_color_3 = substr($theme_color_3, 1).'", "theme color 3",
-                       "'.$theme_color_4 = substr($theme_color_4, 1).'", "theme color 4",
+
+
 
                       ';
   $init['textcolor_map'] = '['.$default_colours.']';
   return $init;
 }
 add_filter('tiny_mce_before_init', 'my_mce4_options');
+
+  
+// Callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons_2( $buttons ) {
+  array_unshift( $buttons, 'styleselect' );
+  return $buttons;
+}
+
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+
+add_filter( 'tiny_mce_before_init', 'custom_mce_before_init' );
+function custom_mce_before_init( $settings ) {
+    $style_formats = array(
+        array(
+            'title' => 'Standard Button main colour',
+            'selector' => 'a',
+            'classes' => 'button hollow',
+        ),
+    
+      array(
+        'title' => 'Standard Button secondary colour',
+        'selector' => 'a',
+        'classes' => 'button hollow secondary',
+    ),
+
+
+    );
+    $settings['style_formats'] = json_encode( $style_formats );
+    return $settings;
+}
 
   
 
@@ -108,3 +137,8 @@ if ( class_exists( 'acf_revisions' ) )
 	// This hook is added the ACF file: includes/revisions.php:36 (in ACF PRO v5.11)
 	remove_filter( 'acf/validate_post_id', array( $acf_revs_cls, 'acf_validate_post_id', 10 ) );
 }
+
+function my_acf_google_map_api( $api ){
+  $api['key'] = 'AIzaSyCf4nsA8K3CiVJXfztkpl2pmAfD5Dpq06E';
+  return $api;	
+  }

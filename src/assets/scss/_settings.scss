@@ -71,19 +71,15 @@ $global-font-size: 100%;
 $global-width: 1260px;
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
+  primary: #24382C,
+  secondary: #E1C789,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
-  theme-color-1:#ff0000,
-  theme-color-2 : #00ff00,
   light-gray: #e6e6e6,
   medium-gray: #cacaca,
-  dark-gray: #8a8a8a,
+  dark-gray: #4A4A4A,
 );
-$theme-color-1:get-color(theme-color-1);
-$theme-color-2 : get-color(theme-color-2);
 $light-gray:  get-color(light-gray);
 $medium-gray:get-color(medium-gray);
 $dark-gray: get-color(dark-gray);
@@ -91,7 +87,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Nunito Sans', Helvetica, Roboto, Arial, sans-serif;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -99,7 +95,7 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 0.5rem;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -150,12 +146,12 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: $global-weight-bold;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
-$header-lineheight: 1.4;
-$header-margin-bottom: 0.5rem;
+$header-lineheight: 1.2;
+$header-margin-bottom: 1rem;
 $header-styles: (
   small: (
     'p' : ('font-size': 16),
@@ -168,7 +164,25 @@ $header-styles: (
   ),
   medium: (
     'p' : ('font-size': 16),
-    'h1': ('font-size': 48),
+    'h1': ('font-size': 30),
+    'h2': ('font-size': 40),
+    'h3': ('font-size': 31),
+    'h4': ('font-size': 25),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16),
+  ),
+  large: (
+    'p' : ('font-size': 16),
+    'h1': ('font-size': 38),
+    'h2': ('font-size': 40),
+    'h3': ('font-size': 31),
+    'h4': ('font-size': 25),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16),
+  ),
+  xlarge: (
+    'p' : ('font-size': 16),
+    'h1': ('font-size': 42),
     'h2': ('font-size': 40),
     'h3': ('font-size': 31),
     'h4': ('font-size': 25),
@@ -184,7 +198,7 @@ $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $enable-code-inline: true;
 $anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color-hover: scale-color($anchor-color, $lightness: 14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -215,10 +229,10 @@ $abbr-underline: 1px dotted $black;
 
 $lead-font-size: $global-font-size * 1.25;
 $lead-lineheight: 1.6;
-$subheader-lineheight: 1.4;
-$subheader-color: $dark-gray;
-$subheader-font-weight: $global-weight-normal;
-$subheader-margin-top: 0.2rem;
+$subheader-lineheight: 1.2;
+$subheader-color: $black;
+$subheader-font-weight: $global-weight-bold;
+$subheader-margin-top: 0.5rem;
 $subheader-margin-bottom: 0.5rem;
 $stat-font-size: 2.5rem;
 $cite-color: $dark-gray;
@@ -306,17 +320,17 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-font-weight: null;
-$button-padding: 0.85em 1em;
+$button-font-weight: $global-weight-bold;
+$button-padding: 0.6em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background-hover: scale-color($button-background, $lightness: 55%);
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-border: 1px solid transparent;
-$button-hollow-border-width: 1px;
+$button-hollow-border-width: 2px;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
@@ -326,7 +340,7 @@ $button-sizes: (
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
-$button-hollow-hover-lightness: -50%;
+$button-hollow-hover-lightness: 50%;
 $button-transition: background-color 0.25s ease-out, color 0.25s ease-out;
 $button-responsive-expanded: false;
 
@@ -464,7 +478,7 @@ $select-background: $white;
 $select-triangle-color: $dark-gray;
 $select-radius: $global-radius;
 $input-color: $black;
-$input-placeholder-color: $medium-gray;
+$input-placeholder-color: $dark-gray;
 $input-font-family: inherit;
 $input-font-size: rem-calc(16);
 $input-font-weight: $global-weight-normal;
@@ -480,8 +494,8 @@ $input-shadow-focus: 0 0 5px $medium-gray;
 $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 $input-number-spinners: true;
-$input-radius: $global-radius;
-$form-button-radius: $global-radius;
+$input-radius: 0.2rem;
+$form-button-radius: 0.2rem;
 
 // 21. Label
 // ---------
@@ -530,7 +544,7 @@ $meter-fill-bad: $alert-color;
 // --------------
 
 $offcanvas-sizes: (
-  small: 250px,
+  small: 350px,
 );
 $offcanvas-vertical-sizes: (
   small: 250px,
@@ -810,23 +824,23 @@ $switch-cursor-disabled: not-allowed;
 // 50. Table
 // ---------
 
-$table-background: $white;
+$table-background: smart-scale($primary-color, 75%);
 $table-color-scale: 5%;
-$table-border: 1px solid smart-scale($table-background, $table-color-scale);
+$table-border: 6px solid $light-gray;
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
-$table-is-striped: true;
+$table-is-striped: false;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
-$table-head-background: smart-scale($table-background, $table-color-scale * 0.5);
+$table-head-background: $primary-color;
 $table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
 $table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
-$table-head-font-color: $body-font-color;
-$table-foot-font-color: $body-font-color;
-$show-header-for-stacked: false;
+$table-head-font-color: $white;
+$table-foot-font-color: $white;
+$show-header-for-stacked: true;
 $table-stack-breakpoint: medium;
 
 // 51. Tabs
@@ -862,7 +876,7 @@ $titlebar-background: $black;
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
-$titlebar-icon-color: $white;
+$titlebar-icon-color: $primary-color;
 $titlebar-icon-color-hover: $medium-gray;
 $titlebar-icon-spacing: 0.25rem;
 
@@ -885,11 +899,11 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
-$topbar-submenu-background: $topbar-background;
+$topbar-background: transparent;
+$topbar-submenu-background: transparent;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
-$topbar-unstack-breakpoint: medium;
+$topbar-unstack-breakpoint: large;
 
 // 56. Xy Grid
 // -----------

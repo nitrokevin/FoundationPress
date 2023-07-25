@@ -23,7 +23,7 @@
 
 					?>
 			<li class="splide__slide">
-				<div class="image" <?php if($carousel_image){ ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" <?php } ?>></div>
+			<?php if($carousel_image){ ?><div class="image" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" ></div><?php } ?>
 			
 				<h3><?php echo $carousel_heading ?></h3>
 

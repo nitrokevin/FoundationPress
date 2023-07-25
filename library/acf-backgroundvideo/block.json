@@ -1,9 +1,9 @@
 {
-    "name": "acf/backgroundvideo",
+    "name": "acf/acf-backgroundvideo",
     "title": "Background Video",
     "description": "",
     "style": [ "file:./dist/assets/css/editor.css" ],
-    "category": "AVIDD",
+    "category": "avidd-blocks",
     "icon": "admin-comments",
     "keywords": ["backgroundvideo"],
     "acf": {

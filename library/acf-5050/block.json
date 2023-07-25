@@ -1,9 +1,10 @@
 {
-    "name": "acf/5050",
+    "name": "acf/acf-50-50",
     "title": "50 / 50 Block",
     "description": "test",
     "style": [ "file:./dist/assets/css/editor.css" ],
     "icon": "admin-comments",
+    "category": "avidd-blocks",
     "keywords": ["50/50", "split"],
     "acf": {
         "mode": "preview",

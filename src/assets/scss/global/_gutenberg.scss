@@ -7,6 +7,7 @@ Frontend styles for gutenberg blocks
 
   .has-#{$color}-background-color {
       background-color: $code;
+      color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color), $tolerance: $global-color-pick-contrast-tolerance);
   }
 
   .has-#{$color}-color {
@@ -73,5 +74,35 @@ Frontend styles for gutenberg blocks
       }
     }
 
+  }
+}
+.wp-block-table  thead, .wp-block-table tbody, .wp-block-table tfoot, .wp-block-table tbody tr, .wp-block-table td, .wp-block-table th  {
+  @include breakpoint(small){
+    border: 2px solid $white;
+    }
+  @include breakpoint(medium){
+  border: 6px solid $white;
+  }
+}
+
+
+.has-light-gray-background-color{
+  .wp-block-table  thead, .wp-block-table tbody, .wp-block-table tfoot, .wp-block-table tbody tr, .wp-block-table td, .wp-block-table th  {
+    @include breakpoint(small){
+      border: 2px solid $light-gray;
+      }
+    @include breakpoint(medium){
+    border: 6px solid $light-gray;
+    }
+  }
+
+
+}
+.wp-block-table {
+  @include breakpoint(small){
+font-size: rem-calc(14);
+  }
+  @include breakpoint(medium){
+    font-size: rem-calc(16);
   }
 }

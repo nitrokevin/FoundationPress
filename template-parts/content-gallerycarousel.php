@@ -10,7 +10,7 @@
 	<div class="splide__track">
 		<ul class="splide__list">
 			<?php
-			$carousel_gallery= (get_sub_field('carousel_gallery'));
+			$carousel_gallery= (get_field('carousel_gallery'));
 			foreach( $carousel_gallery as $image ):      
 			$small = $image['sizes']['featured-small'];
 			$medium = $image['sizes']['featured-medium'];

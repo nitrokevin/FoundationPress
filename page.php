@@ -16,13 +16,12 @@ get_header(); ?>
 <?php if ( !empty( get_the_content() ) ) {?> 
 <div class="main-container">
 	<div class="main-grid">
-		<main class="main-content">
+		<main class="main-content-full-width">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/content', 'page' ); ?>
-				<?php comments_template(); ?>
+			
 			<?php endwhile; ?>
 		</main>
-		<?php get_sidebar(); ?>
 	</div>
 </div>
 <?php } ?>

@@ -3,12 +3,12 @@
     "title": "Tab",
     "description": "",
     "style": [ "file:./dist/assets/css/editor.css" ],
-    "category": "AVIDD",
+    "category": "avidd-blocks",
     "icon": "admin-comments",
     "keywords": ["tab"],
     "acf": {
         "mode": "preview",
-        "renderTemplate": "../template-parts/blocks/tab.php"
+        "renderTemplate": "template-parts/blocks/tab.php"
     },
     "align": "full"
 }

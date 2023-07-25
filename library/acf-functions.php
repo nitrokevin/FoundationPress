@@ -1,25 +1,6 @@
 <?php if (function_exists('acf_add_local_field_group')) {
 include 'colors.php';
 
-/*************************************************************/
-/*   Friendly Block Titles                                  */
-/***********************************************************/
-
-function my_layout_title($title, $field, $layout, $i) {
-	if($value = get_sub_field('section_heading')) {
-		return $value;
-	} else {
-		foreach($layout['sub_fields'] as $sub) {
-			if($sub['name'] == 'section_heading') {
-				$key = $sub['key'];
-				if(array_key_exists($i, $field['value']) && $value = $field['value'][$i][$key])
-					return $value;
-			}
-		}
-	}
-	return $title;
-}
-add_filter('acf/fields/flexible_content/layout_title', 'my_layout_title', 10, 4);
 $color_array =  array(
 	'#fefefe' => 'white',
 	$primary_color => 'primary',
@@ -27,13 +8,148 @@ $color_array =  array(
 	$light_gray => 'light-gray',
 	$medium_gray => 'medium-gray',
 	$dark_gray => 'dark-gray',
-	$theme_color_1 => 'theme-color-1',
-	$theme_color_2 => 'theme-color-2',
-	$theme_color_3 => 'theme-color-3',
-	$theme_color_4 => 'theme-color-4',
+
+
 	'transparent' => 'transparent',
 );
-
+//Page Options
+acf_add_local_field_group(array(
+	'key' => 'group_5c756aae12c9d',
+	'title' => 'Page Options',
+	'fields' => array(
+	
+		array(
+			'key' => 'field_5cb723101cgd96',
+			'label' => 'Header',
+			'name' => 'page_header',
+			'type' => 'wysiwyg',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '0',
+				'class' => '',
+				'id' => '',
+			),
+			'tabs' => 'visual',
+			'toolbar' => 'full',
+			'media_upload' => 0,
+			'delay' => 1,
+		),
+		array(
+			'key' => 'field_5c812c928y139c1',
+			'label' => 'Header Slider',
+			'name' => 'slider',
+			'type' => 'true_false',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'ui' => 1,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+		),
+		
+		array(
+			'key' => 'field_62540c6661c0f',
+			'label' => 'Header Slider Gallery',
+			'name' => 'repeater_intro_slider',
+			'type' => 'gallery',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(	
+				array(
+					'field' => 'field_5c812c928y139c1',
+					'operator' => '==',
+					'value' => '1',
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 1,
+			'max' => 0,
+			'layout' => 'block',
+			'button_label' => 'Add column',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5c812c928u19c9',
+					'label' => 'Slider image',
+					'name' => 'slider_image',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '100',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+				),
+			
+			)
+		),
+		array(
+			'key' => 'field_5c756acdc2285',
+			'label' => 'Background colour',
+			'name' => 'page_background_color',
+			'type' => 'swatch',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '25',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => $color_array,
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 1,
+			'ajax' => 0,
+			'layout' => 'horizontal',
+			'return_format' => 'label',
+			'placeholder' => '',
+		),
+		
+	),
+	'location' => array(	
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => false,
+));
 
 //FLEXIBLE CONTENT
 acf_add_local_field_group(array(
@@ -1524,6 +1640,7 @@ acf_add_local_field_group(array(
 							'choices' => array(
 								'gallerycarousel' => 'Gallery Carousel',
 								'slidecarousel' => 'Slide Carousel',
+								'people-carousel' => 'People Carousel',
 							),
 							'default_value' => false,
 							'allow_null' => 0,
@@ -1990,7 +2107,7 @@ acf_add_local_field_group(array(
 			'min' => 0,
 			'max' => 0,
 			'layout' => 'block',
-			'button_label' => '',
+			'button_label' => 'Add Section',
 			'sub_fields' => array(
 		array(
 			'key' => 'field_5d49ad43a131e16',
@@ -2015,7 +2132,7 @@ acf_add_local_field_group(array(
 		array(
 			'key' => 'field_5c34ede232af66',
 			'label' => 'Accordion Content',
-			'name' => 'repeater_content',
+			'name' => 'repeater_content_accordion',
 			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
@@ -2029,7 +2146,7 @@ acf_add_local_field_group(array(
 			'min' => 0,
 			'max' => 0,
 			'layout' => 'block',
-			'button_label' => '',
+			'button_label' => 'Add Accordion',
 			'sub_fields' => array(
 				array(
 					'key' => 'field_5c34ee0032af76',
@@ -2253,17 +2370,9 @@ acf_add_local_field_group(array(
 
 
 
-function my_acf_google_map_api( $api ){
-$api['key'] = 'AIzaSyAfTQrruPAgNEuSbjIKozxNEnRMAeLczQM';
-return $api;	
-}
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 
 
-
-
-add_action('acf/input/admin_head', 'my_acf_admin_head5');
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' 	=> 'FAQs',
@@ -2272,11 +2381,19 @@ if (function_exists('acf_add_options_page')) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+	acf_add_options_page(array(
+		'page_title' 	=> 'People',
+		'menu_title'	=> 'People',
+		'menu_slug' 	=> 'people',
+		'capability'	=> 'edit_posts',
+		'icon_url' => 'dashicons-buddicons-buddypress-logo',
+		'redirect'		=> false
+	));
 }
 
 
 
-
+add_action('acf/input/admin_head', 'my_acf_admin_head5');
 function my_acf_admin_head5()
 {
 

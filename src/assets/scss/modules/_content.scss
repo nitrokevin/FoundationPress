@@ -4,10 +4,10 @@
 
 .main-grid {
   @include xy-grid();
-  margin-top: 1rem;
+  margin-top: 0;
 
   @include breakpoint(medium) {
-    margin-top: 3rem;
+    margin-top: 0;
   }
 
   &.sidebar-left {
@@ -55,4 +55,3 @@
 .grecaptcha-badge { 
   visibility: hidden;
 }
-

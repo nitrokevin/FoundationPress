@@ -62,10 +62,8 @@
             &.light-gray.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($light-gray,0.6) inset ;}
             &.medium-gray.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($medium-gray,0.6) inset ;}
             &.dark-gray.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($dark-gray,0.6) inset ;}
-            &.theme-color-1.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-1,0.6) inset ;}
-            &.theme-color-2.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-2,0.6) inset ;}
-            &.theme-color-3.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-3,0.6) inset ;}
-            &.theme-color-4.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-4,0.6) inset ;}
+
+
             .article-padding{
               @each $breakpoint, $size in $grid-margin-gutters {
                 @include breakpoint($breakpoint) {

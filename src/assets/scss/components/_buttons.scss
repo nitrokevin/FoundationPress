@@ -1,8 +1,9 @@
-.sites-button {
-  background: $primary-color;
-  font-size: 1.25rem;
-  font-weight: bold;
-  box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
-  border-radius: 3px;
-  border: none;
+
+
+.button{
+  font-size: 0.9rem;
+  @include breakpoint(medium){
+  font-size: 1.1rem;
+  }
+  font-weight: $global-weight-bold;
 }
