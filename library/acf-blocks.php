@@ -2,6 +2,7 @@
 include 'colors.php';
 $color_array =  array(
 	'#fefefe' => 'white',
+	'#fefefe' => 'white',
 	$primary_color => 'primary',
 	$secondary_color => 'secondary',
 	$light_gray => 'light-gray',
@@ -12,6 +13,7 @@ $color_array =  array(
 	$theme_color_3 => 'theme-color-3',
 	$theme_color_4 => 'theme-color-4',
 	'transparent' => 'transparent',
+    
 );
 if( function_exists('acf_register_block_type') ) {
 add_action('acf/init', 'my_acf_init_block_types');
@@ -654,7 +656,7 @@ acf_add_local_field_group(array(
         'gallerycarousel' => 'Gallery Carousel',
         'slidecarousel' => 'Slide Carousel',
         'people-carousel' => 'People carousel',
-        'download-carousel' => 'Download carousel',
+   
 
     ),
     'default_value' => array(
@@ -923,5 +925,6 @@ acf_add_local_field_group(array(
     )
 );   
 
-}
-?>
+
+
+} ?>

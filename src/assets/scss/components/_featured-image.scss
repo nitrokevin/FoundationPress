@@ -1,14 +1,99 @@
 .featured-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: rem-calc(100);
+  background: $white;
+  .header-grid {
+    @include xy-grid;
+    .header-content {
+      @include breakpoint(small) {
+        @include xy-cell(12,$gutters:0);
+      }
+      @include breakpoint(large) {
+        @include xy-cell(6,$gutters:0);
+      }
+      &.left {
+        padding: 0;
+        @include breakpoint(small) {
+         
+          order: 1;
+        }
+    
+      }
+      &.right {
+       
+        color:$white;
+        @include breakpoint(small) {
+          order: 2;
+          padding:$global-padding;
+          height: auto;
+          z-index: 1;
+          position: relative;
+          .entry-title {
+            color: $secondary-color;
+          }
+          @include xy-grid;
+          @include flex-align($x:left, $y:stretch);
+        }
+        @include breakpoint(large) {
+          @include flex-align($x:left, $y:middle);
+          order: 2;
+        
 
-  @include breakpoint(medium) {
-    height: rem-calc(200);
+        }
+ 
+        .right-content {
+          @include xy-cell(12);
+          @include breakpoint(medium) {
+          @include xy-cell(9);
+          }
+          @include breakpoint(large) {
+          @include xy-cell(8);
+          @include xy-cell-offset(1.5);
+          }
+          
+        }
+      }
+      .header-image {
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        @include breakpoint(small) {
+          padding-bottom: 120%;
+        }
+        @include breakpoint(medium) {
+          padding-bottom: 80%;
+         
+        }
+        @include breakpoint(large) {
+          padding-bottom: 100%;
+         
+        }
+      }
+    }
   }
+  .intro-container{
+    background-color: $primary-color;
+    .intro-grid{
+      @include xy-grid-container();
+      @include xy-grid;
+      padding:$global-padding 0;
+      @include breakpoint(small) {
+      @include flex-align($x:center, $y:stretch);
+      }
+      @include breakpoint(medium) {
+        @include flex-align($x:left, $y:stretch);
+        }
+      .intro-content{
+        @include breakpoint(small) {
+          @include xy-cell(11);
+        }
+        @include breakpoint(medium) {
+          @include xy-cell(10);
+        }
+        h1,h2,h3,h4{
+          text-transform: uppercase;
+        }
 
-  @include breakpoint(xlarge) {
-    height: rem-calc(400);
+      }
+    }
   }
 }

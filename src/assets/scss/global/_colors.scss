@@ -1,13 +1,9 @@
-$theme-color-1 : #ff0000;
-$theme-color-2 : #00ff00;
-$theme-color-3 : #0a0a0a;
-$theme-color-4 : #0a0a0a;
 
-section {
+section, div {
 	@each $color, $code in $foundation-palette {
 		&.#{$color} {
 			background-color: $code;
-			color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color, $theme-color-1,$theme-color-2), $tolerance: $global-color-pick-contrast-tolerance) !important;
+			color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color), $tolerance: $global-color-pick-contrast-tolerance) !important;
 			
 		}
 	}
@@ -16,7 +12,7 @@ section article {
 	@each $color, $code in $foundation-palette {
 		&.#{$color} {
 			background-color: $code;
-			color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color, $theme-color-1,$theme-color-2), $tolerance: $global-color-pick-contrast-tolerance) !important;
+			color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color), $tolerance: $global-color-pick-contrast-tolerance) !important;
 		}
 	}
 }

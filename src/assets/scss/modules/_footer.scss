@@ -3,32 +3,166 @@
   background-repeat: no-repeat;
 .footer-container {
   @include xy-grid-container;
-  margin-top: rem-calc(60);
+
 }
 
 .footer-grid {
   @include xy-grid;
-  @include flex-align($x:center, $y:middle);
+  @include flex-align($x:center, $y:top);
   padding: rem-calc(30) 0;
 
   section {
-    @include xy-cell();
+    @include xy-cell(12);
+    order:1;
+    @include breakpoint(medium) {
+      @include xy-cell(auto);
+    }
     @include breakpoint(large) {
       @include xy-cell(auto);
     }
-  }
+    .footer-icon {
+      @include flex-align-self(bottom);
+      @include xy-cell(auto, $gutters:0);
+      color: $white;
 
-  .footer-links{
-    @include xy-grid;
-    a{
+      img {
+        max-width: 100%;
+      }
+    }
+    &:nth-of-type(2){
+      @include xy-cell(12);
+      text-align: left;
+      order:3;
+      @include breakpoint(medium) {
+        @include xy-cell(12);
+        order:3;
+        text-align: center;
+      }
+
+      @include breakpoint(large) {
+        @include xy-cell(auto);
+        order:2;
+        }
+     
+    }
+    &:nth-of-type(3){
+      @include xy-cell(12);
+      text-align: left;
+      order:2;
+      @include menu-align(left);
+      @include breakpoint(medium) {
       @include xy-cell(auto);
+      order:2;
+      text-align: right;
+      @include menu-align(right);
+      }
+      @include breakpoint(large) {
+        
+        order:3;
+        }
+      
     }
   }
-
+ 
+  .footer-contact {
+display: block;
+  }
+  .footer-links{
+    @include xy-grid;
+    margin-bottom: $global-margin;
+    @include xy-cell(6, $gutters:0);
+    @include breakpoint(medium){
+      @include xy-cell(12, $gutters:0);
+    }
+    a{
+      @include xy-cell(auto, $gutter-position:right);
+    }
+  }
+  .social-links{
+    font-size:rem-calc(30);
+    @include menu-align(left);
+    a {padding: 0.7rem 1rem 0.7rem 0;}
+    @include breakpoint(medium) {
+   a {padding: 0.7rem 0 0.7rem 1rem;}
+   justify-content: flex-end;
+    }
+   
+  }
+  .footer-address li{
+    display:inline;
+  }
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    a{
+      padding-left:0;
+    }
   }
 }
+}
+.business-details-section{
+  &.alignfull{
+		
+			margin-left: calc( -50vw + 50% );
+	margin-right: calc( -50vw  + 50%  );
+	max-width: 100vw;
+		
+	}
+  .business-details-container{
+    @include xy-grid-container;
+    .business-details-grid{
+      @include xy-grid;
+      @include flex-align($x:center, $y:top);
+      padding: rem-calc(30) 0;
+      .business-details{
+        @include xy-cell();
+        @include breakpoint(medium) {
+          @include xy-cell(auto);
+        }
+        h1,h2,h3,h4{
+          color:$primary-color;
+        }
+        .opening-hours{
+          tbody, tr{background-color: inherit;}
+          td{padding: 0;}
+        }
+        ul {
+          list-style-type: none;
+          margin: 0 0 $global-margin 0;
+          padding: 0;
+          a{
+            padding-left:0;
+          }
+        }
+
+      }
+    }
+  }
+}
+.newsletter-footer{
+  background-color: $primary-color;
+  h1,h2,h3,h4,h5{
+    color: $secondary-color;
+  }
+  .newsletter-footer-container{
+    @include xy-grid-container;
+    .newsletter-footer-grid{
+    @include xy-grid;
+    @include flex-align($x:center, $y:top);
+    text-align: center;
+   padding-top:$global-padding;
+    }
+  }
+  .newsletter-footer-form{
+   display: flex;
+   padding-bottom:$global-padding;
+   .tnp-field{
+    padding-right:$global-padding;
+   }
+  .tnp-field-button input[type=submit] {
+    @include button(false, $secondary-color, $button-background-hover, $button-color, hollow);
+  }
+}
+
 }

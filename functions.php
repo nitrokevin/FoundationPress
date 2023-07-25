@@ -23,6 +23,9 @@ require_once( 'library/foundation.php' );
 /** Format comments */
 require_once( 'library/class-foundationpress-comments.php' );
 
+/** Customizer functions */
+require_once( 'library/customizer-functions.php' );
+
 /** Register all navigation menus */
 require_once( 'library/navigation.php' );
 
