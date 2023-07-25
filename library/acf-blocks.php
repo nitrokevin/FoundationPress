@@ -2,14 +2,18 @@
 include 'colors.php';
 $color_array =  array(
 	'#fefefe' => 'white',
+	'#fefefe' => 'white',
 	$primary_color => 'primary',
 	$secondary_color => 'secondary',
 	$light_gray => 'light-gray',
 	$medium_gray => 'medium-gray',
 	$dark_gray => 'dark-gray',
-
-
+	$theme_color_1 => 'theme-color-1',
+	$theme_color_2 => 'theme-color-2',
+	$theme_color_3 => 'theme-color-3',
+	$theme_color_4 => 'theme-color-4',
 	'transparent' => 'transparent',
+    
 );
 if( function_exists('acf_register_block_type') ) {
 add_action('acf/init', 'my_acf_init_block_types');
@@ -45,7 +49,7 @@ function register_acf_blocks() {
     register_block_type(  __DIR__ . '/acf-backgroundvideo/block.json' );
     register_block_type(  __DIR__ . '/acf-carousel/block.json' );
     register_block_type(  __DIR__ . '/acf-tab/block.json' );
-    register_block_type(  __DIR__ . '/acf-business-details/block.json' );
+
 
     }
 }
@@ -922,79 +926,6 @@ acf_add_local_field_group(array(
     )
 );   
 
-//Business details
-acf_add_local_field_group(array(
-	'key' => 'group_622b3632877s724',
-	'title' => 'Block: Business Details',
-	'fields' => array(
-
-        array(
-            'key' => 'field_5d4k9aea91s31e31',
-            'label' => 'Section background',
-            'name' => 'section_background',
-            'type' => 'swatch',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array(
-                'width' => '33',
-                'class' => '',
-                'id' => '',
-            ),
-            'choices' => $color_array,
-            'allow_null' => 1,
-            'default_value' => array(
-                0 => '#fefefe',
-            ),
-            'layout' => 'horizontal',
-            'return_format' => 'label',
-            'other_choice' => 0,
-            'save_other_choice' => 0,
-            ),
-            array(
-                'key' => 'field_52d4c64cef62457159',
-                'label' => 'Map',
-                'name' => 'map',
-                'type' => 'google_map',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'center_lat' => '',
-                'center_lng' => '',
-                'zoom' => '',
-                'height' => '',
-            ),
-  
-		
-    
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'block',
-				'operator' => '==',
-				'value' => 'acf/business-details',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'seemless',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-));
 
 
-
-
-}
-?>
+} ?>
