@@ -1,10 +1,5 @@
 <?php if (function_exists('acf_add_local_field_group')) {
 include 'colors.php';
-
-<<<<<<< HEAD
-=======
-
->>>>>>> a5c8949395f861d36cf5ab2248b7526da49b544f
 $color_array =  array(
 	'#fefefe' => 'white',
 	$primary_color => 'primary',
