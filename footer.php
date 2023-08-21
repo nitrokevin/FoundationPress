@@ -7,77 +7,48 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
-
-$contact_phone_number = get_theme_mod('contact_phone_number');
-$contact_email = get_theme_mod('contact_email');
+$footer_phone = get_theme_mod('footer_phone_number');
+$footer_email = get_theme_mod('footer_email');
 $footer_company_number = get_theme_mod('footer_company_number');
 $footer_copyright = get_theme_mod('footer_copyright');
-$contact_address_1 = get_theme_mod('contact_address_1');
-$contact_address_2 = get_theme_mod('contact_address_2');
-$contact_address_3 = get_theme_mod('contact_address_3');
-$contact_address_4 = get_theme_mod('contact_address_4');
-$contact_address_5 = get_theme_mod('contact_address_5');
-$contact_address_6 = get_theme_mod('contact_address_6');
+$footer_address_1 = get_theme_mod('footer_address_1');
+$footer_address_2 = get_theme_mod('footer_address_2');
+$footer_address_3 = get_theme_mod('footer_address_3');
+$footer_address_4 = get_theme_mod('footer_address_4');
+$footer_address_5 = get_theme_mod('footer_address_5');
+$footer_address_6 = get_theme_mod('footer_address_6');
+$footer_background_image = get_theme_mod('footer_background_image');
+if($footer_background_image){;
+$small = wp_get_attachment_image_url( $footer_background_image, 'fp-small' ); ;
+$medium =  wp_get_attachment_image_url( $footer_background_image, 'fp-medium' );
+$large = wp_get_attachment_image_url( $footer_background_image, 'fp-large' );
+$xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
+};
+
 ?>
 
-<section class="newsletter-footer">
-	<div class="newsletter-footer-container">
-	<div class="newsletter-footer-grid">
-	<h3>Keep up to date</h3>
-	</div>
-	<div class="newsletter-footer-grid">
-	<?php echo do_shortcode(' [newsletter_form class="newsletter-footer-form"]
-	[newsletter_field name="name" label="" placeholder="Name"]
-[newsletter_field name="email" label="" placeholder="Email"]
-[/newsletter_form]' ) ?>
-	</div>
-	</div>
-</section>
-
-<footer class="footer">
+<footer class="footer"  <?php if ($footer_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium;?>, medium], [<?php echo $large;?>, large], [<?php echo $xlarge;?>, xlarge]"<?php } ?> >
 <div class="footer-container">
 	<div class="footer-grid">
-		<section>
-			
-			<h4><?php bloginfo( 'name' ); ?></h4>
-			<ul class="footer-address">
-				<?php if ($contact_address_1){?><li><?php echo $contact_address_1 ?>, </li><?php } ?>
-				<?php if ($contact_address_2){?><li><?php echo $contact_address_2 ?>, </li><?php } ?>
-				<?php if ($contact_address_3){?><li><?php echo $contact_address_3 ?>, </li><?php } ?>
-				<?php if ($contact_address_4){?><li><?php echo $contact_address_4 ?>, </li><?php } ?>
-				<?php if ($contact_address_5){?><li><?php echo $contact_address_5 ?></li><?php } ?>
-				<?php if ($contact_address_6){?><li><?php echo $contact_address_6 ?></li><?php } ?>
-			</ul>
-			<ul class="footer-contact">
-				<?php if ($contact_phone_number){?><li><?php echo $contact_phone_number ?></li><?php } ?>
-				<?php if ($contact_email){?><li><?php echo $contact_email ?> </li><?php } ?>
-			</ul>
-			<?php foundationpress_footer_nav_l(); ?>
-		</section>
-		
-		<section>
-		
-		<?php $footer_links = get_theme_mod( 'footer_links' );
-					 if($footer_links) {?>
-					 	 <h4>Review us</h4>
-					<div class="footer-links">
-						<?php foreach ( $footer_links as $footer_link ) : ?>
-							<a href="<?php echo $footer_link['link_url']; ?>" target="_blank">
-								<?php echo wp_get_attachment_image($footer_link['footer_image'], 'square','false',["class" => "footer-icon"] ); ?>
-							</a>
-						<?php endforeach; ?>
-					</div>
-					<?php } ?>
-		<?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . "." ;?>
-		
-		</section>
+		<?php dynamic_sidebar( 'footer-widgets' ); ?>
+	</div>
+	<div class="footer-grid">
 
 		<section>
-		<?php foundationpress_footer_nav_r(); ?>
-
-	
-		<h4 class="social-links-header">Follow us</h4>
-		<ul class="social-links menu  footer-menu">
+		<?php foundationpress_footer_nav_l(); ?>
+			<ul class="footer-contact menu  footer-menu">
+				<li><?php echo $footer_address_1 ?></li>
+				<li><?php echo $footer_address_2 ?> </li>
+				<li><?php echo $footer_address_3 ?> </li>
+				<li><?php echo $footer_address_4 ?> </li>
+				<li><?php echo $footer_address_5 ?></li>
+				<li><?php echo $footer_address_6 ?></li>
+				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . "." ;?></li>
+			</ul>
+		
+		</section>
+		<section>
+			<ul class="social-links menu  footer-menu align-center">
 				<?php if (get_theme_mod('social-facebook')) : ?>
 					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
 							<i class="fab fa-facebook-f fa-fw"></i>
@@ -106,6 +77,21 @@ $contact_address_6 = get_theme_mod('contact_address_6');
 						</a></li>
 				<?php endif; ?>
 			</ul>
+		</section>
+		<section>
+		<?php foundationpress_footer_nav_r(); ?>
+		<?php
+		$footer_links = get_theme_mod( 'footer_links' );
+		 if($footer_links) {?>
+		<div class="footer-links">
+			<?php 
+				foreach ( $footer_links as $footer_link ) : ?>
+				<a href="<?php $footer_link['link_url']; ?>">
+					<?php echo wp_get_attachment_image($footer_link['footer_image'], 'thumbnail','false',["class" => "footer-icon"] ); ?>
+				</a>
+			<?php endforeach; ?>
+		</div>
+		<?php } ?>
 		</section>
 	</div>
 </div>

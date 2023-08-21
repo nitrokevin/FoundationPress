@@ -7,8 +7,10 @@ $color_array =  array(
 	$light_gray => 'light-gray',
 	$medium_gray => 'medium-gray',
 	$dark_gray => 'dark-gray',
-
-
+	$theme_color_1 => 'theme-color-1',
+	$theme_color_2 => 'theme-color-2',
+	$theme_color_3 => 'theme-color-3',
+	$theme_color_4 => 'theme-color-4',
 	'transparent' => 'transparent',
 );
 //Page Options
@@ -17,86 +19,6 @@ acf_add_local_field_group(array(
 	'title' => 'Page Options',
 	'fields' => array(
 	
-		array(
-			'key' => 'field_5cb723101cgd96',
-			'label' => 'Header',
-			'name' => 'page_header',
-			'type' => 'wysiwyg',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '0',
-				'class' => '',
-				'id' => '',
-			),
-			'tabs' => 'visual',
-			'toolbar' => 'full',
-			'media_upload' => 0,
-			'delay' => 1,
-		),
-		array(
-			'key' => 'field_5c812c928y139c1',
-			'label' => 'Header Slider',
-			'name' => 'slider',
-			'type' => 'true_false',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'message' => '',
-			'ui' => 1,
-			'ui_on_text' => '',
-			'ui_off_text' => '',
-		),
-		
-		array(
-			'key' => 'field_62540c6661c0f',
-			'label' => 'Header Slider Gallery',
-			'name' => 'repeater_intro_slider',
-			'type' => 'gallery',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => array(	
-				array(
-					'field' => 'field_5c812c928y139c1',
-					'operator' => '==',
-					'value' => '1',
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'collapsed' => '',
-			'min' => 1,
-			'max' => 0,
-			'layout' => 'block',
-			'button_label' => 'Add column',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_5c812c928u19c9',
-					'label' => 'Slider image',
-					'name' => 'slider_image',
-					'type' => 'image',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '100',
-						'class' => '',
-						'id' => '',
-					),
-					'return_format' => 'array',
-					'preview_size' => 'thumbnail',
-					'library' => 'all',
-				),
-			
-			)
-		),
 		array(
 			'key' => 'field_5c756acdc2285',
 			'label' => 'Background colour',

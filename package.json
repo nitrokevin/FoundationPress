@@ -1,23 +1,19 @@
 {
-  "name": "foundationpress",
+  "name": "FoundationPress",
   "title": "FoundationPress",
-  "version": "1.0.4",
-  "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
-  "homepage": "https://avidd.design",
+  "version": "1.0.5",
+  "description": "FoundationPress",
+  "homepage": "avidd.design",
   "license": "MIT",
-  "main": "gulpfile.babel.js",
+  "private": true,
+  "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
     "dev": "gulp build --dev",
-    "build": "gulp build --production",
-    "package": "gulp package --production",
-    "phpcs": "gulp phpcs",
-    "phpcbf": "gulp phpcbf"
+    "build": "gulp build --production"
   },
   "keywords": [
-    "FoundationPress",
     "WordPress",
-    "starter theme",
     "Foundation",
     "semantic",
     "mobile first",
@@ -25,23 +21,20 @@
     "responsive"
   ],
   "dependencies": {
-    "@splidejs/splide": "^4.1.4",
-    "acorn": "^8.7.0",
-    "foundation-sites": "6.7.5",
-    "jquery": "~3.6.3",
-    "motion-ui": "latest",
-    "react-dom": "^18.2.0",
-    "what-input": "^5.2.10"
+    "foundation-sites": "6.8.1",
+    "jquery": "^3.6.0",
+    "motion-ui": "^2.0.3",
+    "what-input": "^5.2.12",
+    "@splidejs/splide": "^4.1.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
-    "@babel/register": "^7.18.9",
+    "@babel/register": "^7.17.7",
     "ansi-colors": "^4.1.3",
     "babel-loader": "^8.2.5",
     "browser-sync": "^2.27.10",
-    "dateformat": "^3.0.3",
     "fancy-log": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -54,22 +47,22 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-load-plugins": "^2.0.7",
     "gulp-rev": "^9.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "js-yaml": "^4.1.0",
     "rimraf": "^3.0.2",
-    "sass": "~1.54.0",
+    "sass": "^1.52.2",
     "vinyl-named": "^1.1.0",
     "webpack": "^5.73.0",
     "webpack-stream": "^7.0.0",
-    "yargs": "^17.5.0"
+    "yargs": "^17.5.1"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nitrokevin/foundationpress.git"
-  },
-  "bugs": {
-    "url": "https://github.com/nitrokevin/foundationpress/issues"
+    "url": "https://github.com/ksascomm/AS-Magazine-2019.git"
   }
 }

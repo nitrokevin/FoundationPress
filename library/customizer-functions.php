@@ -12,8 +12,10 @@ $color_array =  array(
   $black,
 $transparent,
   $white,
-
-
+  $theme_color_1,
+  $theme_color_2,
+  $theme_color_3,
+  $theme_color_4
 
 );
 // Exit if accessed directly.

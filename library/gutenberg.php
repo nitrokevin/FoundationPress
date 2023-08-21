@@ -31,7 +31,26 @@ if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
             'color' => $dark_gray,
         ),
 
- 
+        array(
+            'name' => __( 'Theme Color 1', 'foundationpress' ),
+            'slug' => 'theme-color-1',
+            'color' => $theme_color_1,
+        ),
+        array(
+            'name' => __( 'Theme Color 2', 'foundationpress' ),
+            'slug' => 'theme-color-2',
+            'color' => $theme_color_2,
+        ),
+        array(
+            'name' => __( 'Theme Color 3', 'foundationpress' ),
+            'slug' => 'theme-color-3',
+            'color' => $theme_color_3,
+        ),
+        array(
+            'name' => __( 'Theme Color 4', 'foundationpress' ),
+            'slug' => 'theme-color-4',
+            'color' => $theme_color_4,
+        )
   
     ) );
 

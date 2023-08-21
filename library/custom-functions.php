@@ -56,9 +56,10 @@ function my_mce4_options($init) {
                        "'.$light_gray = substr($light_gray, 1).'", "dark gray",
                        "'.$medium_gray = substr($medium_gray, 1).'", "dark gray",
                        "'.$dark_gray = substr($dark_gray, 1).'", "dark gray",
-
-
-
+                       "'.$theme_color_1 = substr($theme_color_1, 1).'", "theme color 1",
+                       "'.$theme_color_2 = substr($theme_color_2, 1).'", "theme color 2",
+                       "'.$theme_color_3 = substr($theme_color_3, 1).'", "theme color 3",
+                       "'.$theme_color_4 = substr($theme_color_4, 1).'", "theme color 4",
                       ';
   $init['textcolor_map'] = '['.$default_colours.']';
   return $init;

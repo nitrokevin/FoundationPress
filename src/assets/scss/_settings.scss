@@ -79,7 +79,15 @@ $foundation-palette: (
   light-gray: #e6e6e6,
   medium-gray: #cacaca,
   dark-gray: #4A4A4A,
+  theme-color-1:#ADD6C2,
+  theme-color-2 : #525D8D,
+  theme-color-3: #DEE8F1,
+  theme-color-4: #8C3C40,
 );
+$theme-color-1:get-color(theme-color-1);
+$theme-color-2 : get-color(theme-color-2);
+$theme-color-3: get-color(theme-color-3);
+$theme-color-4: get-color(theme-color-4);
 $light-gray:  get-color(light-gray);
 $medium-gray:get-color(medium-gray);
 $dark-gray: get-color(dark-gray);
