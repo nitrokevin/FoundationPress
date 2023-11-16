@@ -33,8 +33,10 @@
 								$internal_link = get_sub_field('internal_link');
         $small_size = 'medium';
         $medium_size = 'medium';
+        if ($grid_image) {;
         $small = $grid_image['sizes'][$small_size];
         $medium = $grid_image['sizes'][$medium_size];
+        };
           ?>
           <div class="block-grid-item <?php echo $vertical_alignment ?>">
             <?php if ($internal_link){ ?>

@@ -7,10 +7,12 @@
    $medium_size = 'featured-medium';
    $large_size = 'featured-large';
    $xlarge_size = 'featured-xlarge';
+   if ($background) {;
    $small = $background['sizes'][$small_size];
    $medium = $background['sizes'][$medium_size];
    $large = $background['sizes'][$large_size];
    $xlarge = $background['sizes'][$xlarge_size];
+   };
   ?>
   <div class="parallax">
  <section class="<?php if (is_front_page() ){ ?>front<?php } else { ?>featured<?php } ?>-hero <?php echo $parallax; ?>" role="banner"  data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large], [<?php echo $xlarge; ?>, xlarge]">

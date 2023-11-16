@@ -15,7 +15,10 @@ function acf_responsive_image( $image_id, $image_size, $max_width ) {
 	}
 }
 // Jpeg Quality
-add_filter( 'jpeg_quality', create_function( '', 'return 70;' ) );
+function custom_jpeg_quality() {
+	return 70;
+}
+add_filter( 'jpeg_quality', 'custom_jpeg_quality', 10, 2 );
 // CUSTOMIZER HEADER LOGO
 function logo_customizer( $wp_customize ) {
 $wp_customize->add_section( 'logo_section' , array(

@@ -32,8 +32,10 @@
         $page_link = get_sub_field('page_link');
          $small_size = 'featured-small-square';
          $medium_size = 'featured-small-square';
+         if ($grid_image) {;
         $small = $grid_image['sizes'][$small_size];
         $medium = $grid_image['sizes'][$medium_size];      
+         };
           ?>
            
          <div class="block-grid-item">
@@ -63,5 +65,3 @@
 	</div>
 </section>
 <?php } ?>
-
-

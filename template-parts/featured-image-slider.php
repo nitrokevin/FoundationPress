@@ -20,12 +20,12 @@
          $medium_size = 'featured-medium';
          $large_size = 'featured-large';
          $xlarge_size = 'featured-xlarge';
-
+if ($image) {;
 									$small = $image['sizes'][$small_size];
          $medium = $image['sizes'][$medium_size];
          $large = $image['sizes'][$large_size];
          $xlarge = $image['sizes'][$xlarge_size];
- 
+};
   	       ?>
 
   	<!-- REPEATED CONTENT -->
@@ -44,11 +44,3 @@
   </div>
  </div>
 </header>
-
-
-
-
-
-
-
-

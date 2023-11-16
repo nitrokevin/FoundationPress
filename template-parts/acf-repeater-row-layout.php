@@ -26,8 +26,10 @@
  	  $page_link = get_sub_field('page_link');
  	  $small_size = 'fp-small';
     $medium_size = 'fp-medium';
+	if ($image) {;
     $small = $image['sizes'][$small_size];
-    $medium = $image['sizes'][$medium_size];    
+    $medium = $image['sizes'][$medium_size];   
+	}; 
    ?>
   		
 	<div class="cell">
