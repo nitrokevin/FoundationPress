@@ -12,12 +12,15 @@ import webpack2 from "webpack";
 import named from "vinyl-named";
 import log from "fancy-log";
 import colors from "ansi-colors";
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
-var sass = require('gulp-sass')(require('sass'));
+// const sass = gulpSass(dartSass)
+const packages = require( './package.json' )
 
+const sass = require( 'gulp-sass' )( require( 'sass' ) )
 // Load all Gulp plugins into one variable
-const $ = plugins();
+// https://github.com/jackfranklin/gulp-load-plugins/releases v2.0.8
+const $ = plugins( {
+  config: packages,
+} )
 
 // Check for --production flag
 const PRODUCTION = !!yargs.argv.production;
