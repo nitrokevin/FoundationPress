@@ -1,10 +1,10 @@
 {
     "name": "acf/accordion",
     "title": "Accordion",
-    "description": "",
+    "description": "Accordion drop down",
     "style": [ "file:./dist/assets/css/editor.css" ],
     "category": "avidd-blocks",
-    "icon": "admin-comments",
+    "icon": "plus-alt",
     "keywords": ["accordion"],
     "acf": {
         "mode": "preview",

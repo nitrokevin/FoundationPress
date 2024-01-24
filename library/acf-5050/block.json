@@ -1,14 +1,19 @@
 {
     "name": "acf/acf-50-50",
     "title": "50 / 50 Block",
-    "description": "test",
+    "description": "Full width block with image on one side and text/slider on the other",
     "style": [ "file:./dist/assets/css/editor.css" ],
-    "icon": "admin-comments",
+    "icon": "columns",
     "category": "avidd-blocks",
     "keywords": ["50/50", "split"],
     "acf": {
         "mode": "preview",
         "renderTemplate": "template-parts/blocks/50-50.php"
     },
-    "align": "full"
+    "align": "full",
+     "attributes": {
+        "align": {
+          "default": "full"
+        }
+      }
 }

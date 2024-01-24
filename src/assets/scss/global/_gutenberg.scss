@@ -8,10 +8,12 @@ Frontend styles for gutenberg blocks
   .has-#{$color}-background-color {
       background-color: $code;
       color:color-pick-contrast($code, $colors: ($white, $black, $primary-color, $secondary-color), $tolerance: $global-color-pick-contrast-tolerance);
+     
   }
 
   .has-#{$color}-color {
       color: $code;
+      
   }
 }
 
@@ -25,6 +27,8 @@ Frontend styles for gutenberg blocks
 
       &.has-#{$color}-background-color {
           background-color: $code;
+             transition: background-color .25s ease-out,
+             color .25s ease-out;
       }
 
       &.has-#{$color}-color {
