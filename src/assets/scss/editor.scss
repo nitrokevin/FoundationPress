@@ -23,16 +23,16 @@
   }
 
 /** === Content Width === */
-.wp-block {
-	width: calc(100vw - (2 * 10px));
-	@each $breakpoint, $size in $grid-margin-gutters {
+// .wp-block {
+// 	width: calc(100vw - (2 * 10px));
+// 	@each $breakpoint, $size in $grid-margin-gutters {
 
-		@include breakpoint($breakpoint) {
-			width: calc(100vw - ($size));
-		}
+// 		@include breakpoint($breakpoint) {
+// 			width: calc(100vw - ($size));
+// 		}
 
-	}
-}
+// 	}
+// }
 
 /** === Base Typography === */
 body {

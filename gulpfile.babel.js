@@ -14,8 +14,8 @@ import log from "fancy-log";
 import colors from "ansi-colors";
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-var sass = require('gulp-sass')(require('sass'));
 
+const sass = require('gulp-sass')(require('sass'));
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
@@ -26,7 +26,12 @@ const PRODUCTION = !!yargs.argv.production;
 const DEV = !!yargs.argv.dev;
 
 // Load settings from config.yml
-const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
+const {
+  BROWSERSYNC,
+  COMPATIBILITY,
+  REVISIONING,
+  PATHS
+} = loadConfig();
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -85,8 +90,7 @@ function copy() {
 // In production, the CSS is compressed
 function styles() {
   return (
-    gulp
-    .src("src/assets/scss/app.scss")
+    gulp.src(['src/assets/scss/app.scss', 'src/assets/scss/editor.scss'])
     .pipe($.sourcemaps.init())
     .pipe(
       sass({
@@ -95,7 +99,9 @@ function styles() {
     )
     .pipe($.autoprefixer())
 
-    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: "ie9" })))
+    .pipe($.if(PRODUCTION, $.cleanCss({
+      compatibility: "ie11"
+    })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && DEV), $.rev()))
     .pipe(gulp.dest(PATHS.dist + "/assets/css"))
@@ -106,23 +112,23 @@ function styles() {
       )
     )
     .pipe(gulp.dest(PATHS.dist + "/assets/css"))
-    .pipe(browser.reload({ stream: true }))
+    .pipe(browser.reload({
+      stream: true
+    }))
   );
 }
-exports.styles   = styles;
+exports.styles = styles;
 
 // Combine JavaScript into one file
 // In production, the file is minified
 const webpack = {
   config: {
     module: {
-      rules: [
-        {
-          test: /.js$/,
-          loader: "babel-loader",
-          exclude: /node_modules(?![\\\/]foundation-sites)/,
-        },
-      ],
+      rules: [{
+        test: /.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules(?![\\\/]foundation-sites)/,
+      }, ],
     },
     mode: "development",
     externals: {
@@ -213,7 +219,11 @@ function images() {
             interlaced: true,
           }),
           $.imagemin.svgo({
-            plugins: [{ cleanupAttrs: true }, { removeComments: true }],
+            plugins: [{
+              cleanupAttrs: true
+            }, {
+              removeComments: true
+            }],
           }),
         ])
       )

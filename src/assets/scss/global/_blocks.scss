@@ -57,16 +57,15 @@
               min-height: unset;
              
             }
-            &.primary-color.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($primary-color,0.6) inset ;}
-            &.secondary-color.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($secondary-color,0.6) inset ;}
-            &.light-gray.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($light-gray,0.6) inset ;}
-            &.medium-gray.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($medium-gray,0.6) inset ;}
-            &.dark-gray.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($dark-gray,0.6) inset ;}
-            &.theme-color-1.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-1,0.6) inset ;}
-            &.theme-color-2.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-2,0.6) inset ;}
-            &.theme-color-3.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-3,0.6) inset ;}
-            &.theme-color-4.overlay {background-color: transparent;box-shadow: 0 0 0 1000rem rgba($theme-color-4,0.6) inset ;}
+           		@each $color,
+           		$code in $foundation-palette {
 
+           		  &.#{$color}.overlay {
+           		    background-color: transparent;
+           		    box-shadow: 0 0 0 1000rem rgba($code, 0.6) inset;
+           		  }
+
+           		}
             .article-padding{
               @each $breakpoint, $size in $grid-margin-gutters {
                 @include breakpoint($breakpoint) {
@@ -123,53 +122,3 @@
 }
 
 
-
- 
-//BACKGROUND VIDEO
-.background-video{
-  &.alignfull{
-    margin-left: calc( -100vw / 2 + 100% / 2 );
-    margin-right: calc( -100vw / 2 + 100% / 2 );
-    max-width: 100vw;
-      padding:0;
-      margin-bottom: $global-margin;
-  }
-  .background-video-container {
-   
-    position: absolute;
-    @include breakpoint(small) {
-      background-size: cover;
-      background-position: center;
-      height: rem-calc(400);
-      position: relative;
-      margin:  0;
-    }
-    @include breakpoint(medium) {
-      height:rem-calc(500);
-    }
-    @include breakpoint(large) {
-      height: rem-calc(500);
-    }
-    @include breakpoint(xlarge) {
-      height: rem-calc(500);
-    }
-  
-    .background-video-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  
-  }
-}
