@@ -1,7 +1,7 @@
 {
   "name": "FoundationPress",
   "title": "FoundationPress",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "FoundationPress",
   "homepage": "avidd.design",
   "license": "MIT",
@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "foundation-sites": "6.8.1",
-    "jquery": "^3.6.0",
+    "jquery": "^3.7.1",
     "motion-ui": "^2.0.3",
     "what-input": "^5.2.12",
     "@splidejs/splide": "^4.1.4"
