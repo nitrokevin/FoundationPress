@@ -15,21 +15,7 @@ if ( ! function_exists( 'foundationpress_gutenberg_support' ) ) :
             'slug' => 'secondary',
             'color' => '#767676',
         ),
-        array(
-            'name' => __( 'Success Color', 'foundationpress' ),
-            'slug' => 'success',
-            'color' => '#3adb76',
-        ),
-        array(
-            'name' => __( 'Warning color', 'foundationpress' ),
-            'slug' => 'warning',
-            'color' => '#ffae00',
-        ),
-        array(
-            'name' => __( 'Alert color', 'foundationpress' ),
-            'slug' => 'alert',
-            'color' => '#cc4b37',
-        )
+ 
     ) );
 
 	}
