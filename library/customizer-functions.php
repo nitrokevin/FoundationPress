@@ -240,13 +240,6 @@ new \Kirki\Field\Repeater(
 		'label'    => esc_html__( 'Footer images', 'avidd' ),
 		'section'  => 'site_footer_section',
 		'priority' => 11,
-  
-		'default'  => [
-			[
-				
-			],
-			
-		],
 		'fields'   => [
       'footer_image' =>[
         'type'        => 'image',

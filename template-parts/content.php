@@ -22,7 +22,10 @@
 		<?php foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php 	if ( is_single() ) { 
+			the_content();
+		} else { the_excerpt();
+		} ?>
+		
 	</div>
 </article>
