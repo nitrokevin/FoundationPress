@@ -16,7 +16,7 @@
 			$medium = $image['sizes']['featured-medium'];
 			$large = $image['sizes']['featured-large']; 
 			$xlarge = $image['sizes']['featured-xlarge'];  ?>
-			<li class="splide__slide" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large], [<?php echo $xlarge; ?>, xlarge]" data-index="<?php echo $counter;?>"></li>
+			<li class="splide__slide" data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large], [<?php echo $xlarge; ?>, xlarge]" data-type="background" data-index="<?php echo $counter;?>"></li>
 			<?php endforeach; ?>
 		</ul>	
 	</div>

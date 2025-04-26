@@ -56,11 +56,11 @@ $right_large = $right_background_image['sizes']['fp-large'];
 $counter++;
 
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> full-width-50-50-outer-container <?php echo $section_background; ?>  <?php if ($section_background_image) { ?> section-background-image<?php } ?>" <?php if ($section_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" <?php } ?>>
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> full-width-50-50-outer-container <?php echo $section_background; ?>  <?php if ($section_background_image) { ?> section-background-image<?php } ?>" <?php if ($section_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium; ?>, medium], [<?php echo $large; ?>, large]" data-type="background" <?php } ?>>
     <div class="full-width-50-50-container"> 
 		<div class="full-width-50-50-grid" >
 				
-			<article class="<?php echo $left_background; ?> <?php if($left_overlay == 1){?>overlay<?php }?>" <?php if ($left_background_image) { ?> data-interchange="[<?php echo $left_small; ?>, small], [<?php echo $left_medium; ?>, medium], [<?php echo $left_large; ?>, large]" <?php } ?>>	
+			<article class="<?php echo $left_background; ?> <?php if($left_overlay == 1){?>overlay<?php }?>" <?php if ($left_background_image) { ?> data-interchange="[<?php echo $left_small; ?>, small], [<?php echo $left_medium; ?>, medium], [<?php echo $left_large; ?>, large]" data-type="background" <?php } ?>>	
 				<div class="article-padding ">
 			    	<div class="article-grid ">
 				    <div class="entry-content">
@@ -76,7 +76,7 @@ $counter++;
 				</div>
 				</div>
 			</article>
-			<article class="<?php echo $right_background; ?> <?php if($right_overlay == 1){?>overlay<?php }?>" <?php if ($right_background_image) { ?> data-interchange="[<?php echo $right_small; ?>, small], [<?php echo $right_medium; ?>, medium], [<?php echo $right_large; ?>, large]" <?php } ?>>	
+			<article class="<?php echo $right_background; ?> <?php if($right_overlay == 1){?>overlay<?php }?>" <?php if ($right_background_image) { ?> data-interchange="[<?php echo $right_small; ?>, small], [<?php echo $right_medium; ?>, medium], [<?php echo $right_large; ?>, large]" data-type="background" <?php } ?>>	
 				<div class="article-padding ">
 			    	<div class="article-grid ">
 				    <div class="entry-content">

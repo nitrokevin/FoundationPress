@@ -17,7 +17,7 @@
 
 					?>
 			<li class="splide__slide">
-				<div class="image" data-interchange="[<?php echo $small; ?>, small], [<?php echo $small; ?>, medium]"></div>
+				<div class="image" data-interchange="[<?php echo $small; ?>, small], [<?php echo $small; ?>, medium]" data-type="background"></div>
 			<div class="info">
 			<?php if($name){ ?>
 				<h5><?php echo $name; ?></h5>

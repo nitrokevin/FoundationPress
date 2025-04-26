@@ -27,7 +27,7 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 
 ?>
 
-<footer class="footer"  <?php if ($footer_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium;?>, medium], [<?php echo $large;?>, large], [<?php echo $xlarge;?>, xlarge]"<?php } ?> >
+<footer class="footer"  <?php if ($footer_background_image) { ?> data-interchange="[<?php echo $small; ?>, small], [<?php echo $medium;?>, medium], [<?php echo $large;?>, large], [<?php echo $xlarge;?>, xlarge]" data-type="background"<?php } ?> >
 <div class="footer-container">
 	<div class="footer-grid">
 		<?php dynamic_sidebar( 'footer-widgets' ); ?>
