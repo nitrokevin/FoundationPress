@@ -411,6 +411,36 @@ new \Kirki\Field\URL(
 		],
 	],
 );
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'social-tiktok',
+		'label'       => esc_html__( 'Tiktok', 'avidd'  ),
+		'description' => esc_html__( '', 'avidd' ),
+		'section'     => 'social_media_section',
+		'default'     => 'off',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'avidd' ),
+			'off' => esc_html__( 'Disable', 'avidd' ),
+		],
+	]
+);
+
+new \Kirki\Field\URL(
+	[
+		'settings' => 'social-tiktok-url',
+		'label'    => esc_html__( 'TikTok URL', 'avidd' ),
+		'section'  => 'social_media_section',
+		'default'  => 'https://tiktok.com/',
+		'priority' => 10,
+		'active_callback'  => [
+			[
+				'setting'  => 'social-tiktok',
+				'operator' => '===',
+				'value'    => true,
+			],
+		],
+	],
+);
 
 //Site Settings
 new \Kirki\Field\Color_Palette(
