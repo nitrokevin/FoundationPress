@@ -43,12 +43,28 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 				<li><?php echo $footer_address_4 ?> </li>
 				<li><?php echo $footer_address_5 ?></li>
 				<li><?php echo $footer_address_6 ?></li>
-				<li><?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . "." ;?></li>
+				
 			</ul>
 		
 		</section>
 		<section>
-			<ul class="social-links menu  footer-menu align-center">
+			
+		</section>
+		<section>
+		<?php foundationpress_footer_nav_r(); ?>
+		<?php
+		$footer_links = get_theme_mod( 'footer_links' );
+		 if($footer_links) {?>
+		<div class="footer-links">
+			<?php 
+				foreach ( $footer_links as $footer_link ) : ?>
+				<a href="<?php $footer_link['link_url']; ?>">
+					<?php echo wp_get_attachment_image($footer_link['footer_image'], 'thumbnail','false',["class" => "footer-icon"] ); ?>
+				</a>
+			<?php endforeach; ?>
+		</div>
+		<?php } ?>
+		<ul class="social-links menu  footer-menu align-right">
 				<?php if (get_theme_mod('social-facebook')) : ?>
 					<li><a href="<?php echo esc_url(get_theme_mod('social-facebook-url')); ?> " rel="noreferrer"  target="_blank" aria-label="Facebook">
 							<i class="fab fa-facebook-f fa-fw"></i>
@@ -76,22 +92,19 @@ $xlarge = wp_get_attachment_image_url( $footer_background_image, 'fp-xlarge' );
 							<i class="fab fa-pinterest fa-fw"></i>
 						</a></li>
 				<?php endif; ?>
+				<?php if (get_theme_mod('social-youtube')) : ?>
+					<li><a href="<?php echo esc_url(get_theme_mod('social-youtube-url')); ?>" rel="noreferrer" target="_blank" aria-label="Youtube">
+							<i class="fab fa-youtube fa-fw"></i>
+						</a></li>
+				<?php endif; ?>
+						<?php if (get_theme_mod('social-tiktok')) : ?>
+					<li><a href="<?php echo esc_url(get_theme_mod('social-tiktok-url')); ?>" rel="noreferrer" target="_blank" aria-label="TikTok">
+							<i class="fab fa-tiktok fa-fw"></i>
+						</a></li>
+				<?php endif; ?>
+				
 			</ul>
-		</section>
-		<section>
-		<?php foundationpress_footer_nav_r(); ?>
-		<?php
-		$footer_links = get_theme_mod( 'footer_links' );
-		 if($footer_links) {?>
-		<div class="footer-links">
-			<?php 
-				foreach ( $footer_links as $footer_link ) : ?>
-				<a href="<?php $footer_link['link_url']; ?>">
-					<?php echo wp_get_attachment_image($footer_link['footer_image'], 'thumbnail','false',["class" => "footer-icon"] ); ?>
-				</a>
-			<?php endforeach; ?>
-		</div>
-		<?php } ?>
+			<?php echo '&copy; ' . esc_attr(get_bloginfo('name', 'display')) .' ' . mysql2date('Y', get_user_option('user_registered', 1)) .  '-' .  date('Y') . "." ;?>
 		</section>
 	</div>
 </div>

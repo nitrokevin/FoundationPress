@@ -21,21 +21,20 @@
 <?php if (get_theme_mod('wpt_mobile_menu_layout') === 'offcanvas') : ?>
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
-	<?php if ( true == get_theme_mod( 'sticky_header', true ) ) : ?>
-	<div data-sticky-container <?php if ( true == get_theme_mod( 'fixed_header', true ) ) : ?><?php if ( has_post_thumbnail( $post->ID ) ) { ?>class="fixed-header"<?php } ?><?php endif; ?>>
-	<div data-sticky data-sticky-on="small"  data-options="marginTop:0; z-index:100;">
-	<?php endif; ?>
+<?php if ( true == get_theme_mod( 'sticky_header', true ) ) : ?>
+<div data-sticky-container <?php if ( true == get_theme_mod( 'fixed_header', true ) ) : ?><?php if ( has_post_thumbnail( get_queried_object_id() ) ) { ?>class="fixed-header"<?php } ?><?php endif; ?>>
+<div data-sticky data-sticky-on="small" data-options="marginTop:0; z-index:100;">
+<?php endif; ?>
+
 	<header class="site-header" role="banner">
 		<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle(); ?>>
 			<div class="title-bar-left"> 
-				
-				</div>
-			<div class="title-bar-center">
-				<span class="site-mobile-title title-bar-title">
+					<span class="site-mobile-title title-bar-title">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
 						<img src="<?php echo esc_url(get_theme_mod('header_logo')); ?>" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"></a>
 				</span>
-			</div>
+				</div>
+			
 			<div class="title-bar-right">
 				<button aria-label="<?php _e('Main Menu', 'foundationpress'); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 			</div>
@@ -52,7 +51,10 @@
 				<?php foundationpress_top_bar_l(); ?>
 			</div>
 			<div class="top-bar-center">
-				
+				<div class="nav-container">
+					<div class="hover-pill" id="hoverPill"></div>
+					<?php foundationpress_top_bar_c(); ?>
+				</div>
 			</div>
 
 			<div class="top-bar-right">

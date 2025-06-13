@@ -1,0 +1,14 @@
+{
+    "name": "acf/acf-nav",
+    "title": "Nav",
+    "description": "Row of call to actions with button",
+    "style": [ "file:./dist/assets/css/editor.css" ],
+    "category": "avidd-blocks",
+    "icon": "menu",
+    "keywords": ["navigation"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template-parts/blocks/nav-block.php"
+    }
+
+}

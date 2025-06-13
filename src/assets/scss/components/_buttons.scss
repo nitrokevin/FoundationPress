@@ -3,7 +3,15 @@
 .button{
   font-size: 0.9rem;
   @include breakpoint(medium){
-  font-size: 1.1rem;
+  font-size: 1rem;
   }
   font-weight: $global-weight-bold;
+}
+
+.top-bar-right{
+  .button{
+    margin:0;
+    padding:0;
+    font-size: rem-calc(14);
+  }
 }

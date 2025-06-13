@@ -4,33 +4,39 @@ Template Name: Front
 */
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
+<section id="front-hero" class="front-hero">
+  <div class="front-hero-image" 
+       data-interchange="[<?php the_post_thumbnail_url( 'featured-small' ); ?>, small], [<?php the_post_thumbnail_url( 'featured-medium' ); ?>, medium], [<?php the_post_thumbnail_url( 'featured-large' ); ?>, large], [<?php the_post_thumbnail_url( 'featured-xlarge' ); ?>, xlarge]" 
+       data-type="background">
+  </div>
+
+  <div class="marketing">
+    <div class="tagline">
+      <h1><?php bloginfo( 'name' ); ?></h1>
+      <p><?php bloginfo( 'description' ); ?></p>
+      <hr>
+	  <div class="wp-block-button">
+	  <a href="" class="wp-block-button__link has-secondary-background-color">Book a consultation</a>
+	  </div>
+	  <div class="wp-block-button">
+	  <a href="" class="wp-block-button__link has-secondary-background-color">Explore our services</a>
+	  </div>
+    </div>
+  </div>
+</section>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
-<?php while ( have_posts() ) : the_post(); ?>
-<section class="intro" role="main">
-	<div class="fp-intro">
-		<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-			<div class="entry-content">
+<?php if ( !empty( get_the_content() ) ) {?> 
+<div class="main-container front-page">
+	<div class="main-grid">
+		<main class="main-content-full-width">
+			<?php while ( have_posts() ) : the_post(); ?>
 				<?php the_content(); ?>
-			</div>
-		</div>
+			<?php endwhile; ?>
+		</main>
 	</div>
-</section>
-<?php endwhile; ?>
+</div>
+<?php } ?>
 <?php do_action( 'foundationpress_after_content' ); ?>
-<?php
-if (have_rows('flexible_content')) :
-	while (have_rows('flexible_content')) : the_row();
-	get_template_part('template-parts/acf/flexible-article');
-	get_template_part('template-parts/acf/flexible-grid');
-	get_template_part('template-parts/acf/full-width-50-50');
-	get_template_part('template-parts/acf/accordion');
-	get_template_part('template-parts/acf/tab');
-	get_template_part('template-parts/acf/carousel');
-	endwhile;
-endif;
-?>
 
 <?php get_footer();

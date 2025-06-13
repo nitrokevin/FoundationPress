@@ -82,7 +82,7 @@ function styles() {
     )
     .pipe($.autoprefixer())
     .pipe($.if(PRODUCTION, $.cleanCss({
-      compatibility: "ie11"
+       compatibility: "last 2 versions"
     })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe($.if((REVISIONING && PRODUCTION) || (REVISIONING && !!yargs.argv.dev), $.rev()))

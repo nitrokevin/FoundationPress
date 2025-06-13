@@ -21,21 +21,79 @@ Frontend styles for gutenberg blocks
 .wp-block-button {
 
 	// add general foundation button styling
-	.wp-block-button__link {
-		@extend .button;
-    @each $color, $code in $foundation-palette {
+.wp-block-button__link {
+  // Extend Foundation's button styles (as you already have)
+  @extend .button;
 
-      &.has-#{$color}-background-color {
-          background-color: $code;
-             transition: background-color .25s ease-out,
-             color .25s ease-out;
+  // Apply Foundation palette colors for background and text
+  @each $color,
+  $code in $foundation-palette {
+
+    // Background color for the button
+    &.has-#{$color}-background-color {
+      color: $code;
+      transition: background-color .25s ease-out, color .25s ease-out;
+
+      // Apply the same color to the circle (arrow background)
+      &::before {
+        background-color: $code;
+        transition: background-color .25s ease-out,
+        color .25s ease-out;
       }
 
-      &.has-#{$color}-color {
-          color: $code;
+      // Optional: Adjust hover state for the circle
+      &:hover {
+        &::before {
+          background-color: lighter($code, 10%); // Slightly darker shade on hover
+        }
       }
     }
-	}
+
+    // Text color for the button
+    &.has-#{$color}-color {
+      color: $code;
+    }
+  }
+
+  // Base styles for the button (from the previous solution)
+background-color: transparent !important;
+  border: none; // Remove default border
+  padding: 0.5rem 0.5rem; // Compact padding
+  color:$body-font-color;
+  font-size: rem-calc(14); // Match the image
+  text-decoration: none; // No underline
+  display: inline-flex; // Flexbox for alignment
+  align-items: center; // Center arrow and text
+  transition: color 0.3s ease; // Smooth hover transition for text
+
+  // Add the circular arrow using a pseudo-element
+  &::before {
+    content: ''; // Unicode for right arrow
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem; // Circle size
+    height: 2rem;
+    background: #ccc; // Fallback background color
+    border-radius: 50%; // Circular shape
+    margin-right: 0.5rem; // Space between arrow and text
+    color: #fff; // White arrow color
+    font-size: 1.2rem; // Arrow size
+    line-height: 1;
+    transition: background-color 0.3s ease; // Smooth transition for the circle
+    // Add the SVG as a background image
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-4-4l4 4-4 4"/></svg>');
+    background-size: 1rem; // Match the previous font-size
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  // Hover effect for the text
+  &:hover {
+    color: #666; // Slightly lighter text on hover
+    background: none; // Ensure no background on hover unless specified
+  }
+}
 
 	// add special styling for squared buttons
 	&.is-style-squared .wp-block-button__link {
@@ -108,5 +166,78 @@ font-size: rem-calc(14);
   }
   @include breakpoint(medium){
     font-size: rem-calc(16);
+  }
+}
+
+
+.wp-block-media-text {
+  display: block; // remove WP's grid
+  padding: 0; // remove WP's % padding
+
+  grid-template-columns: none;
+  grid-column-gap: 0;
+}
+.wp-block-media-text {
+
+  margin-bottom: 2rem;
+
+  @include xy-grid();
+
+  .wp-block-media-text__media,
+  .wp-block-media-text__content {
+    @include xy-cell(12); // Full width on mobile
+     padding: 0; // remove WP's % padding
+     grid-template-columns: none;
+     grid-column-gap: 0;
+
+  }
+
+  @include breakpoint(medium) {
+
+    .wp-block-media-text__media,
+    .wp-block-media-text__content {
+      @include xy-cell(6); // 50/50 split from medium up
+    }
+   
+
+    &.is-style-wide-media {
+      .wp-block-media-text__media {
+        @include xy-cell(7);
+      }
+
+      .wp-block-media-text__content {
+        @include xy-cell(5);
+      }
+    }
+
+    &.is-style-content-heavy {
+      .wp-block-media-text__media {
+        @include xy-cell(5);
+      }
+
+      .wp-block-media-text__content {
+        @include xy-cell(7);
+      }
+    }
+
+    &.has-media-on-the-right {
+      .wp-block-media-text__media {
+        order: 2;
+        @include xy-cell-gutters(0, margin, right);
+      }
+
+      .wp-block-media-text__content {
+        order: 1;
+        @include xy-cell-gutters(0, margin, left);
+       
+      }
+    }
+  }
+
+  .wp-block-media-text__media img,
+  .wp-block-media-text__media video {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }

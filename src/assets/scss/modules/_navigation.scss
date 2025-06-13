@@ -1,13 +1,12 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(medium);
+  @include hide-for(large);
 }
 
-//
 .desktop-menu,
-.top-bar{
-  @include show-for(medium);
+.top-bar {
+  @include show-for(large);
 }
 
 // Site title
@@ -28,64 +27,154 @@
   float: right;
 }
 
+.site-header {
+  background: linear-gradient(to bottom,
+      hsla(140, 22%, 18%, 1) 0%,
+      hsla(140, 22%, 18%, 0.987) 10.1%,
+      hsla(140, 22%, 18%, 0.951) 19.5%,
+      hsla(140, 22%, 18%, 0.896) 28.4%,
+      hsla(140, 22%, 18%, 0.825) 36.6%,
+      hsla(140, 22%, 18%, 0.741) 44.4%,
+      hsla(140, 22%, 18%, 0.648) 51.6%,
+      hsla(140, 22%, 18%, 0.55) 58.4%,
+      hsla(140, 22%, 18%, 0.45) 64.7%,
+      hsla(140, 22%, 18%, 0.352) 70.7%,
+      hsla(140, 22%, 18%, 0.259) 76.3%,
+      hsla(140, 22%, 18%, 0.175) 81.6%,
+      hsla(140, 22%, 18%, 0.104) 86.5%,
+      hsla(140, 22%, 18%, 0.049) 91.2%,
+      hsla(140, 22%, 18%, 0.013) 95.7%,
+      hsla(140, 22%, 18%, 0) 100%);
+}
+
 // Title Bar
-.title-bar{
-  @include flex-align($x:center, $y:top);
-.title-bar-center {
-  flex: 2;
-  img{width:100%;}
+.title-bar {
+  @include flex-align($x: center, $y: top);
+
+  .title-bar-center {
+    flex: 2;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .title-bar-left,
+  .title-bar-right {
+    flex: 1;
+
+    img {
+      width: 100%;
+    }
+  }
 }
-.title-bar-left, .title-bar-right {
-  flex: 1;
-  img{width:100%;}
-}
-}
+
 // Top Bar
 .top-bar {
   .top-bar-inner-container {
     @include xy-cell(12);
     @include xy-grid;
-    @include flex-align($x:center, $y:middle);
-    &.contained {@include xy-grid-container();}
+    @include flex-align($x: center, $y: middle);
+
+    &.contained {
+      @include xy-grid-container();
+    }
 
     .top-bar-left,
     .top-bar-center,
     .top-bar-right {
       flex: 1;
-      img{
+      border-radius: $global-radius;
+      font-size: rem-calc(14);
+      text-transform: uppercase;
+
+      img {
         max-width: 16rem;
-      padding: $global-padding}
+        padding: $global-padding;
+      }
     }
 
     .top-bar-center {
+      font-weight: $global-weight-bold;
       text-align: center;
-     
+      flex: 3;
+
+      // Navigation container for hover pill
+       .nav-container {
+         position: relative;
+         display: flex;
+         justify-content: space-evenly;
+       }
+
+    
+
+      .desktop-menu>li {
+        position: relative;
+        cursor: pointer;
+        z-index: 1;
+        transition: color 0.3s ease;
+
+        
+
+        &.current-menu-item {
+          color: #fff !important; // Highlight current page text
+        }
+
+       
+          .hover-pill:hover~&,
+          .hover-pill:active~&,
+          &:hover {
+            color: #fff !important;
+          }
+      }
+
+      .hover-pill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100%;
+        background-color: $primary-color;
+        border-radius: 25px;
+        transition: left 0.3s ease, width 0.3s ease, opacity 0.3s ease;
+        z-index: 0;
+        opacity: 0;
+
+        .nav-container:hover &,
+        .desktop-menu>li.current-menu-item~& {
+          opacity: 1;
+        }
+      }
     }
 
     .top-bar-right {
       text-align: right;
+      flex: 1;
     }
   }
 }
 
 .sticky-container {
   z-index: 99;
-  .sticky{
+
+  .sticky {
     width: 100%;
   }
-  .sticky.is-anchored{
+
+  .sticky.is-anchored {
     position: fixed;
     width: 100%;
     max-width: 100vw !important;
   }
-  .sticky.is-stuck{
+
+  .sticky.is-stuck {
     max-width: 100vw !important;
   }
 }
 
-.fixed-header{
+.fixed-header {
   position: fixed;
-  width:100%;
+  width: 100%;
   right: 0;
   left: 0;
   backface-visibility: hidden;

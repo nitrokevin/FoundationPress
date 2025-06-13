@@ -68,7 +68,7 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1260);
+$global-width: rem-calc(1350);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #24382C,
@@ -95,7 +95,11 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Nunito Sans', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'IBM Plex Sans',
+Helvetica,
+Roboto,
+Arial,
+sans-serif;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -103,8 +107,8 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0.5rem;
-$global-menu-padding: 0.7rem 1rem;
+$global-radius: 2rem;
+$global-menu-padding: 0.5rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
@@ -179,20 +183,12 @@ $header-styles: (
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
   ),
+
   large: (
     'p' : ('font-size': 16),
-    'h1': ('font-size': 38),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
-  ),
-  xlarge: (
-    'p' : ('font-size': 16),
-    'h1': ('font-size': 42),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
+    'h1': ('font-size': 34),
+    'h2': ('font-size': 30),
+    'h3': ('font-size': 28),
     'h4': ('font-size': 25),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
@@ -447,7 +443,7 @@ $dropdownmenu-arrows: true;
 $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-arrow-padding: 1.5rem;
-$dropdownmenu-min-width: 200px;
+$dropdownmenu-min-width: 300px;
 $dropdownmenu-background: null;
 $dropdownmenu-submenu-background: $white;
 $dropdownmenu-padding: $global-menu-padding;
@@ -880,11 +876,11 @@ $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $black;
+$titlebar-background: transparent;
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
-$titlebar-icon-color: $primary-color;
+$titlebar-icon-color: $white;
 $titlebar-icon-color-hover: $medium-gray;
 $titlebar-icon-spacing: 0.25rem;
 
@@ -906,7 +902,7 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
+$topbar-padding: 0.5rem 0.5rem 2rem 0.5rem;
 $topbar-background: transparent;
 $topbar-submenu-background: transparent;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;

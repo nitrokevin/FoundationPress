@@ -91,7 +91,7 @@ new \Kirki\Field\Color_Palette(
 		],
     'output'      => [
       array(
-        'element'  => ' .top-bar, .top-bar ul, .title-bar,#mega-menu-wrap-top-bar-r',
+        'element'  => ' .top-bar-center',
         'property' => 'background-color'
       ),
   ]

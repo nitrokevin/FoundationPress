@@ -1,57 +1,84 @@
-// Page header
 .front-hero {
-  .marketing {
-    @include xy-grid-container(55rem);
-    @include xy-grid;
-  }
+  position: relative;
+  overflow: hidden; // avoid accidental scroll bars
 
-  @include breakpoint(small) {
-    background-size: cover;
-    background-position: bottom;
-    padding: rem-calc(65%) 0;
-    margin: 0 0 rem-calc(32);
-    height: auto;
+  .front-hero-image {
     position: relative;
-    text-align: left;
-  }
-
-  @include breakpoint(medium) {
+    width:100%;
+    height:350px;
+    @include breakpoint(medium) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height:auto;
+    width: calc(100vw - 50%); // or adjust this with breakpoints
+    }
+    @include breakpoint(large) {
+      width: calc(100vw - 33%); // or adjust this with breakpoints
+    }
     background-size: cover;
     background-position: center;
-    height: rem-calc(600);
-    margin: 0 0 rem-calc(72);
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .marketing {
+    @include xy-grid-container;
+    @include xy-grid;
+    position: relative;
+    z-index: 2; // higher than the image
+     height: rem-calc(350);
+    @include breakpoint(medium) {
+      height: rem-calc(500);
+    }
+    @include breakpoint(large) {
+      height: rem-calc(600);
+    }
+    @include breakpoint(xlarge){
+    height: rem-calc(715);
+    }
   }
 
   .tagline {
-    @include breakpoint(small) {
-      @include xy-cell(8);
-    }
-
+    @include xy-cell(12);
+     padding-top: 4rem; // adjust as needed
     @include breakpoint(medium) {
-      @include xy-cell(5);
-      padding-top: 6rem;
+    @include xy-cell(6,$gutters:0);
+     padding-top: 10rem; // adjust as needed
+    
+    }
+     @include breakpoint(large) {
+       @include xy-cell(4, $gutters:0);
+       padding-top: 10rem; // adjust as needed
+
+     }
+    background-color: $primary-color;
+   
+     position: relative;
+    padding-right: 2rem;
+     z-index: 2; // stays above the background image
+     overflow: visible;
+        &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+       right: -100vw;
+       width: 200vw;
+      @include breakpoint(medium) {
+        right: unset;
+      left: -100vw; // extend all the way to the left
+      width: 100vw;
+      }
+      background-color: inherit; // inherits the background color
+      z-index: -1; // sit behind the content
+    }
+
+    h1,
+    p {
+      color: $white;
     }
   }
 
-  h1 {
-    color: #fff;
-  }
-}
-
-// Intro
-.intro {
-  @include xy-grid-container;
-  @include xy-grid;
-  @include flex-align($x:center, $y:top);
-
-  .fp-intro {
-    @include breakpoint(small) {
-      @include xy-cell(12);
-    }
-
-    @include breakpoint(medium) {
-      @include xy-cell(10);
-
-    }
-  }
 }

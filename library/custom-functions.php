@@ -151,3 +151,30 @@ add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
     remove_menu_page( 'edit-comments.php' );
 }
+
+// Rename "Posts" to "Insights & Resources" in Admin Menu
+function rename_posts_to_insights() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Insights & Resources'; // Change Posts to Insights & Resources
+    $submenu['edit.php'][5][0] = 'All Insights'; // All Posts -> All Insights
+    $submenu['edit.php'][10][0] = 'Add Insight'; // Add New -> Add Insight
+}
+add_action('admin_menu', 'rename_posts_to_insights');
+
+// Change Post Labels
+function change_post_labels() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Insights & Resources';
+    $labels->singular_name = 'Insight';
+    $labels->add_new = 'Add Insight';
+    $labels->add_new_item = 'Add New Insight';
+    $labels->edit_item = 'Edit Insight';
+    $labels->new_item = 'New Insight';
+    $labels->view_item = 'View Insight';
+    $labels->search_items = 'Search Insights';
+    $labels->not_found = 'No Insights found';
+    $labels->not_found_in_trash = 'No Insights found in Trash';
+}
+add_action('init', 'change_post_labels');

@@ -11,10 +11,10 @@
 //
 // Sizes are optimized and cropped for landscape aspect ratio
 // and optimized for HiDPI displays on 'small' and 'medium' screen sizes.
-add_image_size( 'featured-small', 640, 200, true ); // name, width, height, crop
-add_image_size( 'featured-medium', 1280, 400, true );
-add_image_size( 'featured-large', 1440, 400, true );
-add_image_size( 'featured-xlarge', 1920, 400, true );
+add_image_size( 'featured-small', 640, 350, true ); // name, width, height, crop
+add_image_size( 'featured-medium', 800, 400, true );
+add_image_size( 'featured-large', 1000, 600, true );
+add_image_size( 'featured-xlarge', 1290, 715, true );
 
 // Add additional image sizes
 add_image_size( 'fp-small', 640 );
